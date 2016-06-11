@@ -1,6 +1,6 @@
-<map version="docear 1.1" project="154ED8407E89FCASQ6GZXVKVYB0712RGQW1X" project_last_home="file:/home/martin/git/martin-thesis-ba/docear/" dcr_id="1464273733685_63sjvafco1yb3zqf6ar6mqi05">
+<map version="docear 1.1" dcr_id="1464273733685_63sjvafco1yb3zqf6ar6mqi05" project="154ED8407E89FCASQ6GZXVKVYB0712RGQW1X" project_last_home="file:/home/martin/git/martin-thesis-ba/docear/">
 <!--To view this file, download Docear - The Academic Literature Suite from http://www.docear.org -->
-<node TEXT="Extension of a graph database concept&#xa;to store multiple model versions" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1464452837663"><hook NAME="MapStyle">
+<node TEXT="Extension of a graph database concept&#xa;to store multiple versions of standard&#xa;encoded biological models" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1465685049078"><hook NAME="MapStyle">
     <properties show_note_icons="true"/>
 
 <map_styles>
@@ -50,7 +50,8 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="2"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="5"/>
+<font BOLD="true"/>
 <node TEXT="Introduction" POSITION="right" ID="ID_836046497" CREATED="1464451602033" MODIFIED="1464451607793" MOVED="1464451949232">
 <edge COLOR="#0000ff"/>
 <node TEXT="Motivation" ID="ID_1959321146" CREATED="1464451609445" MODIFIED="1464451611671">
@@ -107,6 +108,32 @@
 <node TEXT="neo4j" ID="ID_1216237604" CREATED="1464450656182" MODIFIED="1464450658948"/>
 <node TEXT="MaSyMoS" ID="ID_693489327" CREATED="1464450659240" MODIFIED="1464450662808"/>
 </node>
+</node>
+<node TEXT="Implementation" POSITION="right" ID="ID_373173851" CREATED="1465685084655" MODIFIED="1465685089980">
+<edge COLOR="#00ff00"/>
+<node TEXT="MaSyMoS project structure" ID="ID_945553139" CREATED="1465685091404" MODIFIED="1465685116958">
+<node TEXT="core" ID="ID_1408528992" CREATED="1465685118217" MODIFIED="1465685124623"/>
+<node TEXT="Morre" ID="ID_62794655" CREATED="1465685134620" MODIFIED="1465685137353"/>
+<node TEXT="planned extensions" ID="ID_1091050992" CREATED="1465685141482" MODIFIED="1465685147401"/>
+</node>
+<node TEXT="extension to database model" ID="ID_1967908791" CREATED="1465685156437" MODIFIED="1465685193637">
+<node TEXT="linking versions" ID="ID_117675993" CREATED="1465685195964" MODIFIED="1465685199543"/>
+<node TEXT="storing differences" ID="ID_1232616576" CREATED="1465685200162" MODIFIED="1465685213441"/>
+</node>
+<node TEXT="decisions on storage model" ID="ID_1027244741" CREATED="1465685229211" MODIFIED="1465685269436">
+<node TEXT="storing each version full (no delta-storage)" ID="ID_1398937513" CREATED="1465685270536" MODIFIED="1465685287195"/>
+<node TEXT="each version is aware to the search index" ID="ID_1310827980" CREATED="1465685287597" MODIFIED="1465685297194"/>
+<node TEXT="diff still enables for analysis of changes" ID="ID_249614621" CREATED="1465685297829" MODIFIED="1465685379240"/>
+<node TEXT="higher storage consumption" ID="ID_556237123" CREATED="1465685388832" MODIFIED="1465685397775"/>
+</node>
+</node>
+<node TEXT="Results" POSITION="right" ID="ID_1373098570" CREATED="1465685403894" MODIFIED="1465685406357">
+<edge COLOR="#00ffff"/>
+</node>
+<node TEXT="Outlook" POSITION="right" ID="ID_1682005382" CREATED="1465685399697" MODIFIED="1465685402807">
+<edge COLOR="#ff00ff"/>
+<node TEXT="Improving index search with metrics on how much impact a change had to the searched criteria" ID="ID_943720943" CREATED="1465685420168" MODIFIED="1465685485140"/>
+<node TEXT="detecting similar changes on different models" ID="ID_1250734524" CREATED="1465685486446" MODIFIED="1465685594993"/>
 </node>
 </node>
 </map>

@@ -57,5 +57,9 @@
 <attribute NAME="mon_subdirs" VALUE="2" OBJECT="java.lang.Integer|2"/>
 <attribute NAME="mon_add_extra_incoming_node" VALUE="2" OBJECT="java.lang.Integer|2"/>
 <attribute NAME="mon_flatten_dirs" VALUE="2" OBJECT="java.lang.Integer|2"/>
+<node TEXT="Incoming" POSITION="right" ID="ID_725148148" CREATED="1464273878272" MODIFIED="1464273878334" INCOMING="true" COLOR="#ffffff" BACKGROUND_COLOR="#006699">
+<font NAME="Courier New" BOLD="true"/>
+<edge COLOR="#006699"/>
+</node>
 </node>
 </map>
