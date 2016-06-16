@@ -1,3 +1,98 @@
 % This file was created with JabRef 2.7.1.
 % Encoding: UTF8
 
+@ARTICLE{Angles2008,
+  author = {Angles, Renzo and Gutierrez, Claudio},
+  title = {Survey of graph database models},
+  journal = {ACM Computing Surveys (CSUR)},
+  year = {2008},
+  volume = {40},
+  pages = {1},
+  number = {1},
+  file = {:/home/martin/git/martin-thesis-ba/literature/graphdb-modeling/a1-angles.pdf:PDF},
+  publisher = {ACM}
+}
+
+@ARTICLE{Chen1976,
+  author = {Peter Pin-Shan Chen},
+  title = {The Entity-Relationship Model--Toward a Unified View of Data},
+  journal = {ACM Transactions on Database Systems},
+  year = {1976},
+  volume = {Vol. 1, No. 1},
+  file = {:../../../../literature/graphdb-modeling/p9-chen.pdf:PDF},
+  owner = {martin},
+  timestamp = {2016.06.15}
+}
+
+@INCOLLECTION{DeVirgilio2014,
+  author = {De Virgilio, Roberto and Maccioni, Antonio and Torlone, Riccardo},
+  title = {Model-driven design of graph databases},
+  booktitle = {Conceptual Modeling},
+  publisher = {Springer},
+  year = {2014},
+  pages = {172--185},
+  file = {:/home/martin/git/martin-thesis-ba/literature/graphdb-modeling/er12014.pdf:PDF}
+}
+
+@INPROCEEDINGS{Ebert1994,
+  author = {Ebert, J{\"u}rgen and Franzke, Angelika},
+  title = {A declarative approach to graph based modeling},
+  booktitle = {Graph-Theoretic Concepts in Computer Science},
+  year = {1994},
+  pages = {38--50},
+  organization = {Springer},
+  file = {:/home/martin/git/martin-thesis-ba/literature/graphdb-modeling/chp%3A10.1007%2F3-540-59071-4_36.pdf:PDF}
+}
+
+@INPROCEEDINGS{Henkel2014,
+  author = {Henkel, Ron and Waltemath, Dagmar},
+  title = {MaSyMoS: Finding Hidden Treasures in Model Repositories.},
+  booktitle = {SWAT4LS},
+  year = {2014},
+  organization = {Citeseer},
+  file = {:/home/martin/git/martin-thesis-ba/literature/sems/10.1.1.663.4565.pdf:PDF}
+}
+
+@ARTICLE{Henkel2015,
+  author = {Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar},
+  title = {Combining computational models, semantic annotations and simulation
+	experiments in a graph database},
+  journal = {Database},
+  year = {2015},
+  volume = {2015},
+  pages = {bau130},
+  file = {:/home/martin/git/martin-thesis-ba/literature/sems/masymos.pdf:PDF},
+  publisher = {Oxford University Press}
+}
+
+@INPROCEEDINGS{Kohn2008,
+  author = {K{\"o}hn, Dagmar and Le Novere, Nicolas},
+  title = {SED-ML--an XML format for the implementation of the MIASE guidelines},
+  booktitle = {Computational Methods in Systems Biology},
+  year = {2008},
+  pages = {176--190},
+  organization = {Springer},
+  file = {:/home/martin/git/martin-thesis-ba/literature/sems/2008Koehn-Springer Reproducible computational biology experiments with SED-ML-the simulation experiment description markup language.pdf:PDF}
+}
+
+@OTHER{Siriwaradhana2014,
+  author = {Shalin Siriwaradhana},
+  owner = {martin},
+  timestamp = {2014.01.06},
+  title = {From the entity-relationship to the property-graph model},
+  url = {https://lambdazen.blogspot.co.za/2014/01/from-entity-relationship-to-property.html},
+  year = {2014}
+}
+
+@STANDARD{a,
+  title = {neo4j Graph Data Modeling Guidelines},
+  organization = {neo4j},
+  url = {http://neo4j.com/developer/guide-data-modeling/},
+  abstract = {This guide is designed to walk you through the graph data modeling
+	lifecycle of Neo4j. You will be introduced to the basic process of
+	designing a graph data model that can answer a wide range of business
+	questions across a variety of domains.},
+  owner = {martin},
+  timestamp = {2016.06.14}
+}
+
