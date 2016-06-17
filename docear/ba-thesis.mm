@@ -129,8 +129,35 @@
 <node TEXT="relational databases" ID="ID_152310256" CREATED="1465845025951" MODIFIED="1465845031926" MOVED="1465845033510"/>
 <node TEXT="Graph Databases" ID="ID_1049563004" CREATED="1464450618948" MODIFIED="1464450624335" MOVED="1465844987462">
 <node TEXT="neo4j" ID="ID_1216237604" CREATED="1464450656182" MODIFIED="1464450658948"/>
-<node TEXT="description of graph database models" FOLDED="true" ID="ID_635669089" CREATED="1465845592385" MODIFIED="1465845748679" MOVED="1465845774831">
-<node TEXT="Entity Relation" ID="ID_1094964584" CREATED="1465845719391" MODIFIED="1465845735072"/>
+<node TEXT="description of graph database models" ID="ID_635669089" CREATED="1465845592385" MODIFIED="1465845748679" MOVED="1465845774831">
+<node TEXT="Entity Relation" ID="ID_1094964584" CREATED="1465845719391" MODIFIED="1465845735072">
+<node TEXT="From the entity-relationship to the property-graph model" ID="ID_1056812311" CREATED="1465905686348" MODIFIED="1466101322845" LINK="https://lambdazen.blogspot.co.za/2014/01/from-entity-relationship-to-property.html" MOVED="1466180677679">
+<attribute NAME="key" VALUE="Siriwaradhana2014"/>
+<attribute NAME="year" VALUE="2014"/>
+<attribute NAME="title" VALUE="From the entity-relationship to the property-graph model"/>
+<attribute NAME="authors" VALUE="Shalin Siriwaradhana"/>
+</node>
+<node TEXT="entities" ID="ID_1299310355" CREATED="1465910294045" MODIFIED="1465910301647">
+<node TEXT="name of the entity becomes vertex name (neo4j Label)" ID="ID_1783384109" CREATED="1465910301957" MODIFIED="1465912192946"/>
+<node TEXT="associated attributes become vertex properties" ID="ID_1279956888" CREATED="1465910328229" MODIFIED="1465910352690"/>
+</node>
+<node TEXT="relations" ID="ID_1172547819" CREATED="1465910356396" MODIFIED="1465910358301">
+<node TEXT="binary relations&#xa;(e.g. one-to-many or many-to-many)" ID="ID_32841007" CREATED="1465910386272" MODIFIED="1465910847571">
+<node TEXT="become edge type" ID="ID_1721568646" CREATED="1465910833444" MODIFIED="1465910840345" MOVED="1465910842071"/>
+<node TEXT="name of relation becomes the edge label" ID="ID_1901622504" CREATED="1465910402750" MODIFIED="1465910418863"/>
+<node TEXT="associated attributes become properties" ID="ID_1609589829" CREATED="1465910420010" MODIFIED="1465910445002"/>
+<node TEXT="end-point of the edge-type are the vertex-type corresponding to the related entity type" ID="ID_1762219920" CREATED="1465910445175" MODIFIED="1465910499879"/>
+<node TEXT="direction does not matter" ID="ID_1516880035" CREATED="1465910503316" MODIFIED="1465910509364"/>
+</node>
+<node TEXT="n-ary relations" ID="ID_75719510" CREATED="1465910817095" MODIFIED="1465910827730">
+<node TEXT="name of the the relation becomes name of a [new] vertex type" ID="ID_1711281191" CREATED="1465911469788" MODIFIED="1465911487940"/>
+<node TEXT="associated attributes become the properties of the vertex type" ID="ID_717390113" CREATED="1465911494825" MODIFIED="1465911529737"/>
+<node TEXT="new vertex-type includes edges to vertex-types corresponding to the related entity-types" ID="ID_1647137616" CREATED="1465911530116" MODIFIED="1465911568214"/>
+<node TEXT="these edges are labeled after the role of the participating entity in the relationship" ID="ID_801648682" CREATED="1465911568490" MODIFIED="1465911609457"/>
+<node TEXT="directions do not matter" ID="ID_53485672" CREATED="1465911613349" MODIFIED="1465911620777"/>
+</node>
+</node>
+</node>
 <node TEXT="Relation Table" ID="ID_957497530" CREATED="1465845735939" MODIFIED="1465845742026"/>
 </node>
 <node TEXT="MaSyMoS" ID="ID_693489327" CREATED="1464450659240" MODIFIED="1464450662808">
@@ -429,7 +456,7 @@
 <node TEXT="MaSyMoS is designed to run as both standalone commandline application with embedded neo4j and as an extension to the neo4j server. Latter is controlled by an unmanaged neo4j plugin providing a RESTful json interface." ID="ID_1860393218" CREATED="1466177096498" MODIFIED="1466177227817"/>
 <node TEXT="Same interface also cooperates with the retrieval engine Morre, by providing endpoints to query different search indexes." ID="ID_620231476" CREATED="1466177228252" MODIFIED="1466177304144"/>
 </node>
-<node TEXT="MaSyMoS project structure" ID="ID_945553139" CREATED="1465685091404" MODIFIED="1465685116958" MOVED="1465845528607">
+<node TEXT="MaSyMoS project structure" FOLDED="true" ID="ID_945553139" CREATED="1465685091404" MODIFIED="1465685116958" MOVED="1465845528607">
 <node TEXT="The MaSyMoS project is divided into 3 different modules: MaSyMoS-core, Morre and a CLI." ID="ID_1078409398" CREATED="1466178991347" MODIFIED="1466180000900" MOVED="1466178993110"/>
 <node TEXT="The core module contains the logic of the database and communicates directly with neo4j. It consists of routines and a Java API to import models, experiments and ontologies. Further it fetches linked information from common bio-ontologies and manages, updates and queries Lucene indexes." ID="ID_1408528992" CREATED="1465685118217" MODIFIED="1466179993104"/>
 <node TEXT="The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It&apos;s main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS" ID="ID_869727585" CREATED="1466179121934" MODIFIED="1466179797351"/>
