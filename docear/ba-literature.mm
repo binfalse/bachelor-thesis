@@ -124,7 +124,7 @@
 <attribute NAME="title" VALUE="The Entity-Relationship Model--Toward a Unified View of Data"/>
 <attribute NAME="authors" VALUE="Peter Pin-Shan Chen"/>
 </node>
-<node TEXT="From the entity-relationship to the property-graph model" ID="ID_1056812311" CREATED="1465905686348" MODIFIED="1466101322845" LINK="https://lambdazen.blogspot.co.za/2014/01/from-entity-relationship-to-property.html">
+<node TEXT="From the entity-relationship to the property-graph model" FOLDED="true" ID="ID_1056812311" CREATED="1465905686348" MODIFIED="1466101322845" LINK="https://lambdazen.blogspot.co.za/2014/01/from-entity-relationship-to-property.html">
 <attribute NAME="key" VALUE="Siriwaradhana2014"/>
 <attribute NAME="year" VALUE="2014"/>
 <attribute NAME="title" VALUE="From the entity-relationship to the property-graph model"/>
@@ -278,7 +278,7 @@
 <docear_node_extensions>
     <docear_node_extension key="MONITOR_PATH"/>
 </docear_node_extensions>
-<node TEXT="2008Koehn-Springer Reproducible computational biology experiments with SED-ML-the simulation experiment description markup language.pdf" ID="ID_1341257269" CREATED="1465901530123" MODIFIED="1466101322850" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<node TEXT="2008Koehn-Springer Reproducible computational biology experiments with SED-ML-the simulation experiment description markup language.pdf" FOLDED="true" ID="ID_1341257269" CREATED="1465901530123" MODIFIED="1466101322850" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
     <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
 </pdf_annotation>
@@ -375,6 +375,156 @@
 <attribute NAME="year" VALUE="2008"/>
 <attribute NAME="title" VALUE="SED-ML--an XML format for the implementation of the MIASE guidelines"/>
 <attribute NAME="authors" VALUE="K{\&quot;o}hn, Dagmar and Le Novere, Nicolas"/>
+</node>
+<node TEXT="The need to build&#xa;on existing studies by reusing models therefore becomes more imperative." ID="ID_566960099" CREATED="1467827864602" MODIFIED="1467827864603" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="1" object_id="3356543425296653643" object_number="21" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="that one needs to be able to exchange the biochemical and&#xa;mathematical structure of models" ID="ID_593024698" CREATED="1467827864688" MODIFIED="1467827864688" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="1" object_id="2826164335362107675" object_number="22" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="&quot;the model,&#xa;when instantiated within a suitable simulation environment, must be able to re-&#xa;produce all relevant results given in the reference description that can readily be simulated&quot; [1]" ID="ID_1610033095" CREATED="1467827864813" MODIFIED="1467827864813" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="1" object_id="3051185485041095254" object_number="23" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" MIRIAM does not impose to list those relevant results, or to&#xa;describe how to obtain them." ID="ID_1122105905" CREATED="1467827864674" MODIFIED="1467827864675" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="6338603990939775438" object_number="212" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="description&#xa;of simulation experiments was mandatory to correctly exchange, re-use and in-&#xa;terpret models" ID="ID_1633713375" CREATED="1467827864822" MODIFIED="1467827864822" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="859724626309342576" object_number="213" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="development of the Minimum Information About&#xa;a Simulation Experiment (MIASE)" ID="ID_1208465250" CREATED="1467827864918" MODIFIED="1467827864918" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="314357401062599374" object_number="214" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="explicitly de&#xfb01;ne all models used in a simulation" ID="ID_574079136" CREATED="1467827865002" MODIFIED="1467827865002" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="7139058914609035419" object_number="215" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="changes that have to be applied to the model before the simulation" ID="ID_1835080595" CREATED="1467827865040" MODIFIED="1467827865040" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="1733026800799360031" object_number="216" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Information about the models simulated" ID="ID_1429618014" CREATED="1467827864836" MODIFIED="1467827864836" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="3867283546929559527" object_number="217" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Information about the simulation methods used" ID="ID_1997491480" CREATED="1467827864941" MODIFIED="1467827864941" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="2026045711757706747" object_number="218" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="simulation proce-&#xa;dures to be ru" ID="ID_1236919747" CREATED="1467827864845" MODIFIED="1467827864845" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="6086694117166905872" object_number="219" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" simulation algo-&#xa;rithms used to perform them" ID="ID_1271839324" CREATED="1467827864894" MODIFIED="1467827864895" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="2420349351179192137" object_number="220" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Information about the tasks performed" ID="ID_1469907481" CREATED="1467827864698" MODIFIED="1467827864698" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="1866751361948879171" object_number="221" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="describing how a simulation proce-&#xa;dure has to be applied to a speci&#xfb01;c model, and in which order" ID="ID_1818105424" CREATED="1467827865050" MODIFIED="1467827865050" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="3544566520127838511" object_number="222" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Information about the outputs produced" ID="ID_459471450" CREATED="1467827865030" MODIFIED="1467827865030" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="1446367630186149377" object_number="223" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="often necessary to de&#xfb01;ne the transformations that have to be performed&#xa;on the raw output" ID="ID_107361795" CREATED="1467827864951" MODIFIED="1467827864952" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="6368396415295764926" object_number="224" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="how to provide the &#xfb01;nal&#xa;results" ID="ID_1731315654" CREATED="1467827864723" MODIFIED="1467827864723" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="6389493865763616285" object_number="225" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" The object model (SED-&#xa;OM) presented in this paper is a platform independent prototype model encod-&#xa;ing MIASE guidelines for simple simulation experiments." ID="ID_1874440998" CREATED="1467827864854" MODIFIED="1467827864854" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="5039140690444484556" object_number="226" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="simulation is typically characterized by the simulation algorithm used, the&#xa;settings applied to the simulation algorithm, and the simulation type" ID="ID_272074575" CREATED="1467827865062" MODIFIED="1467827865062" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="5" object_id="6261098490008826335" object_number="245" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" Using terms from an ontology rather than agreed-upon strings allows&#xa;for reasoning. The simplest reasoning procedure is to &#xfb01;nd that algorithm avail-&#xa;able from KiSAO which is the closest to the one described in the simulation&#xa;description, if the latter is not available for the user" ID="ID_1920339339" CREATED="1467827865072" MODIFIED="1467827865072" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="6" object_id="4690101252024062432" object_number="252" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="The proposed solution is to extend the CellML meta data&#xa;concept by additional simulation description concepts" ID="ID_1562481069" CREATED="1467827864710" MODIFIED="1467827864710" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="12" object_id="3772260620455412043" object_number="288" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="With help of the CellML Metadata Speci&#xfb01;cation, one&#xa;or more simulation runs can be associated and described in one model speci-&#xa;&#xfb01;cation. The description covers information about the type of simulation and&#xa;about the simulation algorithm used" ID="ID_1491886771" CREATED="1467827864749" MODIFIED="1467827864749" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="12" object_id="5410194561939413573" object_number="289" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Unlike SED-ML, the approach chosen by the CellML com-&#xa;munity will store simulation speci&#xfb01;cation details inside the model de&#xfb01;nition and&#xa;thus be restricted to the use of CellML models" ID="ID_1286119163" CREATED="1467827864802" MODIFIED="1467827864802" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="12" object_id="1599567348043103099" object_number="290" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="By suggesting to refer to a model&#xa;rather than being part of it, SED-ML enhances reusability of simulation descrip-&#xa;tions and supports the description of simulation experiments using not only a&#xa;single model, but a number of models &#x2013; which could even be encoded in di&#xfb00;erent&#xa;description formats" ID="ID_1436230636" CREATED="1467827865015" MODIFIED="1467827865015" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="12" object_id="6014406481791904321" object_number="291" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" Additionally, the inclusion of simulation&#xa;results is proposed. This is not considered to be part of SED-ML, but in our&#xa;opinion should be covered by other e&#xfb00;orts" ID="ID_1256789420" CREATED="1467827864863" MODIFIED="1467827864863" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="12" object_id="7385983203102595625" object_number="292" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="SED-ML can encode simulation experiments being run with several models,&#xa;which can even exist in di&#xfb00;erent formats" ID="ID_460893993" CREATED="1467827864974" MODIFIED="1467827864975" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="13" object_id="6164400946307866208" object_number="302" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="SED-ML can specify di&#xfb00;erent simulation&#xa;settings applicable to the same model" ID="ID_281631686" CREATED="1467827864964" MODIFIED="1467827864964" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="13" object_id="6574190425023599433" object_number="303" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Combinations of both are also possible, it&#xa;is easily conceivable to set up a simulation experiment that results in an output&#xa;comparing a parameter of a CellML model to a parameter of an SBML model,&#xa;depending on di&#xfb00;erent simulation algorithms" ID="ID_1603784960" CREATED="1467827864928" MODIFIED="1467827864929" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="13" object_id="3755295267201889769" object_number="304" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="the&#xa;output of variables from di&#xfb00;erent simulation settings in one plot is only possible&#xa;as long as all participating simulations produce the same time points" ID="ID_1266317049" CREATED="1467827864908" MODIFIED="1467827864909" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="13" object_id="8339830216976214739" object_number="305" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Another&#xa;complex task that is not yet supported is the linear execution of simulation&#xa;experiments, meaning that the result of one simulation is used as the input for&#xa;another simulation task" ID="ID_192898090" CREATED="1467827864739" MODIFIED="1467827864739" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/2008Koehn-Springer%20Reproducible%20computational%20biology%20experiments%20with%20SED-ML-the%20simulation%20experiment%20description%20markup%20language.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="13" object_id="1021164197697089394" object_number="306" document_hash="AADE2BD145A25218AA85F2E37D8F6D75FF86DD9054F83BF25E6259AD75562">
+    <pdf_title>SED-ML &#x2013; An XML Format for the Implementation of the MIASE Guidelines</pdf_title>
+</pdf_annotation>
 </node>
 </node>
 <node TEXT="10.1.1.663.4565.pdf" FOLDED="true" ID="ID_512013214" CREATED="1465983532878" MODIFIED="1466101322841" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/10.1.1.663.4565.pdf">
@@ -1612,6 +1762,271 @@
 <attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
 </node>
 </node>
+<node TEXT="allows modelers to&#xa;quickly retrieve all models associated with a simulation ex-&#xa;periment, and &#x2018;vice versa&#x2019;" ID="ID_970401694" CREATED="1467827864529" MODIFIED="1467827864529" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="8" object_id="3981398129039509481" object_number="654" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Our graph database is schema optional. Thus, new data&#xa;resources can efficiently be integrated and the database&#xa;easily be extended" ID="ID_1625892346" CREATED="1467827864589" MODIFIED="1467827864589" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="8" object_id="4241519887328745812" object_number="655" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="offer further exciting applications,&#xa;including the structure-based comparison of models" ID="ID_1799365668" CREATED="1467827864442" MODIFIED="1467827864445" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="8" object_id="640399818873374273" object_number="656" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" Once specific algorithms&#xa;to map sub-models and identify suitable interfaces for&#xa;automatized model coupling are in place, it will be possible&#xa;to integrate them with our ranked retrieval system" ID="ID_198749132" CREATED="1467827864479" MODIFIED="1467827864479" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="8" object_id="5886438200787082563" object_number="657" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Exploiting links to associated virtual experiments" ID="ID_248776175" CREATED="1467827864510" MODIFIED="1467827864510" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="8" object_id="8556765931618876786" object_number="658" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT=" links between SED-ML elements&#xa;and KiSAO allow us to define restrictions on the SED-ML&#xa;files we want to consider in a search result" ID="ID_832578371" CREATED="1467827864575" MODIFIED="1467827864575" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="9" object_id="7371957854239401364" object_number="693" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="SED-ML descriptions may&#xa;be defined as templates for virtual experiments" ID="ID_1414289677" CREATED="1467827864544" MODIFIED="1467827864544" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="9" object_id="5550877702695004840" object_number="695" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Virtual ex-&#xa;periments are in silico assays of a model&#x2019;s behavioral reper-&#xa;toire, both in declaring what a model should do and&#xa;verifying what it actually does (40). Such simulation de-&#xa;scriptions are per definition applicable to classes of models,&#xa;enabling the clustering of models by type of experiment&#xa;that they reproduce correctly" ID="ID_688331562" CREATED="1467827864467" MODIFIED="1467827864467" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="9" object_id="6452155213054934670" object_number="696" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Statistics" ID="ID_1555709105" CREATED="1467827864519" MODIFIED="1467827864519" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="9" object_id="4309213797400660934" object_number="698" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="bau130-TF1" ID="ID_1026987882" CREATED="1467827864560" MODIFIED="1467827864560" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf">
+<pdf_annotation type="BOOKMARK" page="7" object_id="7213449053630956174" object_number="11" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="543.full.pdf" ID="ID_1004986637" CREATED="1467827865083" MODIFIED="1467827865083" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/543.full.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="CEB93020E6DF63CD2BEBA6DCF40B7EBE82D4AD3D32C79DC3EC21AB817A15969">
+    <pdf_title>Controlled vocabularies and semantics in systems biology</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="fbioe-03-00019.pdf" FOLDED="true" ID="ID_1818973598" CREATED="1467827865110" MODIFIED="1467827865110" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Hucka2015"/>
+<attribute NAME="journal" VALUE="Frontiers in bioengineering and biotechnology"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative"/>
+<attribute NAME="authors" VALUE="Hucka, Michael and Nickerson, David P and Bader, Gary D and Bergmann, Frank T and Cooper, Jonathan and Demir, Emek and Garny, Alan and Golebiewski, Martin and Myers, Chris J and Schreiber, Falk and others"/>
+<node TEXT="Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative" ID="ID_1062876618" CREATED="1467827865108" MODIFIED="1467827865108" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="1" object_id="3434666054892380303" object_number="412" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+<node TEXT="Introduction" ID="ID_661393840" CREATED="1467827865129" MODIFIED="1467827865129" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="1" object_id="5290189700451987379" object_number="414" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Mission and organization of COMBINE" ID="ID_1359094662" CREATED="1467827865191" MODIFIED="1467827865191" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="1" object_id="6111631410651269222" object_number="432" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="The major standards in combine today" ID="ID_225413428" CREATED="1467827865106" MODIFIED="1467827865106" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="2" object_id="6486150704176107988" object_number="428" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+<node TEXT="Biological pathway exchange" ID="ID_948301957" CREATED="1467827865092" MODIFIED="1467827865092" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="2" object_id="4086618974217326157" object_number="430" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="CellML" ID="ID_1511494803" CREATED="1467827865204" MODIFIED="1467827865204" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="3" object_id="6449443641175414362" object_number="441" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Systems biology graphical notation" ID="ID_1305184984" CREATED="1467827865238" MODIFIED="1467827865238" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="3" object_id="2729836082227131783" object_number="439" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Systems biology markup language" ID="ID_1408492325" CREATED="1467827865252" MODIFIED="1467827865252" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="3" object_id="7386833318700688428" object_number="437" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Synthetic biology open language" ID="ID_1582997933" CREATED="1467827865266" MODIFIED="1467827865267" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="3" object_id="6904341012876455549" object_number="435" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Simulation experiment description markup language" ID="ID_1897644205" CREATED="1467827865294" MODIFIED="1467827865294" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="4" object_id="6428873835508302670" object_number="431" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="Activities performed by COMBINE" ID="ID_1074110265" CREATED="1467827865281" MODIFIED="1467827865281" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="4" object_id="2259897674351209525" object_number="425" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Conclusion" ID="ID_419828163" CREATED="1467827865146" MODIFIED="1467827865147" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="4" object_id="1104611761629519012" object_number="423" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Author contributions" ID="ID_1499179403" CREATED="1467827865226" MODIFIED="1467827865226" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="5" object_id="2058855435251457763" object_number="420" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Acknowledgments" ID="ID_1280710668" CREATED="1467827865175" MODIFIED="1467827865175" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="5" object_id="4354647955751302101" object_number="418" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="References" ID="ID_101394695" CREATED="1467827865161" MODIFIED="1467827865161" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
+<pdf_annotation type="BOOKMARK" page="5" object_id="1592456669845357978" object_number="415" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
+    <pdf_title>Promoting coordinated development of community-based information standards for modeling in biology: the COMBINE initiative</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+</node>
+<node TEXT="Bioinformatics-2016-Scharm-563-70.pdf" ID="ID_408389421" CREATED="1467827865345" MODIFIED="1467827865345" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/Bioinformatics-2016-Scharm-563-70.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="34D6531EBA4B61D4220B542FC43E872CBBEA2416653E64631D687396B970">
+    <pdf_title>An algorithm to detect and communicate the differences in computational models describing biological systems</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Scharm2015"/>
+<attribute NAME="journal" VALUE="Bioinformatics"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="An algorithm to detect and communicate the differences in computational models describing biological systems"/>
+<attribute NAME="authors" VALUE="Scharm, Martin and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
+</node>
+<node TEXT="BioMed-Waltemath-2011.pdf" FOLDED="true" ID="ID_1624543586" CREATED="1467827865364" MODIFIED="1467827865364" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+<node TEXT="Abstract" ID="ID_818815260" CREATED="1467827865361" MODIFIED="1467827865362" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="3046654737026178718" object_number="821" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+<node TEXT="Background" ID="ID_1237783590" CREATED="1467827865358" MODIFIED="1467827865358" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="2527273666441501839" object_number="824" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Results" ID="ID_331898512" CREATED="1467827865497" MODIFIED="1467827865497" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="7059963295680573032" object_number="823" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Conclusions" ID="ID_1001581898" CREATED="1467827865535" MODIFIED="1467827865535" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="1732804990462148262" object_number="822" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="Background" ID="ID_1647381002" CREATED="1467827865549" MODIFIED="1467827865549" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="4052087184307200498" object_number="820" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Results" ID="ID_1323734824" CREATED="1467827865420" MODIFIED="1467827865420" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="8079277069051633374" object_number="814" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+<node TEXT="(1) Model elements" ID="ID_1226576368" CREATED="1467827865627" MODIFIED="1467827865627" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="8139652498507353928" object_number="819" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="(2) Simulation elements" ID="ID_1524541953" CREATED="1467827865642" MODIFIED="1467827865643" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="5161454012953506614" object_number="818" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="(3) Task elements" ID="ID_309580773" CREATED="1467827865510" MODIFIED="1467827865510" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="8965618298861585183" object_number="817" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="(4) Data Generator elements" ID="ID_98691187" CREATED="1467827865417" MODIFIED="1467827865417" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="2113484760888165042" object_number="816" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="(5) Output elements" ID="ID_954493470" CREATED="1467827865448" MODIFIED="1467827865448" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="2711790729787755862" object_number="815" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="Discussion" ID="ID_1970064456" CREATED="1467827865523" MODIFIED="1467827865523" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="3922334706115009199" object_number="813" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Conclusions" ID="ID_1840888601" CREATED="1467827865559" MODIFIED="1467827865560" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="5405376535952561055" object_number="812" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Methods" ID="ID_996955697" CREATED="1467827865393" MODIFIED="1467827865393" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="286015428234200920" object_number="808" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+<node TEXT="SED-ML Community development" ID="ID_21542699" CREATED="1467827865435" MODIFIED="1467827865435" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="2127444238189587511" object_number="811" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Language specification" ID="ID_274623879" CREATED="1467827865611" MODIFIED="1467827865611" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="346172514599756081" object_number="810" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Interaction with existing standards and technologies" ID="ID_1935715165" CREATED="1467827865571" MODIFIED="1467827865571" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="8287408775008854737" object_number="809" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="Acknowledgements" ID="ID_786104564" CREATED="1467827865404" MODIFIED="1467827865405" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="5734921656113881553" object_number="807" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Author details" ID="ID_1222399070" CREATED="1467827865585" MODIFIED="1467827865585" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="4031053831280486801" object_number="806" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="Authors&apos; contributions" ID="ID_170870845" CREATED="1467827865462" MODIFIED="1467827865462" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="8418374130100867501" object_number="805" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+<node TEXT="References" ID="ID_1762497534" CREATED="1467827865482" MODIFIED="1467827865482" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/BioMed-Waltemath-2011.pdf">
+<pdf_annotation type="BOOKMARK_WITHOUT_DESTINATION" object_id="6733337195943286835" object_number="804" document_hash="14ECD69EFFBE81FF9129610ADB2266E46C950797F956DEF4E2FC68E16CCA089">
+    <pdf_title>Reproducible computational biology experiments with SED-ML - The Simulation Experiment Description Markup Language</pdf_title>
+</pdf_annotation>
+</node>
+</node>
+<node TEXT="Bioinformatics-2013-Waltemath-742-8.pdf" ID="ID_1537975467" CREATED="1467827865656" MODIFIED="1467827865656" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/Bioinformatics-2013-Waltemath-742-8.pdf">
+<pdf_annotation type="PDF_FILE" object_id="0" document_hash="3C14402FCE39A2858F57F992C27F8A2661E2466F8E979D9F47E3F39B5B21873">
+    <pdf_title>BIOINFORMATICS</pdf_title>
+</pdf_annotation>
 </node>
 </node>
 </node>
