@@ -1817,6 +1817,9 @@
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="CEB93020E6DF63CD2BEBA6DCF40B7EBE82D4AD3D32C79DC3EC21AB817A15969">
     <pdf_title>Controlled vocabularies and semantics in systems biology</pdf_title>
 </pdf_annotation>
+<attribute NAME="key" VALUE="Courtot"/>
+<attribute NAME="title" VALUE="Controlled vocabularies and semantics in systems biology"/>
+<attribute NAME="authors" VALUE="M&amp;eacute;lanie Courtot and Nick Juty and Christian Kn&amp;uuml;pfer and Dagmar Waltemath and Anna Zhukova and Andreas Dr&amp;auml;ger and Michel Dumontier and Andrew Finney and Martin Golebiewski and Janna Hastings and Stefan Hoops and Sarah Keating and Douglas B Kell and Samuel Kerrien and James Lawson and Allyson Lister and James Lu and Rainer Machne and Pedro Mendes and Matthew Pocock and Nicolas Rodriguez and Alice Villeger and Darren J Wilkinson and Sarala Wimalaratne and Camille Laibe and Michael Hucka and Nicolas Le Nov&amp;egrave;re"/>
 </node>
 <node TEXT="fbioe-03-00019.pdf" FOLDED="true" ID="ID_1818973598" CREATED="1467827865110" MODIFIED="1467827865110" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/fbioe-03-00019.pdf">
 <pdf_annotation type="PDF_FILE" object_id="0" document_hash="5AB0903DCD7BC678EFEEDA83D42FEE0D4A616169085997B9B701999E16A894">
