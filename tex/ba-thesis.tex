@@ -1,0 +1,182 @@
+\section{Introduction 10\%}
+\subsection{Motivation}
+\subsubsection{reproducibility}
+
+\par SED-ML useless, when model changes\subsubsection{transparency}
+\par \textbf{tracking differences}
+
+\par what has changed
+\par who has it changed
+\par oxford2012 + first bives paper\subsubsection{reusability}
+
+\par model only reuseable, when changes are/development is transparent\par \textbf{is newest version more suitable}
+
+\par bug fixes
+\par essential changes
+\par only possible, when aware of changes
+\par doing analysis of the evolution of a biological model
+\par rank model versions differently depending on the changes it was undergoing
+\par provide a comprehensive repository of biological models and there history
+\par discover similarities and differences in the development of model through Ontology crosslinking
+\par Motivation out of Koehn2008 (different versions, with pictures) motivating the development of bives\subsection{goals}
+
+\par extend an existing database to store multiple versions of one model in it
+\par semantically conect the versions
+\par store differences to allow for efficient analysis
+\par short results?\section{Background 30\%}
+\subsection{Existing versioning and version controll systems}
+\subsubsection{definition}
+
+\par benefits
+\par simple file storage\subsubsection{svn}
+
+\par client/server structure
+\par reverse-delta storage with Snapshots\subsubsection{git}
+
+\par distributed
+\par version-graph\par \textbf{reverse-delta storage}
+
+\par https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
+\par Link to Oxford-paper-2012 -> decision on BiVeS\subsection{Difference Detection/Delta Algorithm}
+\subsubsection{unix diff}
+
+\par problems with XML\subsubsection{BiVes}
+
+\par solution
+\par XmlDiff
+\par Application in LiveScience\subsection{Ontologies in Computer Science}
+\subsubsection{definition}
+
+\par formal definition, properties and relations of entities\subsubsection{OWL Standard}
+
+\par cf. doi:10.1007/978-0-387-39940-9\_1073
+\par COMODI\subsection{Database Systems}
+
+\par relational databases\subsubsection{Graph Databases}
+
+\par neo4j\par \textbf{description of graph database models}
+\par \textbf{Entity Relation}
+
+\par From the entity-relationship to the property-graph model\par \textbf{entities}
+
+\par name of the entity becomes vertex name (neo4j Label)
+\par associated attributes become vertex properties\par \textbf{relations}
+\par \textbf{binary relations
+(e.g. one-to-many or many-to-many)}
+
+\par become edge type
+\par name of relation becomes the edge label
+\par associated attributes become properties
+\par end-point of the edge-type are the vertex-type corresponding to the related entity type
+\par direction does not matter\par \textbf{n-ary relations}
+
+\par name of the the relation becomes name of a [new] vertex type
+\par associated attributes become the properties of the vertex type
+\par new vertex-type includes edges to vertex-types corresponding to the related entity-types
+\par these edges are labeled after the role of the participating entity in the relationship
+\par directions do not matter
+\par Relation Table\par \textbf{MaSyMoS}
+\par \textbf{This work is based on MaSyMoS, a...}
+\par \textbf{A graph database for simulation models and
+associated data}
+
+\par Many models in public databases encode networks that
+can be represented as graphs
+\par relational databases were developed for
+homogeneous, structured data, e.g. numerical data
+\par  Designing a relational
+representation for these links and keeping the database effi-
+cient at the same time are impossible\par \textbf{MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models}
+
+\par We chose the
+graph database Neo4J (25)
+\par follows the fun-
+damental properties of databases, i.e. the ACID principles\par \textbf{biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their "highly linked structure"}
+
+\par  No unified schema exists
+for models and meta-data, making it difficult to define a
+relational database schema
+\par highly linked models,
+model entities and meta-data are difficult to represent in a
+table-based relational database\par \textbf{MaSyMoS data model and structure}
+
+\par document root node is created for each data
+item\par \textbf{each model is represented by a model node}
+
+\par entry point for each model import is a document node
+\par Attached to the model node
+are annotation nodes, including the reference publication
+\par in SBML compartments, species and reactions are linked to the model node\par \textbf{in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables}
+
+\par component contains vari-
+ables and mathematical relationships that manipulate
+those variables\par \textbf{Experiment setups are stored under a SEDML node, instead of a model node. In comparison to species, reactions, compartments or components the SEDML node has links to Modelreference nodes, as well as nodes pointing to different model entities used in plots. Nevertheless no processing information is stored in the database.}
+
+\par SEDML node serves as the anchor for an experiment
+\par  Modelreference node links the experiment to all
+Model nodes used in the simulation
+\par do not store the specific processing of a
+model entity\par \textbf{"Semantic annotations and cross-references" from the models are stored as seperate nodes and linked to the ontology node representing the used ontology term.}
+
+\par Semantic annotations and cross-references
+\par  We parse these ontologies and add all concepts
+and relations as nodes and edges, respectively.
+\par ensure an easy traversal upwards, a connection is created
+from each node of the stored model that points to the par-
+ent of the current node. The corresponding edges are
+named belongsTo\par \textbf{Linking model related data}
+\par \textbf{main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented:
+1. links between (model) annotations and the corresponding ontology term
+2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables
+3. links between model entities in different standard format representation}
+
+\par The main advantage of the previously described concept is
+its possibility to define flexible links between the data do-
+mains
+\par  links between annotations (in SBML, CellML and
+SED-ML) and ontology concepts
+\par links between models (in SBML or CellML format) and
+SED-ML
+\par link is that between a model and a
+simulation description
+\par links between model entities and SED-ML variables
+\par  links between model entities from different model rep-
+resentation formats
+\par For each annotation in
+a model we add an explicit link to the data entry in the ref-
+erenced bio-ontology
+\par This link is shared between all models using this annotation, regardless of the format\par \textbf{Further to explicit links (one hop in the graph), MaSyMoS is able to determine implicit links between different models. Those can be established over shared resources like a publication, publication author or annotations with common bio-ontologies.
+Regarding a publications the database may establish connections based on the likelihood of names by Hemming Distance, resulting in a confidence which can be increased, "if the entities' annotations match"}
+
+\par In addition, we determine implicit links between
+models of different representation formats
+\par If two models share
+a publication, the systems can infer implicit links between
+those entities that are equally named\par \textbf{Implementation}
+
+\par MaSyMoS is designed to run as both standalone commandline application with embedded neo4j and as an extension to the neo4j server. Latter is controlled by an unmanaged neo4j plugin providing a RESTful json interface.
+\par Same interface also cooperates with the retrieval engine Morre, by providing endpoints to query different search indexes.\par \textbf{MaSyMoS project structure}
+
+\par The MaSyMoS project is divided into 3 different modules: MaSyMoS-core, Morre and a CLI.
+\par The core module contains the logic of the database and communicates directly with neo4j. It consists of routines and a Java API to import models, experiments and ontologies. Further it fetches linked information from common bio-ontologies and manages, updates and queries Lucene indexes.
+\par The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It's main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS
+\par The Morre module is similiar to the CLI, by providing an way to interact with the core. But instead of providing a user interface, Morre is loaded as neo4j unmanaged extension and exposes a RESTful interface, which can be used to query the Lucene indexes or to push and update models to the database.
+\par planned extensions\section{Results 50\%}
+
+\par alle Überlegungen mit Entscheidungen (results+discussion)\subsection{concepts}
+\subsubsection{extension to database model}
+
+\par linking versions
+\par storing differences\subsubsection{decisions on storage model}
+
+\par storing each version full (no delta-storage)
+\par each version is aware to the search index
+\par diff still enables for analysis of changes
+\par higher storage consumption
+\par extended storage model
+\par discussion\section{Implementation 50\%}
+
+\par nur Umsetzung\section{Outlook}
+
+\par Improving index search with metrics on how much impact a change had to the searched criteria
+\par detecting similar changes on different models\section{conclusion/discussion}

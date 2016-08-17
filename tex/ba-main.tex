@@ -1,0 +1,33 @@
+\documentclass[12pt, a4paper, titlepage]{book}
+\usepackage[a4paper, margin=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}% erm\"oglich die direkte Eingabe der Umlaute 
+\usepackage[T1]{fontenc} % das Trennen der Umlaute
+\usepackage[english]{babel}
+\usepackage[breaklinks,hidelinks]{hyperref}
+\usepackage{xspace}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{makeidx}
+
+\input{shortcuts.tex}
+
+
+\title{Conception and prototype implementation of a storage solution for multi-versioned simulation models in systems biology}
+\author{Martin Peters\\ \small Department of Systems Biology and Bioinformatics, University of Rostock}
+\date{\today}
+\makeindex
+
+\begin{document}
+	\maketitle
+	\printindex
+	
+	\include{ba-thesis}
+	
+	\chapter{Preamble}
+	\chapter{Introduction}
+	\input{introduction.tex}
+	\chapter{Background}
+\end{document}
