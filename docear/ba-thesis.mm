@@ -1,8 +1,8 @@
-<map version="docear 1.1" dcr_id="1464273733685_63sjvafco1yb3zqf6ar6mqi05" project="154ED8407E89FCASQ6GZXVKVYB0712RGQW1X" project_last_home="file:/home/martin/git/martin-thesis-ba/docear/">
+<map version="docear 1.1" project="154ED8407E89FCASQ6GZXVKVYB0712RGQW1X" project_last_home="file:/home/martin/git/martin-thesis-ba/docear/" dcr_id="1464273733685_63sjvafco1yb3zqf6ar6mqi05">
 <!--To view this file, download Docear - The Academic Literature Suite from http://www.docear.org -->
 <attribute_registry SHOW_ATTRIBUTES="hide"/>
 <node TEXT="Extension of a graph database concept&#xa;to store multiple versions of standard&#xa;encoded biological models" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1465685049078"><hook NAME="MapStyle">
-    <properties show_note_icons="true" show_icon_for_attributes="true"/>
+    <properties show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -53,7 +53,7 @@
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="6"/>
 <font BOLD="true"/>
-<node TEXT="Introduction 10%" FOLDED="true" POSITION="right" ID="ID_836046497" CREATED="1464451602033" MODIFIED="1465844227472" MOVED="1464451949232">
+<node TEXT="Introduction 10%" POSITION="right" ID="ID_836046497" CREATED="1464451602033" MODIFIED="1465844227472" MOVED="1464451949232">
 <edge COLOR="#0000ff"/>
 <node TEXT="Motivation" ID="ID_1959321146" CREATED="1464451609445" MODIFIED="1464451611671">
 <node TEXT="reproducibility" ID="ID_1351414127" CREATED="1465845865960" MODIFIED="1465845876683" MOVED="1465846105963">
@@ -78,6 +78,7 @@
 <node TEXT="rank model versions differently depending on the changes it was undergoing" ID="ID_1558910386" CREATED="1464451699244" MODIFIED="1464451967105"/>
 <node TEXT="provide a comprehensive repository of biological models and there history" ID="ID_1210237500" CREATED="1464452138558" MODIFIED="1464452158159"/>
 <node TEXT="discover similarities and differences in the development of model through Ontology crosslinking" ID="ID_1541404807" CREATED="1464452163017" MODIFIED="1464452211064"/>
+<node TEXT="Motivation out of Koehn2008 (different versions, with pictures) motivating the development of bives" ID="ID_717259666" CREATED="1471422496633" MODIFIED="1471422535321"/>
 </node>
 <node TEXT="goals" ID="ID_441425098" CREATED="1464452109730" MODIFIED="1464452113031">
 <node TEXT="extend an existing database to store multiple versions of one model in it" ID="ID_998616181" CREATED="1464452219825" MODIFIED="1464452249348"/>
@@ -129,7 +130,7 @@
 <node TEXT="relational databases" ID="ID_152310256" CREATED="1465845025951" MODIFIED="1465845031926" MOVED="1465845033510"/>
 <node TEXT="Graph Databases" ID="ID_1049563004" CREATED="1464450618948" MODIFIED="1464450624335" MOVED="1465844987462">
 <node TEXT="neo4j" ID="ID_1216237604" CREATED="1464450656182" MODIFIED="1464450658948"/>
-<node TEXT="description of graph database models" ID="ID_635669089" CREATED="1465845592385" MODIFIED="1465845748679" MOVED="1465845774831">
+<node TEXT="description of graph database models" FOLDED="true" ID="ID_635669089" CREATED="1465845592385" MODIFIED="1465845748679" MOVED="1465845774831">
 <node TEXT="Entity Relation" ID="ID_1094964584" CREATED="1465845719391" MODIFIED="1465845735072">
 <node TEXT="From the entity-relationship to the property-graph model" ID="ID_1056812311" CREATED="1465905686348" MODIFIED="1466101322845" LINK="https://lambdazen.blogspot.co.za/2014/01/from-entity-relationship-to-property.html" MOVED="1466180677679">
 <attribute NAME="key" VALUE="Siriwaradhana2014"/>
@@ -160,8 +161,50 @@
 </node>
 <node TEXT="Relation Table" ID="ID_957497530" CREATED="1465845735939" MODIFIED="1465845742026"/>
 </node>
-<node TEXT="MaSyMoS" ID="ID_693489327" CREATED="1464450659240" MODIFIED="1464450662808">
-<node TEXT="MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models" FOLDED="true" ID="ID_604193905" CREATED="1466169278734" MODIFIED="1466170156968" MOVED="1466179809312">
+<node TEXT="MaSyMoS" FOLDED="true" ID="ID_693489327" CREATED="1464450659240" MODIFIED="1464450662808">
+<node TEXT="This work is based on MaSyMoS, a..." ID="ID_925204660" CREATED="1466184487611" MODIFIED="1466184502873" MOVED="1466184489551">
+<node TEXT="A graph database for simulation models and&#xa;associated data" FOLDED="true" ID="ID_913357327" CREATED="1466101637515" MODIFIED="1466169166896" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466184505133">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="3637972149357601438" object_number="220" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Henkel2015"/>
+<attribute NAME="journal" VALUE="Database"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
+<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
+<node TEXT="Many models in public databases encode networks that&#xa;can be represented as graphs" ID="ID_106309607" CREATED="1466101637748" MODIFIED="1466101637748" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102251584">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="6426390395388278136" object_number="346" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Henkel2015"/>
+<attribute NAME="journal" VALUE="Database"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
+<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
+</node>
+<node TEXT="relational databases were developed for&#xa;homogeneous, structured data, e.g. numerical data" ID="ID_655388537" CREATED="1466101637302" MODIFIED="1466101637302" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102257215">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="3901335021397006487" object_number="350" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Henkel2015"/>
+<attribute NAME="journal" VALUE="Database"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
+<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
+</node>
+<node TEXT=" Designing a relational&#xa;representation for these links and keeping the database effi-&#xa;cient at the same time are impossible" ID="ID_394727144" CREATED="1466101637616" MODIFIED="1466101637616" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102261273">
+<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="2251555710832645268" object_number="352" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
+    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
+</pdf_annotation>
+<attribute NAME="key" VALUE="Henkel2015"/>
+<attribute NAME="journal" VALUE="Database"/>
+<attribute NAME="year" VALUE="2015"/>
+<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
+<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
+</node>
+</node>
+</node>
+<node TEXT="MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models" ID="ID_604193905" CREATED="1466169278734" MODIFIED="1466170156968" MOVED="1466179809312">
 <node TEXT="We chose the&#xa;graph database Neo4J (25)" ID="ID_1467187705" CREATED="1466101637712" MODIFIED="1466101637713" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466169321927">
 <pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="5297571413817851943" object_number="354" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
     <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
@@ -204,49 +247,8 @@
 <attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
 <attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
 </node>
-<node TEXT="" ID="ID_1533118379" CREATED="1466169955674" MODIFIED="1466169955674"/>
 </node>
-<node TEXT="A graph database for simulation models and&#xa;associated data" FOLDED="true" ID="ID_913357327" CREATED="1466101637515" MODIFIED="1466169166896" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466179837505">
-<pdf_annotation type="HIGHLIGHTED_TEXT" page="2" object_id="3637972149357601438" object_number="220" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
-    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
-</pdf_annotation>
-<attribute NAME="key" VALUE="Henkel2015"/>
-<attribute NAME="journal" VALUE="Database"/>
-<attribute NAME="year" VALUE="2015"/>
-<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
-<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
-<node TEXT="Many models in public databases encode networks that&#xa;can be represented as graphs" ID="ID_106309607" CREATED="1466101637748" MODIFIED="1466101637748" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102251584">
-<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="6426390395388278136" object_number="346" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
-    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
-</pdf_annotation>
-<attribute NAME="key" VALUE="Henkel2015"/>
-<attribute NAME="journal" VALUE="Database"/>
-<attribute NAME="year" VALUE="2015"/>
-<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
-<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
-</node>
-<node TEXT="relational databases were developed for&#xa;homogeneous, structured data, e.g. numerical data" ID="ID_655388537" CREATED="1466101637302" MODIFIED="1466101637302" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102257215">
-<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="3901335021397006487" object_number="350" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
-    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
-</pdf_annotation>
-<attribute NAME="key" VALUE="Henkel2015"/>
-<attribute NAME="journal" VALUE="Database"/>
-<attribute NAME="year" VALUE="2015"/>
-<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
-<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
-</node>
-<node TEXT=" Designing a relational&#xa;representation for these links and keeping the database effi-&#xa;cient at the same time are impossible" ID="ID_394727144" CREATED="1466101637616" MODIFIED="1466101637616" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102261273">
-<pdf_annotation type="HIGHLIGHTED_TEXT" page="3" object_id="2251555710832645268" object_number="352" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
-    <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
-</pdf_annotation>
-<attribute NAME="key" VALUE="Henkel2015"/>
-<attribute NAME="journal" VALUE="Database"/>
-<attribute NAME="year" VALUE="2015"/>
-<attribute NAME="title" VALUE="Combining computational models, semantic annotations and simulation experiments in a graph database"/>
-<attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
-</node>
-</node>
-<node TEXT="MaSyMoS data model and structure" FOLDED="true" ID="ID_285947696" CREATED="1466169527373" MODIFIED="1466179883512" MOVED="1466179868316">
+<node TEXT="MaSyMoS data model and structure" ID="ID_285947696" CREATED="1466169527373" MODIFIED="1466179883512" MOVED="1466179868316">
 <node TEXT="document root node is created for each data&#xa;item" ID="ID_907847538" CREATED="1466101637214" MODIFIED="1466101637214" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466169413016">
 <pdf_annotation type="HIGHLIGHTED_TEXT" page="4" object_id="6938372319867484960" object_number="469" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
     <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
@@ -355,7 +357,7 @@
 <attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
 </node>
 </node>
-<node TEXT="Linking model related data" FOLDED="true" ID="ID_645669068" CREATED="1466175384411" MODIFIED="1466177055033" MOVED="1466179860948">
+<node TEXT="Linking model related data" ID="ID_645669068" CREATED="1466175384411" MODIFIED="1466177055033" MOVED="1466179860948">
 <node TEXT="main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented:&#xa;1. links between (model) annotations and the corresponding ontology term&#xa;2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables&#xa;3. links between model entities in different standard format representation" FOLDED="true" ID="ID_726710174" CREATED="1466175403453" MODIFIED="1466175989315">
 <node TEXT="The main advantage of the previously described concept is&#xa;its possibility to define flexible links between the data do-&#xa;mains" ID="ID_1782800882" CREATED="1466101637563" MODIFIED="1466101637563" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102139019">
 <pdf_annotation type="HIGHLIGHTED_TEXT" page="7" object_id="6254426421266046482" object_number="587" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
@@ -452,11 +454,11 @@
 </node>
 </node>
 </node>
-<node TEXT="Implementation" FOLDED="true" ID="ID_439848774" CREATED="1466177045460" MODIFIED="1466177051533" MOVED="1466179855008">
+<node TEXT="Implementation" ID="ID_439848774" CREATED="1466177045460" MODIFIED="1466177051533" MOVED="1466179855008">
 <node TEXT="MaSyMoS is designed to run as both standalone commandline application with embedded neo4j and as an extension to the neo4j server. Latter is controlled by an unmanaged neo4j plugin providing a RESTful json interface." ID="ID_1860393218" CREATED="1466177096498" MODIFIED="1466177227817"/>
 <node TEXT="Same interface also cooperates with the retrieval engine Morre, by providing endpoints to query different search indexes." ID="ID_620231476" CREATED="1466177228252" MODIFIED="1466177304144"/>
 </node>
-<node TEXT="MaSyMoS project structure" FOLDED="true" ID="ID_945553139" CREATED="1465685091404" MODIFIED="1465685116958" MOVED="1465845528607">
+<node TEXT="MaSyMoS project structure" ID="ID_945553139" CREATED="1465685091404" MODIFIED="1465685116958" MOVED="1465845528607">
 <node TEXT="The MaSyMoS project is divided into 3 different modules: MaSyMoS-core, Morre and a CLI." ID="ID_1078409398" CREATED="1466178991347" MODIFIED="1466180000900" MOVED="1466178993110"/>
 <node TEXT="The core module contains the logic of the database and communicates directly with neo4j. It consists of routines and a Java API to import models, experiments and ontologies. Further it fetches linked information from common bio-ontologies and manages, updates and queries Lucene indexes." ID="ID_1408528992" CREATED="1465685118217" MODIFIED="1466179993104"/>
 <node TEXT="The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It&apos;s main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS" ID="ID_869727585" CREATED="1466179121934" MODIFIED="1466179797351"/>
