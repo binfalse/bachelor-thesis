@@ -9,6 +9,7 @@
 \usepackage{lmodern}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{color}
 \usepackage{caption}
 \usepackage{makeidx}
 
@@ -24,10 +25,24 @@
 	\maketitle
 	\printindex
 	
-	\include{ba-thesis}
-	
-	\chapter{Preamble}
 	\chapter{Introduction}
 	\input{introduction.tex}
+	
 	\chapter{Background}
+	\input{background.tex}
+	
+	\chapter{Results}
+	\input{results.tex}
+	
+	\chapter{Implementation}
+	\input{implementation.tex}
+	
+	\chapter{Discussion}
+	\input{discussion.tex}
+	
+	\chapter{Outlook}
+	\input{outlook.tex}
+	
+	\bibliography{ba-thesis.bib}
+	\bibliographystyle{alpha}
 \end{document}

@@ -1,6 +1,28 @@
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_1-Intro}
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_2-Backg}
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_3-Resul}
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_4-Imple}
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_5-Outlo}
-\input{/home/martin/git/martin-thesis-ba/docear/tex-export/ba-thesis_6-concl}
+\documentclass{book}
+\usepackage[a4paper, margin=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}% erm\"oglich die direkte Eingabe der Umlaute 
+\usepackage[T1]{fontenc} % das Trennen der Umlaute
+\usepackage[english]{babel}
+\usepackage[breaklinks,hidelinks]{hyperref}
+\usepackage{xspace}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{makeidx}
+
+
+\begin{document}
+	\input{ba-thesis_1-Intro}
+	\input{ba-thesis_2-Backg}
+	\input{ba-thesis_3-Resul}
+	\input{ba-thesis_4-Imple}
+	\input{ba-thesis_5-Outlo}
+	\input{ba-thesis_6-concl}
+	
+	%\bibliography{../docear/_data/154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/default_files/martin-ba.bib}
+	\bibliography{../tex/ba-thesis.bib}
+\end{document}
+
+
