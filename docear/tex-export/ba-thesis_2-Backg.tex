@@ -1,0 +1,208 @@
+
+
+\textbf{ Background 30\%}
+\begin{description}
+  \item[Existing versioning and version controll systems] - 
+  % BEGIN {Existing versioning and version controll systems}
+  \begin{description}
+    \item[definition] - 
+    % BEGIN {definition}
+    \begin{description}
+      \item[benefits] - 
+    \end{description} % END {definition}
+    \item[simple file storage] - 
+    \item[svn] - 
+    % BEGIN {svn}
+    \begin{description}
+      \item[client/server structure] - 
+      \item[reverse-delta storage with Snapshots] - 
+    \end{description} % END {svn}
+    \item[git] - 
+    % BEGIN {git}
+    \begin{description}
+      \item[distributed] - 
+      \item[version-graph] - 
+      \item[reverse-delta storage] - 
+      % BEGIN {reverse-delta storage}
+      \begin{description}
+        \item[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain] - 
+      \end{description} % END {reverse-delta storage}
+    \end{description} % END {git}
+    \item[Link to Oxford-paper-2012 -> decision on BiVeS] - 
+  \end{description} % END {Existing versioning and version controll systems}
+  \item[Difference Detection/Delta Algorithm] - 
+  % BEGIN {Difference Detection/Delta Algorithm}
+  \begin{description}
+    \item[unix diff] - 
+    % BEGIN {unix diff}
+    \begin{description}
+      \item[problems with XML] - 
+    \end{description} % END {unix diff}
+    \item[BiVes] - 
+    % BEGIN {BiVes}
+    \begin{description}
+      \item[solution] - 
+      \item[XmlDiff] - 
+      \item[Application in LiveScience] - 
+    \end{description} % END {BiVes}
+  \end{description} % END {Difference Detection/Delta Algorithm}
+  \item[Ontologies in Computer Science] - 
+  % BEGIN {Ontologies in Computer Science}
+  \begin{description}
+    \item[definition] - 
+    % BEGIN {definition}
+    \begin{description}
+      \item[formal definition, properties and relations of entities] - 
+    \end{description} % END {definition}
+    \item[OWL Standard] - 
+    % BEGIN {OWL Standard}
+    \begin{description}
+      \item[cf. doi:10.1007/978-0-387-39940-9\_1073] - 
+    \end{description} % END {OWL Standard}
+    \item[COMODI] - 
+  \end{description} % END {Ontologies in Computer Science}
+  \item[Database Systems] - 
+  % BEGIN {Database Systems}
+  \begin{description}
+    \item[relational databases] - 
+    \item[Graph Databases] - 
+    % BEGIN {Graph Databases}
+    \begin{description}
+      \item[neo4j] - 
+      \item[description of graph database models] - 
+      % BEGIN {description of graph database models}
+      \begin{description}
+        \item[Entity Relation] - 
+        % BEGIN {Entity Relation}
+        \begin{description}
+          \item[ \cite{Siriwaradhana2014} ] (From the entity-relationship to the property-graph model)
+          \item[entities] - 
+          % BEGIN {entities}
+          \begin{description}
+            \item[name of the entity becomes vertex name (neo4j Label)] - 
+            \item[associated attributes become vertex properties] - 
+          \end{description} % END {entities}
+          \item[relations] - 
+          % BEGIN {relations}
+          \begin{description}
+            \item[binary relations (e.g. one-to-many or many-to-many)] - 
+            % BEGIN {binary relations (e.g. one-to-many or many-to-many)}
+            \begin{description}
+              \item[become edge type] - 
+              \item[name of relation becomes the edge label] - 
+              \item[associated attributes become properties] - 
+              \item[end-point of the edge-type are the vertex-type corresponding to the related entity type] - 
+              \item[direction does not matter] - 
+            \end{description} % END {binary relations (e.g. one-to-many or many-to-many)}
+            \item[n-ary relations] - 
+            % BEGIN {n-ary relations}
+            \begin{description}
+              \item[name of the the relation becomes name of a [new] vertex type] - 
+              \item[associated attributes become the properties of the vertex type] - 
+              \item[new vertex-type includes edges to vertex-types corresponding to the related entity-types] - 
+              \item[these edges are labeled after the role of the participating entity in the relationship] - 
+              \item[directions do not matter] - 
+            \end{description} % END {n-ary relations}
+          \end{description} % END {relations}
+        \end{description} % END {Entity Relation}
+        \item[Relation Table] - 
+      \end{description} % END {description of graph database models}
+      \item[MaSyMoS] - 
+      % BEGIN {MaSyMoS}
+      \begin{description}
+        \item[This work is based on MaSyMoS, a...] - 
+        % BEGIN {This work is based on MaSyMoS, a...}
+        \begin{description}
+          \item[ \cite{Henkel2015} ] (A graph database for simulation models and associated data) details:
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (Many models in public databases encode networks that can be represented as graphs)
+            \item[ \cite{Henkel2015} ] (relational databases were developed for homogeneous, structured data, e.g. numerical data)
+            \item[ \cite{Henkel2015} ] (Designing a relational representation for these links and keeping the database effi- cient at the same time are impossible)
+          \end{description} % END cite{Henkel2015}
+
+        \end{description} % END {This work is based on MaSyMoS, a...}
+        \item[MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models] - 
+        % BEGIN {MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models}
+        \begin{description}
+          \item[ \cite{Henkel2015} ] (We chose the graph database Neo4J (25))
+          \item[ \cite{Henkel2015} ] (follows the fun- damental properties of databases, i.e. the ACID principles)
+        \end{description} % END {MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models}
+        \item[biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their "" highly linked structure""] - 
+        % BEGIN {biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their "" highly linked structure""}
+        \begin{description}
+          \item[ \cite{Henkel2015} ] (No unified schema exists for models and meta-data, making it difficult to define a relational database schema)
+          \item[ \cite{Henkel2015} ] (highly linked models, model entities and meta-data are difficult to represent in a table-based relational database)
+        \end{description} % END {biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their "" highly linked structure""}
+        \item[MaSyMoS data model and structure] - 
+        % BEGIN {MaSyMoS data model and structure}
+        \begin{description}
+          \item[ \cite{Henkel2015} ] (document root node is created for each data item)
+          \item[each model is represented by a model node] - 
+          % BEGIN {each model is represented by a model node}
+          \begin{description}
+            \item[entry point for each model import is a document node] - 
+          \end{description} % END {each model is represented by a model node}
+          \item[ \cite{Henkel2015} ] (Attached to the model node are annotation nodes, including the reference publication)
+          \item[in SBML compartments, species and reactions are linked to the model node] - 
+          \item[in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables] - 
+          % BEGIN {in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables}
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (component contains vari- ables and mathematical relationships that manipulate those variables)
+          \end{description} % END {in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables}
+          \item[Experiment setups are stored under a SEDML node, instead of a model node. In comparison to species, reactions, compartments or components the SEDML node has links to Modelreference nodes, as well as nodes pointing to different model entities used in plots. Nevertheless no processing information is stored in the database.] - 
+          % BEGIN {Experiment setups are stored under a SEDML node, instead of a model node. In comparison to species, reactions, compartments or components the SEDML node has links to Modelreference nodes, as well as nodes pointing to different model entities used in plots. Nevertheless no processing information is stored in the database.}
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (SEDML node serves as the anchor for an experiment)
+            \item[ \cite{Henkel2015} ] (Modelreference node links the experiment to all Model nodes used in the simulation)
+            \item[ \cite{Henkel2015} ] (do not store the specific processing of a model entity)
+          \end{description} % END {Experiment setups are stored under a SEDML node, instead of a model node. In comparison to species, reactions, compartments or components the SEDML node has links to Modelreference nodes, as well as nodes pointing to different model entities used in plots. Nevertheless no processing information is stored in the database.}
+          \item["" Semantic annotations and cross-references"" from the models are stored as seperate nodes and linked to the ontology node representing the used ontology term.] - 
+          % BEGIN {"" Semantic annotations and cross-references"" from the models are stored as seperate nodes and linked to the ontology node representing the used ontology term.}
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (Semantic annotations and cross-references)
+            \item[ \cite{Henkel2015} ] (We parse these ontologies and add all concepts and relations as nodes and edges, respectively.)
+          \end{description} % END {"" Semantic annotations and cross-references"" from the models are stored as seperate nodes and linked to the ontology node representing the used ontology term.}
+          \item[ensure an easy traversal upwards, a connection is created from each node of the stored model that points to the par- ent of the current node. The corresponding edges are named belongsTo] - 
+        \end{description} % END {MaSyMoS data model and structure}
+        \item[Linking model related data] - 
+        % BEGIN {Linking model related data}
+        \begin{description}
+          \item[main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented: 1. links between (model) annotations and the corresponding ontology term 2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables 3. links between model entities in different standard format representation] - 
+          % BEGIN {main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented: 1. links between (model) annotations and the corresponding ontology term 2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables 3. links between model entities in different standard format representation}
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (The main advantage of the previously described concept is its possibility to define flexible links between the data do- mains)
+            \item[ \cite{Henkel2015} ] (links between annotations (in SBML, CellML and SED-ML) and ontology concepts)
+            \item[ \cite{Henkel2015} ] (links between models (in SBML or CellML format) and SED-ML)
+            \item[ \cite{Henkel2015} ] (link is that between a model and a simulation description)
+            \item[ \cite{Henkel2015} ] (links between model entities and SED-ML variables)
+            \item[ \cite{Henkel2015} ] (links between model entities from different model rep- resentation formats)
+          \end{description} % END {main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented: 1. links between (model) annotations and the corresponding ontology term 2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables 3. links between model entities in different standard format representation}
+          \item[ \cite{Henkel2015} ] (For each annotation in a model we add an explicit link to the data entry in the ref- erenced bio-ontology)
+          \item[This link is shared between all models using this annotation, regardless of the format] - 
+          \item[Further to explicit links (one hop in the graph), MaSyMoS is able to determine implicit links between different models. Those can be established over shared resources like a publication, publication author or annotations with common bio-ontologies. Regarding a publications the database may establish connections based on the likelihood of names by Hemming Distance, resulting in a confidence which can be increased, "" if the entities' annotations match""] - 
+          % BEGIN {Further to explicit links (one hop in the graph), MaSyMoS is able to determine implicit links between different models. Those can be established over shared resources like a publication, publication author or annotations with common bio-ontologies. Regarding a publications the database may establish connections based on the likelihood of names by Hemming Distance, resulting in a confidence which can be increased, "" if the entities' annotations match""}
+          \begin{description}
+            \item[ \cite{Henkel2015} ] (In addition, we determine implicit links between models of different representation formats)
+            \item[ \cite{Henkel2015} ] (If two models share a publication, the systems can infer implicit links between those entities that are equally named)
+          \end{description} % END {Further to explicit links (one hop in the graph), MaSyMoS is able to determine implicit links between different models. Those can be established over shared resources like a publication, publication author or annotations with common bio-ontologies. Regarding a publications the database may establish connections based on the likelihood of names by Hemming Distance, resulting in a confidence which can be increased, "" if the entities' annotations match""}
+        \end{description} % END {Linking model related data}
+        \item[Implementation] - 
+        % BEGIN {Implementation}
+        \begin{description}
+          \item[MaSyMoS is designed to run as both standalone commandline application with embedded neo4j and as an extension to the neo4j server. Latter is controlled by an unmanaged neo4j plugin providing a RESTful json interface.] - 
+          \item[Same interface also cooperates with the retrieval engine Morre, by providing endpoints to query different search indexes.] - 
+        \end{description} % END {Implementation}
+        \item[MaSyMoS project structure] - 
+        % BEGIN {MaSyMoS project structure}
+        \begin{description}
+          \item[The MaSyMoS project is divided into 3 different modules: MaSyMoS-core, Morre and a CLI.] - 
+          \item[The core module contains the logic of the database and communicates directly with neo4j. It consists of routines and a Java API to import models, experiments and ontologies. Further it fetches linked information from common bio-ontologies and manages, updates and queries Lucene indexes.] - 
+          \item[The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It's main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS] - 
+          \item[The Morre module is similiar to the CLI, by providing an way to interact with the core. But instead of providing a user interface, Morre is loaded as neo4j unmanaged extension and exposes a RESTful interface, which can be used to query the Lucene indexes or to push and update models to the database.] - 
+          \item[planned extensions] - 
+        \end{description} % END {MaSyMoS project structure}
+      \end{description} % END {MaSyMoS}
+    \end{description} % END {Graph Databases}
+  \end{description} % END {Database Systems}
+\end{description} % END {Background 30\%}
+
