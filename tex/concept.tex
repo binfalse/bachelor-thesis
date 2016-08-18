@@ -1,0 +1,25 @@
+\section{Overall system architecture and services}
+cf. \ref{fig:system-overview}
+\begin{figure}
+	\includegraphics[width=\textwidth]{resources/system_overview.jpg}
+	\caption{Infrastructure overview \todo[highlight the differences between optimal (proposed) infrstructure and the implementation]}
+	\label{fig:system-overview}
+\end{figure}
+
+\section{Database model and storage decisions}
+\begin{itemize}
+\item extension to database model cf. \ref{fig:db-model}
+	\subitem linking version
+	\subitem storing differences
+\item decisions on storage model
+	\subitem storing each version full (no delta-storag)
+	\subitem each version is aware to the search index
+	\subitem diff still enables for analysis of changes
+	\subitem higher storage consumption
+\item extended storage model
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=\textwidth]{resources/db_structure.jpg}
+	\caption{Proposed database structure}
+	\label{fig:db-model}
+\end{figure}

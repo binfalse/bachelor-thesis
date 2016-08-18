@@ -1,4 +1,26 @@
-\section{Overview of existing versioning and version controll systems}
+\section{Data formats for System Biology models}
+\begin{itemize}
+	\item formats
+	\subitem SBML
+	\subitem CellML
+	\subitem \sedml
+	\item everything in XML
+	\item semantic annotations
+\end{itemize}
+\todo[look at STATS paper/MOST for version statistics]
+
+\section{Detecting differences in VCS}
+\subsection{Unixdiff}
+\subsection{XmlDiff}
+\subsection{BiVeS}
+\begin{itemize}
+	\item benefits of XmlDiff compared to unix-diff
+	\item problems with XML
+	\item no deeper "understanding"
+	\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
+\end{itemize}
+
+\section{Managing Versions}
 \begin{itemize}
 \item benefits of version control systems
 	\subitem \todo[elloborate]
@@ -25,35 +47,32 @@
 	\item https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
 	\end{itemize}
 	
-	\subsection{BiVeS}
-	\begin{itemize}
-	\item benefits of XmlDiff compared to unix-diff
-	\item problems with XML
-	\item no deeper "understanding"
-	\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
-	\end{itemize}
+	\subsection{title}
+
+
 
 \section{Ontologies in Computer Science}
 
 \begin{itemize}
 \item definition
 	\subitem formal definition, properties and relation of entities
+\item use of BioOntologies cf. Courtot
 \end{itemize}
 
-	\subsection{OWL Standard}
-	\begin{itemize}
-		\item cf. doi:10.1007/978-0-387-39940-9\_1073
-	\end{itemize}
+	\todo[cite owl standard, when explaining comodi import]
+	\todo[http://msb.embopress.org/content/7/1/543.short for ontology overview]
 	
 	\subsection{COMODI}
 	\begin{itemize}
 		\item cf. \cite{Scharm2016}
 	\end{itemize}
 	
-\section{Evaluation of Database Management Systems}
-
-	\subsection{Relational Database Management Systems}
-	\todo
+\section{Irgendwas mit MaSyMoS und Graph-Datenbanken, glaube ich.}
+	\begin{itemize}
+		\item masymos exists
+		\item graph databases (eg. neo4j) are more suitable for inhomogeneous data
+		\item queries are easier
+	\end{itemize}
 	
 	\subsection{Graph Databases}
 	neo4j
@@ -132,4 +151,5 @@
 		\subitem The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It's main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS
 		\subitem The Morre module is similiar to the CLI, by providing an way to interact with the core. But instead of providing a user interface, Morre is loaded as neo4j unmanaged extension and exposes a RESTful interface, which can be used to query the Lucene indexes or to push and update models to the database.
 	\end{itemize}
+	\todo[Pictures]
 	
