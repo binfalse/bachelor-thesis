@@ -89,7 +89,7 @@
 </node>
 <node TEXT="Background 30%" POSITION="right" ID="ID_335029665" CREATED="1464450597007" MODIFIED="1465844233482">
 <edge COLOR="#ff0000"/>
-<node TEXT="Existing versioning and version controll systems" FOLDED="true" ID="ID_1683526886" CREATED="1464451974104" MODIFIED="1464452024829" MOVED="1464451975647">
+<node TEXT="Existing versioning and version controll systems" ID="ID_1683526886" CREATED="1464451974104" MODIFIED="1464452024829" MOVED="1464451975647">
 <node TEXT="definition" ID="ID_42295983" CREATED="1464452027957" MODIFIED="1464452057437">
 <node TEXT="benefits" ID="ID_595982733" CREATED="1464460588311" MODIFIED="1464460595479"/>
 </node>
@@ -107,7 +107,7 @@
 </node>
 <node TEXT="Link to Oxford-paper-2012 -&gt; decision on BiVeS" ID="ID_1103479875" CREATED="1465845331436" MODIFIED="1465845375640"/>
 </node>
-<node TEXT="Difference Detection/Delta Algorithm" FOLDED="true" ID="ID_771130746" CREATED="1464450675691" MODIFIED="1464452347102">
+<node TEXT="Difference Detection/Delta Algorithm" ID="ID_771130746" CREATED="1464450675691" MODIFIED="1464452347102">
 <node TEXT="unix diff" ID="ID_1802040318" CREATED="1464450689438" MODIFIED="1464450693026">
 <node TEXT="problems with XML" ID="ID_839416966" CREATED="1464450738394" MODIFIED="1464450794709"/>
 </node>
@@ -117,7 +117,7 @@
 <node TEXT="Application in LiveScience" ID="ID_247493229" CREATED="1464451043022" MODIFIED="1464451048858"/>
 </node>
 </node>
-<node TEXT="Ontologies in Computer Science" FOLDED="true" ID="ID_786500031" CREATED="1464450604943" MODIFIED="1465845797538">
+<node TEXT="Ontologies in Computer Science" ID="ID_786500031" CREATED="1464450604943" MODIFIED="1465845797538">
 <node TEXT="definition" ID="ID_737294920" CREATED="1464460642215" MODIFIED="1464460644628" MOVED="1464460645416">
 <node TEXT="formal definition, properties and relations of entities" ID="ID_1231731650" CREATED="1464460969641" MODIFIED="1464460984201"/>
 </node>
@@ -248,7 +248,7 @@
 <attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
 </node>
 </node>
-<node TEXT="MaSyMoS data model and structure" ID="ID_285947696" CREATED="1466169527373" MODIFIED="1466179883512" MOVED="1466179868316">
+<node TEXT="MaSyMoS data model and structure" FOLDED="true" ID="ID_285947696" CREATED="1466169527373" MODIFIED="1466179883512" MOVED="1466179868316">
 <node TEXT="document root node is created for each data&#xa;item" ID="ID_907847538" CREATED="1466101637214" MODIFIED="1466101637214" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466169413016">
 <pdf_annotation type="HIGHLIGHTED_TEXT" page="4" object_id="6938372319867484960" object_number="469" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
     <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
@@ -281,7 +281,7 @@
 <attribute NAME="authors" VALUE="Henkel, Ron and Wolkenhauer, Olaf and Waltemath, Dagmar"/>
 </node>
 <node TEXT="in SBML compartments, species and reactions are linked to the model node" ID="ID_359361957" CREATED="1466169619985" MODIFIED="1466169654800"/>
-<node TEXT="in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables" FOLDED="true" ID="ID_960761149" CREATED="1466169655179" MODIFIED="1466169734023">
+<node TEXT="in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables" ID="ID_960761149" CREATED="1466169655179" MODIFIED="1466169734023">
 <node TEXT="component contains vari-&#xa;ables and mathematical relationships that manipulate&#xa;those variables" ID="ID_767946673" CREATED="1466101637200" MODIFIED="1466101637200" LINK="project://154ED8407E89FCASQ6GZXVKVYB0712RGQW1X/../literature/sems/masymos.pdf" MOVED="1466102338230">
 <pdf_annotation type="HIGHLIGHTED_TEXT" page="5" object_id="1395576150053381997" object_number="519" document_hash="23BDF3CA63F76B5FDA54530A4DDFFCD9236E1F5A59C0326C7FE4C595304F44">
     <pdf_title>Combining computational models, semantic annotations and simulation experiments in a graph database</pdf_title>
@@ -469,7 +469,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Results 50%" FOLDED="true" POSITION="right" ID="ID_1373098570" CREATED="1465685403894" MODIFIED="1465844507237" MOVED="1465844442786">
+<node TEXT="Results 50%" POSITION="right" ID="ID_1373098570" CREATED="1465685403894" MODIFIED="1465844507237" MOVED="1465844442786">
 <edge COLOR="#00ffff"/>
 <node TEXT="alle &#xdc;berlegungen mit Entscheidungen (results+discussion)" ID="ID_769104555" CREATED="1465844491833" MODIFIED="1465844690283"/>
 <node TEXT="concepts" ID="ID_637205851" CREATED="1465844652686" MODIFIED="1465844655307">
@@ -487,11 +487,11 @@
 </node>
 <node TEXT="discussion" ID="ID_993805768" CREATED="1465844668675" MODIFIED="1465844670520"/>
 </node>
-<node TEXT="Implementation 50%" FOLDED="true" POSITION="right" ID="ID_373173851" CREATED="1465685084655" MODIFIED="1465844237920">
+<node TEXT="Implementation 50%" POSITION="right" ID="ID_373173851" CREATED="1465685084655" MODIFIED="1465844237920">
 <edge COLOR="#00ff00"/>
 <node TEXT="nur Umsetzung" ID="ID_444327216" CREATED="1465844467353" MODIFIED="1465844471166"/>
 </node>
-<node TEXT="Outlook" FOLDED="true" POSITION="right" ID="ID_1682005382" CREATED="1465685399697" MODIFIED="1465685402807">
+<node TEXT="Outlook" POSITION="right" ID="ID_1682005382" CREATED="1465685399697" MODIFIED="1465685402807">
 <edge COLOR="#ff00ff"/>
 <node TEXT="Improving index search with metrics on how much impact a change had to the searched criteria" ID="ID_943720943" CREATED="1465685420168" MODIFIED="1465685485140"/>
 <node TEXT="detecting similar changes on different models" ID="ID_1250734524" CREATED="1465685486446" MODIFIED="1465685594993"/>
