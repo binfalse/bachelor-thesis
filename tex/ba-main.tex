@@ -11,19 +11,16 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{caption}
-\usepackage{makeidx}
 
 \input{shortcuts.tex}
-
 
 \title{Conception and prototype implementation of a storage solution for multi-versioned simulation models in systems biology}
 \author{Martin Peters\\ \small Department of Systems Biology and Bioinformatics, University of Rostock}
 \date{\today}
-\makeindex
 
 \begin{document}
 	\maketitle
-	\printindex
+	\tableofcontents
 	
 	\chapter{Introduction}
 	\input{introduction.tex}
@@ -45,4 +42,8 @@
 	
 	\bibliography{ba-thesis.bib}
 	\bibliographystyle{alpha}
+	
+	\begin{appendix}
+		\listoffigures
+	\end{appendix}
 \end{document}
