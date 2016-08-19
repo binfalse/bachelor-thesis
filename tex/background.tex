@@ -1,63 +1,70 @@
 \section{Data formats for System Biology models}
-\begin{itemize}
-	\item formats
-	\subitem SBML
-	\subitem CellML
-	\subitem \sedml
-	\item everything in XML
-	\item semantic annotations
-\end{itemize}
-\todo[look at STATS paper/MOST for version statistics]
+	\begin{itemize}
+		\item formats
+		\subitem SBML
+		\subitem CellML
+		\subitem \sedml
+		\item everything in XML
+		\item semantic annotations
+	\end{itemize}
+	\todo[look at STATS paper/MOST for version statistics]
 
 \section{Detecting differences in VCS}
-\subsection{Unixdiff}
-\subsection{XmlDiff}
-\subsection{BiVeS}
-\begin{itemize}
-	\item benefits of XmlDiff compared to unix-diff
-	\item problems with XML
-	\item no deeper "understanding"
-	\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
-\end{itemize}
-
-\section{Managing Versions}
-\begin{itemize}
-\item benefits of version control systems
-	\subitem \todo[elloborate]
-\end{itemize}
-
-	\subsection{simple file storage}
+	\subsection{Unix Diff}
 	\begin{itemize}
-	\item storing files next to each other in the filesystem
-	\item e.g. "*version1", "*version2", "*final", "*final2"
+		\item 
 	\end{itemize}
 	
-	\subsection{SVN}
+	\subsection{XML Diff}
+	cf. Cobena2002
+	
+	\subsection{BiVeS}
 	\begin{itemize}
-	\item client/server architecture
-	\item no "offline" work possible
-	\item reverse-delta storage with snapshots
+		\item benefits of XyDiff compared to unix-diff
+		\item problems with XML
+		\item no deeper "understanding"
+		\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
 	\end{itemize}
 	
-	\subsection{GIT}
+	\section{Managing Versions}
+	\subsection{Traditional Version Control Systems}
 	\begin{itemize}
-	\item distributed
-	\item version-graph
-	\item reverse-delta storage
-	\item https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
+		\item benefits of version control systems
+			\subitem \todo[elaborate]
+		\item simple file storage
+			\subitem storing files next to each other in the file system
+			\subitem "-version1", "-version2", "-final"
+			\subitem no meta information stored along with versions (author, time stamp)
+			\subitem collaboration causes problems
+			\subitem but: simple and quick
+		\item SVN
+			\subitem client/server architecture
+			\subitem collaboration possible, through branching and merging capability
+			\subitem reverse-delta storage
+			\subitem no offline work possible
+		\item GIT
+			\subitem distributed VCS
+			\subitem reverse-delta storage with version graph
+			\subitem build for heavy collaboration by using information from the version graph for merging
+			\subitem \todo[refer to version-graph later, when explaining db concept]
+			\subitem \url{https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain}
 	\end{itemize}
-	
-	\subsection{title}
-
+		
+	\subsection{Challenges traditional VCS face with Systems Biology models}
+	\begin{itemize}
+		\item SVN and GIT are using unix-diff -> not suitable for XML files (cf. XML diff section)
+		\item no semantic information about the changes (cf. comodi)
+		\item ...
+	\end{itemize}
 
 
 \section{Ontologies in Computer Science}
 
-\begin{itemize}
-\item definition
-	\subitem formal definition, properties and relation of entities
-\item use of BioOntologies cf. Courtot
-\end{itemize}
+	\begin{itemize}
+	\item definition
+		\subitem formal definition, properties and relation of entities
+	\item use of BioOntologies cf. Courtot
+	\end{itemize}
 
 	\todo[cite owl standard, when explaining comodi import]
 	\todo[http://msb.embopress.org/content/7/1/543.short for ontology overview]
@@ -77,7 +84,7 @@
 	\subsection{Graph Databases}
 	neo4j
 	
-	\subsection{Graph Database schemas and the Entity Relation model}
+	\subsection{Graph Database schema and the Entity Relation model}
 	\begin{itemize}
 	\item entities:
 		\subitem name of the entity becomes vertex name (neo4j node label)
