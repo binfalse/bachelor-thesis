@@ -634,54 +634,54 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m -115.7085,320.67943 74.595658,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -88.329407,721.28576 74.595658,0"
        id="path125759"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-30.752337"
-       y="326.89575"
+       x="-3.1243134"
+       y="730.60583"
        id="text125761"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan125763"
-         x="-30.752337"
-         y="326.89575">direct interaction</tspan></text>
+         x="-3.1243134"
+         y="730.60583">direct interaction</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path125765"
-       d="m -115.7085,357.97726 74.595658,0"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-opacity:1;stroke-dashoffset:0" />
+       d="m -88.329407,752.89253 74.595658,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-29.819689"
-       y="363.38004"
+       x="-2.1916656"
+       y="759.78949"
        id="text125887"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="-29.819689"
-         y="363.38004"
+         x="-2.1916656"
+         y="759.78949"
          id="tspan125891">background interaction/data flow</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
        id="rect125895"
        width="80.097443"
        height="29.303944"
-       x="-118.70832"
-       y="383.89279" />
+       x="-91.080299"
+       y="784.49915" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-25.912493"
-       y="407.33594"
+       x="1.7155304"
+       y="808.47119"
        id="text125897"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan125899"
-         x="-25.912493"
-         y="407.33594">software unit</tspan></text>
+         x="1.7155304"
+         y="808.47119">software unit</tspan></text>
   </g>
 </svg>
