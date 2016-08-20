@@ -12,11 +12,14 @@
 \section{Detecting differences in VCS}
 	\subsection{Unix Diff}
 	\begin{itemize}
-		\item 
+		\item Based on solving the longest common subsequence problem
 	\end{itemize}
 	
 	\subsection{XML Diff}
-	cf. Cobena2002
+	cf. Cobena2002 and \cite{Waltemath2013} in section 2.2.1
+	\begin{itemize}
+		\item 
+	\end{itemize}
 	
 	\subsection{BiVeS}
 	\begin{itemize}
@@ -26,11 +29,12 @@
 		\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
 	\end{itemize}
 	
-	\section{Managing Versions}
+\section{Managing Versions}
 	\subsection{Traditional Version Control Systems}
 	\begin{itemize}
 		\item benefits of version control systems
 			\subitem \todo[elaborate]
+			\subitem "The need for model version control has been previously discussed in research groups facing model evolution in computational biology (Beard et al., 2009; Cuellar et al., 2006; Hucka et al., 2010; Li et al., 2010; Miller et al., 2011). In general, VCSs such as Subversion (http://subversion.apache.org/) (SVN)" \cite{Waltemath2013}
 		\item simple file storage
 			\subitem storing files next to each other in the file system
 			\subitem "-version1", "-version2", "-final"
@@ -54,7 +58,12 @@
 	\begin{itemize}
 		\item SVN and GIT are using unix-diff -> not suitable for XML files (cf. XML diff section)
 		\item no semantic information about the changes (cf. comodi)
-		\item ...
+		\item no domain specific knowledge to improve mapping of different XML-tree branches
+			\subitem important for good detection of tree branch movement etc. 
+			\subitem "A model VCS should be tailored to existing model representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users." \cite{Waltemath2013}
+		\item As proposed in \cite{Waltemath2013} there are 2 major approaches to keep track of changes:
+			\subitem keeping track of (minor) changes in the model itself
+			\subitem tracking versions in the repository
 	\end{itemize}
 
 
