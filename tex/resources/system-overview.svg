@@ -20,6 +20,36 @@
   <defs
      id="defs4">
     <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7279"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7281"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4739"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4741"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
        inkscape:isstock="true"
        style="overflow:visible"
        id="marker123937"
@@ -199,22 +229,6 @@
          inkscape:connector-curvature="0" />
     </marker>
     <marker
-       inkscape:stockid="Arrow1Mstart"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Mstart"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path107322"
-         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="matrix(0.4,0,0,0.4,4,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
        refY="0"
@@ -314,9 +328,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.72390268"
-     inkscape:cx="1030.8794"
-     inkscape:cy="123.91939"
+     inkscape:zoom="1.4478054"
+     inkscape:cx="577.69113"
+     inkscape:cy="192.4341"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -348,7 +362,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -592,11 +606,11 @@
        d="m 210.54384,543.89915 c -40.56095,44.12977 -106.89334,22.44627 -150,-11.42857"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker107620)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#marker108034)"
-       d="m 561.69127,535.44342 c -39.32824,1.03212 -72.36562,8.55513 -148.63144,-6.3535 74.6974,13.83186 80.41449,74.42686 90.94017,107.558"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.0011811;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:;marker-start:url(#marker4739)"
+       d="m 561.69127,535.44342 c -39.32824,1.03212 -72.36562,8.55513 -148.63144,-6.3535"
        id="path108026"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc" />
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker110226)"
        d="m 511.82829,638.7555 c 3.93935,-37.38362 16.62967,-64.01197 51.94054,-90.04844"
@@ -648,7 +662,7 @@
          sodipodi:role="line"
          id="tspan125763"
          x="-3.1243134"
-         y="730.60583">direct interaction</tspan></text>
+         y="730.60583">direct interaction (user invoked)</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path125765"
@@ -664,7 +678,7 @@
          sodipodi:role="line"
          x="-2.1916656"
          y="759.78949"
-         id="tspan125891">background interaction/data flow</tspan></text>
+         id="tspan125891">background interaction (automatically)</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
        id="rect125895"
@@ -683,5 +697,11 @@
          id="tspan125899"
          x="1.7155304"
          y="808.47119">software unit</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker7279)"
+       d="m 412.92164,529.4733 c 62.79991,8.23764 76.86419,57.19015 84.26547,109.82139"
+       id="path8089"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
