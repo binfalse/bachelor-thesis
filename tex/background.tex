@@ -14,7 +14,7 @@
 	\begin{itemize}
 		\item Based on solving the longest common subsequence problem
 		\item "The program diff reports differences between two files, expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}
-		\item "The central algorithm of diff solves the ‘longest common subsequence problem’ to 		find the lines that do not change between files" \cite{Hunt1976}
+		\item "The central algorithm of diff solves the ‘longest common subsequence problem’ to find the lines that do not change between files" \cite{Hunt1976}
 	\end{itemize}
 	
 	\subsection{XML Diff}
@@ -26,9 +26,34 @@
 	\subsection{BiVeS}
 	\begin{itemize}
 		\item benefits of XyDiff compared to unix-diff
-		\item problems with XML
-		\item no deeper "understanding"
+		\subitem problems with XML
+		\subitem no deeper "understanding"
 		\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
+		\item algorithm (list of quotes from \cite{Scharm2015})
+		\subitem two versions of an XML-encoded model are translated into an internal tree structure. For every node n in the tree, a hash sum n r and a weight n x are calculated 
+		\subitem The weight of a node is thus always greater than the weight of its children. As such, the weight represents the size of the corresponding subtree 
+		\subitem The hash sum of a node n represents the signature of the subtree rooted at n 
+		\subitem While n r unambiguously defines the subtree rooted in n, n r does not need to be unique among all nodes in the tree. Thus, if n r ¼ m r then the subtrees in n and m are identically equal 
+		\subitem First, nodes are being mapped with respect to their identifiers 
+		\subitem id attributes in the XML documents serve as identifiers. In addition, we also evaluate biolo- gical identifiers, specifically links into bio-ontologies 
+		\subitem Second, the initial mapping is propagated upwards into the trees. 
+		\subitem The connections of a node’s children are evaluated in a depth-first traversal of T 2 . If a node n in T 2 is connected to a node m in T 1 then a mapping of parent ðnÞ to parent ðmÞ is suggested 
+		\subitem If, in contrast, n is not connected, we examine the candidates that were previously suggested by the connections of n’s children. 
+		\subitem Candidates which have a different tag name than n and candidates which al- ready have a connection are neglected. 
+		\subitem Among the remaining candidates, the algorithm chooses the one that received the best suggestions and connects it to n 
+		\subitem Third, the algorithm makes use of the initially computed signatures and maps nodes of T 2 on nodes of T 1 
+		\subitem A priority queue U is maintained to sort the nodes of T 2 based on their weights. Initially, U only consists of the root node of T 2 . 
+		\subitem Unless U is empty, the algorithm repeatedly removes node n 2 U  T 2 with the biggest weight, which represents the biggest subtree in the queue 
+		\subitem Fourth, the algorithm improves the quality of the mapping by examining the network structure of T 1 and T 2 in a top-down approach. For every mapping n 2 T 2 on m 2 T 1 , it compares unmatched chil- dren of n and m to find missed mappings 
+		\subitem The algorithm evaluates the matrix greedily and adds new mappings up to a maximum distance of 0.9. Thus, nodes which have nothing in common will not be connected 
+		\subitem Additional mapping rules capture the domain characteristics of the pro- cessed data. Following the current specifications for SBML and CellML, we prohibit certain changes in the hierarchical tree of docu- ment nodes. Specifically, we treat parts of the model as atomic con- structs for which we define restrictions on possible network operations 
+		\subitem This step is a major reason why our algorithm outperforms standard XML diff algorithms. 
+		\subitem insert if an entity is present in T 2 but absent in T 
+		\subitem delete if an entity is present in T 1 but absent in T 
+		\subitem move if a node is present in both documents, but either (i) the par- ents in the corresponding trees are not connected or (ii) the parents are connected, but the sequence of their siblings has changed 
+		\subitem update if the value of an attribute, a text node's content or the tag name of a node was modified
+		\subitem After the mapping, we distinguish two types of nodes: mapped nodes and unmapped nodes. Unmapped nodes n 2 T 1 [ T 2 are nodes for which the algorithm could not find a matching node in the opposite tree. These nodes and their attributes correspond to either inserts or deletes, depending on their origin 
+		\subitem In contrast, mapped nodes are nodes for which the algorithm did find a matching node in the opposite tree. If the parents of such a mapping of n 2 T 2 onto m 2 T 1 are not connected, or if the se- quence among their siblings has changed, then these nodes are included in the set of moves 
 	\end{itemize}
 	
 \section{Managing Versions}
