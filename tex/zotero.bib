@@ -223,7 +223,7 @@ recording, reporting, and reproduction of methods and data.},
   booktitle = {18th {{International Conference}} on {{Data Engineering}}, 2002. {{Proceedings}}},
   author = {Cobena, G. and Abiteboul, S. and Marian, A.},
   year = {2002},
-  keywords = {Change detection algorithms,Costs,Crawlers,Database languages,data warehouses,deletions,diff algorithm,experiments,HTML,hypermedia markup languages,ID attributes,information resources,insertions,linear time,move operation,NP hard,performance analysis,quadratic time,software performance evaluation,Subscriptions,subtrees,tree data structures,updates,Web and internet services,World Wide Web,XML,XML documents,Xyleme project},
+  keywords = {Change detection algorithms,Costs,Crawlers,Database languages,data warehouses,deletions,diff algorithm,experiments,HTML,hypermedia markup languages,ID attributes,information resources,insertions,linear time,move operation,NP hard,performance analysis,quadratic time,software performance evaluation,Subscriptions,subtrees,tree data structures,updates,Web and internet services,World Wide Web,XML,XML documents,XyDiff,Xyleme project},
   pages = {41--52},
   file = {IEEE Xplore Full Text PDF:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/2FQFWGR7/Cobena et al. - 2002 - Detecting changes in XML documents.pdf:application/pdf;IEEE Xplore Abstract Record:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/WACE4GT2/abs_all.html:text/html}
 }
@@ -311,6 +311,81 @@ Contact: dagmar.waltemath\{at\}uni-rostock.de},
   month = jan,
   year = {2014},
   file = {Snapshot:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/SQCBWMFQ/from-entity-relationship-to-property.html:text/html}
+}
+
+@inproceedings{Chawathe1996,
+  address = {New York, NY, USA},
+  series = {SIGMOD '96},
+  title = {Change {{Detection}} in {{Hierarchically Structured Information}}},
+  isbn = {978-0-89791-794-0},
+  doi = {10.1145/233269.233366},
+  abstract = {Detecting and representing changes to data is important for active databases, data warehousing, view maintenance, and version and configuration management. Most previous work in change management has dealt with flat-file and relational data; we focus on hierarchically structured data. Since in many cases changes must be computed from old and new versions of the data, we define the hierarchical change detection problem as the problem of finding a "minimum-cost edit script" that transforms one data tree to another, and we present efficient algorithms for computing such an edit script. Our algorithms make use of some key domain characteristics to achieve substantially better performance than previous, general-purpose algorithms. We study the performance of our algorithms both analytically and empirically, and we describe the application of our techniques to hierarchically structured documents.},
+  timestamp = {2016-08-29T08:18:44Z},
+  urldate = {2016-08-29},
+  url = {http://doi.acm.org/10.1145/233269.233366},
+  booktitle = {Proceedings of the 1996 {{ACM SIGMOD International Conference}} on {{Management}} of {{Data}}},
+  publisher = {{ACM}},
+  author = {Chawathe, Sudarshan S. and Rajaraman, Anand and Garcia-Molina, Hector and Widom, Jennifer},
+  year = {1996},
+  pages = {493--504},
+  file = {ACM Full Text PDF:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/K57RNEWT/Chawathe et al. - 1996 - Change Detection in Hierarchically Structured Info.pdf:application/pdf}
+}
+
+@inproceedings{Ronnau2005,
+  address = {New York, NY, USA},
+  series = {DocEng '05},
+  title = {Towards {{XML Version Control}} of {{Office Documents}}},
+  isbn = {978-1-59593-240-2},
+  doi = {10.1145/1096601.1096606},
+  abstract = {Office applications such as OpenOffice and Microsoft Office are widely used to edit the majority of today's business documents: office documents. Usually, version control systems consider office documents as binary objects, thus severely hindering collaborative work. Since XML has become a de-facto standard for office applications, we focus on versioning office documents by structured XML version control approaches. This enables state-of-the-art version control for office documents.A basic prerequisite to XML version control is a diff algorithm, which detects structural changes between XML documents. In this paper, we evaluate state-of-the-art XML diff algorithms w.r.t. their suitability to OpenOffice XML documents and the future OASIS office document standard. It turns out that, due to the specific XML office format, a careful examination of the diff algorithm characteristics is necessary. Therefore, we identify important features for XML diff approaches to handle office documents. We have implemented a first OpenOffice versioning API that can be used in version control systems as a replacement for line-based or binary diffs, which are currently used.},
+  timestamp = {2016-08-29T08:20:27Z},
+  urldate = {2016-08-29},
+  url = {http://doi.acm.org/10.1145/1096601.1096606},
+  booktitle = {Proceedings of the 2005 {{ACM Symposium}} on {{Document Engineering}}},
+  publisher = {{ACM}},
+  author = {R{\"o}nnau, Sebastian and Scheffczyk, Jan and Borghoff, Uwe M.},
+  year = {2005},
+  keywords = {office applications,version control,XML diffing},
+  pages = {10--19},
+  file = {ACM Full Text PDF:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/SNCCT8ZK/Rönnau et al. - 2005 - Towards XML Version Control of Office Documents.pdf:application/pdf}
+}
+
+@incollection{Schmidt2000,
+  series = {Lecture Notes in Computer Science},
+  title = {Efficient {{Relational Storage}} and {{Retrieval}} of {{XML Documents}}},
+  copyright = {\textcopyright{}2001 Springer-Verlag Berlin Heidelberg},
+  isbn = {978-3-540-41826-9 978-3-540-45271-3},
+  abstract = {In this paper, we present a data and an execution model that allow for efficient storage and retrieval of XML documents in a relational database. The data model is strictly based on the notion of binary associations: by decomposing XML documents into small, flexible and semantically homogeneous units we are able to exploit the performance potential of vertical fragmentation. Moreover, our approach provides clear and intuitive semantics, which facilitates the definition of a declarative query algebra. Our experimental results with large collections of XML documents demonstrate the effectiveness of the techniques proposed.},
+  language = {en},
+  timestamp = {2016-08-29T08:27:03Z},
+  number = {1997},
+  urldate = {2016-08-29},
+  url = {http://link.springer.com/chapter/10.1007/3-540-45271-0_9},
+  booktitle = {The {{World Wide Web}} and {{Databases}}},
+  publisher = {{Springer Berlin Heidelberg}},
+  author = {Schmidt, Albrecht and Kersten, Martin and Windhouwer, Menzo and Waas, Florian},
+  editor = {Goos, Gerhard and Hartmanis, Juris and {van Leeuwen}, Jan and Suciu, Dan and Vossen, Gottfried},
+  month = may,
+  year = {2000},
+  keywords = {Computer Communication Networks,Database Management,Information Storage and Retrieval,Information Systems Applications (incl. Internet),IT in Business,Popular Computer Science},
+  pages = {137--150},
+  file = {Full Text PDF:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/SF5U2VG4/Schmidt et al. - 2000 - Efficient Relational Storage and Retrieval of XML .pdf:application/pdf;Snapshot:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/TDZBQVFG/3-540-45271-0_9.html:text/html},
+  doi = {10.1007/3-540-45271-0_9}
+}
+
+@inproceedings{Wang2003,
+  title = {X-{{Diff}}: an effective change detection algorithm for {{XML}} documents},
+  shorttitle = {X-{{Diff}}},
+  doi = {10.1109/ICDE.2003.1260818},
+  abstract = {XML has become the de facto standard format for Web publishing and data transportation. Since online information changes frequently, being able to quickly detect changes in XML documents is important to Internet query systems, search engines, and continuous query systems. Previous work in change detection on XML, or other hierarchically structured documents, used an ordered tree model, in which left-to-right order among siblings is important and it can affect the change result. We argue that an unordered model (only ancestor relationships are significant) is more suitable for most database applications. Using an unordered model, change detection is substantially harder than using the ordered model, but the change result that it generates is more accurate. We propose X-Diff, an effective algorithm that integrates key XML structure characteristics with standard tree-to-tree correction techniques. The algorithm is analyzed and compared with XyDiff [CAM02], a published XML diff algorithm. An experimental evaluation on both algorithms is provided.},
+  timestamp = {2016-08-29T08:27:29Z},
+  booktitle = {19th {{International Conference}} on {{Data Engineering}}, 2003. {{Proceedings}}},
+  author = {Wang, Y. and DeWitt, D. J. and Cai, J. Y.},
+  month = mar,
+  year = {2003},
+  keywords = {Algorithm design and analysis,Change detection algorithms,continuous query system,Databases,data transportation,Detection algorithms,document handling,electronic publishing,Internet,Internet query system,online information,ordered tree model,query formulation,search engine,Search engines,Standards publication,Transportation,tree data structures,tree-to-tree correction technique,Web publishing,X-Diff,XML,XML document,XML structure characteristic},
+  pages = {519--530},
+  file = {IEEE Xplore Full Text PDF:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/6TK2JEVH/Wang et al. - 2003 - X-Diff an effective change detection algorithm fo.pdf:application/pdf;IEEE Xplore Abstract Record:/users/stud00/mp487/.zotero/zotero/jp6zq2jc.default/zotero/storage/68TKW32F/1260818.html:text/html}
 }
 
 

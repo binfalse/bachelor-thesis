@@ -18,9 +18,16 @@
 	\end{itemize}
 	
 	\subsection{XML Diff}
-	cf. Cobena2002 and \cite{Waltemath2013} in section 2.2.1
+	cf. Cobena2002 \cite{Cobena2002} and \cite{Waltemath2013} in section 2.2.1
+	Chawathe et al., 1996 \cite{Chawathe1996}
 	\begin{itemize}
-		\item 
+		\item "With flat information deltas may be represented simply as sets of tuples or records inserted into, deleted from, and updated in relations. In hierarchical information, we want to identify changes not just to the 'nodes' in the data, but also to their relationships." \cite{Chawathe1996}
+		\item "General-purpose version control systems attempt to handle any kind of document and thus make no assumptions about the underlying document format. Usually, those systems distinguish between binary documents and text documents. Appropriate diff algorithms are employed to detect changes between two versions of a document. Those diff algorithms are either line based (for text documents) or byte based (for binary documents). General-purpose version control systems provide good control for line-organized text documents such as source code or latex documents. For XML documents, where the organization into lines can be neglected, 2 line-based version control is inappropriate." \cite{Ronnau2005}
+		\item requirements
+			\subitem "Within a delta, the exact location of the change must be identified." \cite{Ronnau2005}
+			\subitem "XML Structure Information. An XML document is generally a hierarchically structured document, and can be represented in a tree structure. However, an XML document has other features that distinguish it from a general labeled tree. X-Diff introduces the	notion of node signature and a new matching between the trees corresponding to the two versions of a 	document. Together, these two features are used to find the minimum-cost matching and generate a minimum-cost edit script that is capable of transforming the original version of the document to the new version." \cite{Wang2003}
+			\subitem "Unordered Trees. Since XML documents can be represented as trees, the change detection problem is related to the problem of change detection on trees." \cite{Wang2003}
+		\item "It [the algorithm] tries to detect (large) subtrees that were left unchanged between the old and new versions. These are matched. Starting from there, the algorithm tries to match more nodes by considering ancestors and descendants of matched nodes and taking labels into consideration. Our algorithm also takes advantage of the specificities of XML data. For instance, it knows of attributes and attribute updates and treat them differently from element or text nodes. It also takes into account ID attributes to match elements." \cite{Cobena2002}
 	\end{itemize}
 	
 	\subsection{BiVeS}
@@ -35,7 +42,7 @@
 		\subitem The hash sum of a node n represents the signature of the subtree rooted at n 
 		\subitem While n r unambiguously defines the subtree rooted in n, n r does not need to be unique among all nodes in the tree. Thus, if n r ¼ m r then the subtrees in n and m are identically equal 
 		\subitem First, nodes are being mapped with respect to their identifiers 
-		\subitem id attributes in the XML documents serve as identifiers. In addition, we also evaluate biolo- gical identifiers, specifically links into bio-ontologies 
+		\subitem id attributes in the XML documents serve as identifiers. In addition, we also evaluate biological identifiers, specifically links into bio-ontologies 
 		\subitem Second, the initial mapping is propagated upwards into the trees. 
 		\subitem The connections of a node’s children are evaluated in a depth-first traversal of T 2 . If a node n in T 2 is connected to a node m in T 1 then a mapping of parent ðnÞ to parent ðmÞ is suggested 
 		\subitem If, in contrast, n is not connected, we examine the candidates that were previously suggested by the connections of n’s children. 
@@ -44,13 +51,13 @@
 		\subitem Third, the algorithm makes use of the initially computed signatures and maps nodes of T 2 on nodes of T 1 
 		\subitem A priority queue U is maintained to sort the nodes of T 2 based on their weights. Initially, U only consists of the root node of T 2 . 
 		\subitem Unless U is empty, the algorithm repeatedly removes node n 2 U  T 2 with the biggest weight, which represents the biggest subtree in the queue 
-		\subitem Fourth, the algorithm improves the quality of the mapping by examining the network structure of T 1 and T 2 in a top-down approach. For every mapping n 2 T 2 on m 2 T 1 , it compares unmatched chil- dren of n and m to find missed mappings 
+		\subitem Fourth, the algorithm improves the quality of the mapping by examining the network structure of T 1 and T 2 in a top-down approach. For every mapping n 2 T 2 on m 2 T 1 , it compares unmatched children of n and m to find missed mappings 
 		\subitem The algorithm evaluates the matrix greedily and adds new mappings up to a maximum distance of 0.9. Thus, nodes which have nothing in common will not be connected 
-		\subitem Additional mapping rules capture the domain characteristics of the pro- cessed data. Following the current specifications for SBML and CellML, we prohibit certain changes in the hierarchical tree of docu- ment nodes. Specifically, we treat parts of the model as atomic con- structs for which we define restrictions on possible network operations 
+		\subitem Additional mapping rules capture the domain characteristics of the processed data. Following the current specifications for SBML and CellML, we prohibit certain changes in the hierarchical tree of document nodes. Specifically, we treat parts of the model as atomic con- structs for which we define restrictions on possible network operations 
 		\subitem This step is a major reason why our algorithm outperforms standard XML diff algorithms. 
 		\subitem insert if an entity is present in T 2 but absent in T 
 		\subitem delete if an entity is present in T 1 but absent in T 
-		\subitem move if a node is present in both documents, but either (i) the par- ents in the corresponding trees are not connected or (ii) the parents are connected, but the sequence of their siblings has changed 
+		\subitem move if a node is present in both documents, but either (i) the parents in the corresponding trees are not connected or (ii) the parents are connected, but the sequence of their siblings has changed 
 		\subitem update if the value of an attribute, a text node's content or the tag name of a node was modified
 		\subitem After the mapping, we distinguish two types of nodes: mapped nodes and unmapped nodes. Unmapped nodes n 2 T 1 [ T 2 are nodes for which the algorithm could not find a matching node in the opposite tree. These nodes and their attributes correspond to either inserts or deletes, depending on their origin 
 		\subitem In contrast, mapped nodes are nodes for which the algorithm did find a matching node in the opposite tree. If the parents of such a mapping of n 2 T 2 onto m 2 T 1 are not connected, or if the se- quence among their siblings has changed, then these nodes are included in the set of moves 
@@ -88,6 +95,8 @@
 		\item no domain specific knowledge to improve mapping of different XML-tree branches
 			\subitem important for good detection of tree branch movement etc. 
 			\subitem "A model VCS should be tailored to existing model representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users." \cite{Waltemath2013}
+			\subitem "These
+			common changes are detected by the LCS algorithm, but they are in fact irrelevant for the model’s history and would be neglected by entity-based algorithms. In other words, although being successfully used for source code version control, LCS is not suitable for XML version control (Chawathe et al., 1996)." \cite{Waltemath2013}
 		\item As proposed in \cite{Waltemath2013} there are 2 major approaches to keep track of changes:
 			\subitem keeping track of (minor) changes in the model itself
 			\subitem tracking versions in the repository
