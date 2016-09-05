@@ -165,8 +165,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="592.86933"
-     inkscape:cy="278.76635"
+     inkscape:cx="482.61151"
+     inkscape:cy="214.23827"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -207,6 +207,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(204.51769,-91.785029)">
+    <rect
+       style="fill:#808080;fill-opacity:0.1254902;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7438"
+       width="668.22479"
+       height="271.99054"
+       x="98.918053"
+       y="100.37164" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -305,7 +312,7 @@
          y="710.22137"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Droid Serif';-inkscape-font-specification:'Droid Serif'">neo4j</tspan></text>
     <path
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#ff0101;fill-opacity:0.1254902;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:0.50196081"
        d="m 118.1875,192.72266 0,51.51757 539.83677,0 0,57.57813 -539.83677,0 0,51.51758 c 205.36179,0 431.63033,0 626.29492,0 l 0,-160.61328 c -211.82491,0 -440.74713,0 -626.29492,0 z"
        id="rect5012"
        inkscape:connector-curvature="0"
@@ -356,13 +363,6 @@
          x="-198.38322"
          y="226.64793"
          id="tspan7434">ModelCrawler</tspan></text>
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect7438"
-       width="668.22479"
-       height="271.99054"
-       x="98.918053"
-       y="100.37164" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
