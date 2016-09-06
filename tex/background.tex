@@ -135,8 +135,19 @@
 	\subsection{Graph Database schema and the Entity Relation model}
 	\label{sec:graph-db:er}
 	Relational databases have established a supremacy over the time, it is therefore well known, how to convert formal modeling approaches like entity-relationship (ER) models and UML class diagrams into a relational schema. With introducing so called noSQL databases, which break with classic relational design, modeling schema got. Mostly because they do not favor a defined data structure.
-	But since 
-	Even though neo4j, introduced in section \ref{sec:graph-db}, is part of the schema-free noSQL 
+	But since architectural planing and design is an essential part of software development, it is necessary to define formal data structure and relations.
+	
+	Even though \neoj, introduced in section \ref{sec:graph-db}, is part of the schema-free noSQL, it provides mechanisms to work with schema and also enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
+	Unfortunately the neo4j team does not use any establish modeling language, but relies on example graphs for their documentation and examples.
+	I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
+	However, as \cite{Siriwaradhana2014} shows it is fairly easy to translate standard ER-models to a graph-database structure. An example for a translation can be seen in figure \ref{fig:example-er-diagram}.
+	
+	It is suggested, that a name of an entity is translated into a vertex name or -- in case of \neoj -- a node label. All associated attributes become vertex properties.
+	In case of a simple binary relation, a edge with type (\neoj label) of the relation name is added. Similar to entities the attributes are becoming properties. end- and start-point fo the edge are the corresponding vertex-types to the two entities connected by the relation.
+	
+	N-ary relation on the other hand cannot be easily translated. To map those it is necessary to add a vertex with the name of the relation, due to the restriction of property graphs regarding relations. This new vertex is representing the relation and is assigned all associated properties. The participating entities in this relation are connected via edges, which are labeled after the role of the participating entity or if no role is specified the edge name could be a combination of relationship- and target-vertex name.
+	For all translations relation directions of the edges do not matter, since there is no way to define this in ER models. Anyway, the directions should be chosen so role and therefore edge names make sense.
+	\begin{comment}
 	\begin{itemize}
 	\item entities:
 		\subitem name of the entity becomes vertex name (neo4j node label)
@@ -155,6 +166,7 @@
 			\subsubitem directions do not matter
 	\item cf. \cite{Siriwaradhana2014}
 	\end{itemize}
+	\end{comment}
 	
 	\begin{figure}
 		\center
