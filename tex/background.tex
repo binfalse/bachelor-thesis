@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \section{Data formats for System Biology models}
 	\begin{itemize}
 		\item formats
@@ -141,6 +142,7 @@
 	Unfortunately the neo4j team does not use any establish modeling language, but relies on example graphs for their documentation and examples.
 	I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
 	However, as \cite{Siriwaradhana2014} shows it is fairly easy to translate standard ER-models to a graph-database structure. An example for a translation can be seen in figure \ref{fig:example-er-diagram}.
+	\todo{check usage of cite style}
 	
 	It is suggested, that a name of an entity is translated into a vertex name or -- in case of \neoj -- a node label. All associated attributes become vertex properties.
 	In case of a simple binary relation, a edge with type (\neoj label) of the relation name is added. Similar to entities the attributes are becoming properties. end- and start-point fo the edge are the corresponding vertex-types to the two entities connected by the relation.
