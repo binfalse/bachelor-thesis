@@ -17,12 +17,15 @@
 	\subitem linking version
 	\subitem storing differences
 \item decisions on storage model
-	\subitem storing each version full (no delta-storag)
+	\subitem storing each version full (no delta-storage)
 	\subitem each version is aware to the search index
 	\subitem diff still enables for analysis of changes
 	\subitem higher storage consumption
 \item extended storage model
 \end{itemize}
+
+% description of ER model
+Figure \ref{fig:db-er-model} shows the proposed database schema as ER model. To reduce complexity and redundancy, for some entities only classes of higher hierarchy are modeled. E.g. a \texttt{DiffEntry} could be a \texttt{DiffInsert}, \texttt{DiffDelete}, \texttt{DiffModify} or \texttt{DiffMove}. Same applies for \texttt{ModelEntityType} and \texttt{ModelEntity}.
 
 \begin{figure}
 	\centering
