@@ -118,6 +118,22 @@
 	\subsection{COMODI}
 	\begin{itemize}
 		\item cf. \cite{Scharm2016}
+		\item  They clarify the intended semantics of the data, which makes the data more accessible, sharable, and interoperable 
+		\item An ontology is a tool to provide meaning to data, the information of which can then be subjected to algorithmic processing
+		\item We believe that a similar approach should be taken for the semantic description of differences between versions of a model. Using the semantic layer to describe changes in a model allows for storing meaning together with possible implications of these changes.
+		\item It is important to track these changes for a number of reasons. Changes in parametrisations or on the underlying network may lead to a situation where the original results are not reproducible anymore.
+		\item With respect to simulation results, change records can help to predict modifications in the simulation outcome. Finally, a good communication of model changes increases the trust of scientists wishing to reuse a model for their own purposes.
+		\item  as the list of changes increases it becomes harder to grasp their relevance. To address this problem, we present an ontology to annotate the changes identified with the BiVeS algorithm.
+		\item  it is always possible to specify the XML entity that is subject to a change. 
+		\item COMODI is organised into four branches around the central concept Change: XmlEntity, Intention, Reason, Target
+		\item Intention and Reason both indicate the purpose of a change. On the one hand, the Intention specifies the aim of a change, particularly with respect to consequences in the future. In our example, the intention of modifying the parameter value is a Correction. On the other hand, a Reason specifically focuses on the cause of a change. In our example, a MismatchWithPublication caused an update of the parameter value.
+		\item COMODI basically distinguishes between five layers in a model document, that can be subject to a change:
+		\item Finally, different changes might be linked to each other if they have mutual dependencies.
+		\item The COMODI ontology is specifically designed for the annotation of differences between versions of a computational model in the life sciences.
+		\item Some information can directly be inferred and thus be annotated automatically with BiVeS
+		\item  The ontology terms specify the type of change for each detected difference. Usually, a combination of COMODI terms from different branches is necessary to characterise a change sufficiently.
+		\item COMODI terms can also be applied to differences detected between models in any other encoding format, including even code from proprietary languages such as MATLAB 
+		\item COMODI cannot, however, be used to encode provenance, such as information about the user who changed the model or information about the tool used to update the file. It can, however, easily be coupled with ontologies for provenance.
 	\end{itemize}
 	
 \section{Using graph databases to store \sysbio models}
