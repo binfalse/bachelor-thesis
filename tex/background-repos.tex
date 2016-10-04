@@ -53,7 +53,7 @@ For all translations relation directions of the edges do not matter, since there
 \begin{figure}
 	\center
 	\includegraphics[height=150pt]{resources/er-to-neo4j.pdf}
-	\caption{Example conversion of an ER diagram into a neo4j graph}
+	\caption{Example conversion of an ER diagram into a \neoj graph}
 	
 	%Create (a1:A {name: 'A1'}), (b1:B {name: 'B1'}), (b2:B {name: 'B2'}), (c1:C {name: 'C1'}), (c2:C {name: 'C2'}), (d1:D {name: 'D1'}), (d2:D {name: 'D2'}), (x1:X {name: 'X1'}), (x2:X {name: 'X2'}), (a1)-[:XA]->(x1), (x1)-[:XB]->(b1), (x1)-[:XC]->(c1), (a1)-[:Y]->(d1), (a1)-[:Y]->(d2), (a1)-[:XA]->(x2), (x2)-[:XB]->(b2), (x2)-[:XC]->(c2)
 	
@@ -61,12 +61,31 @@ For all translations relation directions of the edges do not matter, since there
 \end{figure}
 
 \subsection{\masymos}
+\label{sec:background:graph-db:masymos}
+
+This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \todo{add cite to neo4j book}.
+As mentioned in section \ref{sec:graph-db}, models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. In conclusion they are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database.
+
+Since \masymos is developed for "storing and retrieving structural information of biological models" \cite{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \cite{Henkel2015}
+
+The internal schema used by \masymos is shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. It represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which in contrast is the entry point for the actual model and represents the \xml root node.
+
+Beyond these two nodes, the schema depends on the format, encoding the imported model. For \sbml the \texttt{MODEL} node is linked compartments, species, and reactions. Which on the other hand are linked among each other, expressions relations like reaction reactants and products, or association to a compartment.
+Whereby in \cellml the \texttt{MODEL} node links to components, which again contain variables and mathematical expressions, manipulating other variables.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=150pt]{resources/masymos_struc_figure2.eps}
+	\caption{Structure representing \sbml and \cellml models in \masymos}
+	\label{fig:background:graph-db:masymos}
+\end{figure}
+
 % following some quotes from the Henkel2015 paper
 \begin{itemize}
 	\item This work is based on MaSyMoS, "a graph database for simulation models and associated data" \cite{Henkel2015}
 	\subitem \cite{Henkel2015} Many models in public databases encode networks that can be represented as graphs
 	\subitem \cite{Henkel2015} relational databases were developed for homogeneous, structured data, e.g. numerical data
-	\subitem \cite{Henkel2015} Designing a relational representation for these links and keeping the database effi\item cient at the same time are impossible
+	\subitem \cite{Henkel2015} Designing a relational representation for these links and keeping the database efficient at the same time are impossible
 	
 	\item \cite{Henkel2015} MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models
 	\subitem \cite{Henkel2015} We chose the graph database Neo4J (25)
