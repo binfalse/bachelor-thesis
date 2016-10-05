@@ -70,9 +70,10 @@ Since \masymos is developed for "storing and retrieving structural information o
 
 The internal schema used by \masymos is shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. It represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which in contrast is the entry point for the actual model and represents the \xml root node.
 
-Beyond these two nodes, the schema depends on the format, encoding the imported model. For \sbml the \texttt{MODEL} node is linked compartments, species, and reactions. Which on the other hand are linked among each other, expressions relations like reaction reactants and products, or association to a compartment.
+Beyond these two nodes, the schema depends on the format, encoding the imported model. For \sbml the \texttt{MODEL} node is linked to compartments, species, and reactions. Which on the other hand are linked among each other, expressions relations like reaction reactants and products, or association to a compartment.
 Whereby in \cellml the \texttt{MODEL} node links to components, which again contain variables and mathematical expressions, manipulating other variables.
 
+Further semantic annotations, like ontology terms or publication and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
 \begin{figure}
 	\centering
 	\includegraphics[height=150pt]{resources/masymos_struc_figure2.eps}
