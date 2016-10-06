@@ -10,15 +10,28 @@
 	\end{itemize}
 	\todo{look at STATS paper/MOST for version statistics}
 
-\section{Detecting differences in VCS}
+\section{Detecting differences in Version Control Systems}
 	\subsection{Unix Diff}
+	\label{sec:background:diff:unix-diff}
+	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version complete is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
+	
+	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files. \cite{Hunt1976}
+	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}
+	
+	\begin{comment}
 	\begin{itemize}
 		\item Based on solving the longest common subsequence problem
 		\item "The program diff reports differences between two files, expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}
 		\item "The central algorithm of diff solves the ‘longest common subsequence problem’ to find the lines that do not change between files" \cite{Hunt1976}
 	\end{itemize}
+	\end{comment}
 	
 	\subsection{XML Diff}
+	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \cite{Ronnau2005}
+	
+	
+	
+	
 	cf. Cobena2002 \cite{Cobena2002} and \cite{Waltemath2013} in section 2.2.1
 	Chawathe et al., 1996 \cite{Chawathe1996}
 	\begin{itemize}
