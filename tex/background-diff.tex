@@ -28,9 +28,13 @@
 	
 	\subsection{XML Diff}
 	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \cite{Ronnau2005}
+	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number. \cite{Wang2003,Chawathe1996,Cobena2002}
+	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently. \cite{Cobena2002}
+	
+	\todo{add ref to both examples XyDiff + the other one?}
 	
 	
-	
+	\begin{comment}
 	
 	cf. Cobena2002 \cite{Cobena2002} and \cite{Waltemath2013} in section 2.2.1
 	Chawathe et al., 1996 \cite{Chawathe1996}
@@ -43,6 +47,7 @@
 			\subitem "Unordered Trees. Since XML documents can be represented as trees, the change detection problem is related to the problem of change detection on trees." \cite{Wang2003}
 		\item "It [the algorithm] tries to detect (large) subtrees that were left unchanged between the old and new versions. These are matched. Starting from there, the algorithm tries to match more nodes by considering ancestors and descendants of matched nodes and taking labels into consideration. Our algorithm also takes advantage of the specificities of XML data. For instance, it knows of attributes and attribute updates and treat them differently from element or text nodes. It also takes into account ID attributes to match elements." \cite{Cobena2002}
 	\end{itemize}
+	\end{comment}
 	
 	\subsection{BiVeS}
 	\begin{itemize}
