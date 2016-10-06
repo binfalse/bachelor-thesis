@@ -74,6 +74,12 @@ Beyond these two nodes, the schema depends on the format, encoding the imported 
 Whereby in \cellml the \texttt{MODEL} node links to components, which again contain variables and mathematical expressions, manipulating other variables.
 
 Further semantic annotations, like ontology terms or publication and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
+Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but traversing to more detailed ones and vice versa.
+Commonly imported ontologies are biomodels-qualifier \footnote{\todo{get link to biomq}}, gene ontology \footnote{\todo{go link}} and \todo{another onto}
+
+In addition to explicit links the graph database backend of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with common annotations, or even between models using annotations of the same ontology branch
+Further, to allow for easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
+
 \begin{figure}
 	\centering
 	\includegraphics[height=150pt]{resources/masymos_struc_figure2.eps}
@@ -81,6 +87,7 @@ Further semantic annotations, like ontology terms or publication and author rela
 	\label{fig:background:graph-db:masymos}
 \end{figure}
 
+\begin{comment}
 % following some quotes from the Henkel2015 paper
 \begin{itemize}
 	\item This work is based on MaSyMoS, "a graph database for simulation models and associated data" \cite{Henkel2015}
@@ -134,5 +141,6 @@ Further semantic annotations, like ontology terms or publication and author rela
 	\subitem The Command Line Interface (CLI) provides a user interface, to easily interact with the API provided by the core module. It's main purpose was to simplify the development process by skipping the deployment step. Instead it is possible to directly interact with and debug MaSyMoS
 	\subitem The Morre module is similiar to the CLI, by providing an way to interact with the core. But instead of providing a user interface, Morre is loaded as neo4j unmanaged extension and exposes a RESTful interface, which can be used to query the Lucene indexes or to push and update models to the database.
 \end{itemize}
+\end{comment}
 \todo{Pictures}
 
