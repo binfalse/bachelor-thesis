@@ -167,8 +167,11 @@
 	However with an increasing size of the change records, also the difficulty increase to perceive the relevance of certain changes. Therefore it is important to these changes.
 	
 	In order to fulfill all this requirements, \comodi is organized in four branches, inheriting from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
-	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. Whereby \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change.
-	
+	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. Whereby \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change. For instance a \texttt{Reason} for a change might be a \texttt{MismatchWithPublication} causing a parameter update.
+	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
+	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: The first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
+	Further on the second layer -- \texttt{ModelAnnotation} -- is meant to express changes on the semantic layer, e.g. annotations. 
+	On the contrary further branches refer to changes effecting the actual model behavior.
 	
 	
 	\begin{itemize}
