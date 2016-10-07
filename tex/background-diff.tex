@@ -66,6 +66,7 @@
 	
 	After all calculation are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
 	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}
+	\todo{include a nice bives figure}
 	
 	\begin{comment}
 	\begin{itemize}
@@ -154,6 +155,22 @@
 	
 	\subsection{\comodi}
 	\label{sec:background:onto:comodi}
+	\todo{include nice comodi figure}
+	Identifying the position and the existence of changes is only the first step in deeper understanding the evolution of a document or biological model. To truly explain the historical development, reason, purpose, and target of a modification are important. 
+	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, which can be utilized for automatic processing of the data, making them "more accessible, sharable and interoperable" \cite{Scharm2016}.
+	An ontology is well suited tool for building interlinked and structured vocabularies, which can be used in semantic annotations and therefore encoding meaning of otherwise blank data.
+	
+	\comodi was developed to provide exactly this layer of semantic information to differences between two versions of a biological model, allowing to store the substance of a change together with its potential implications.
+	Scharm et al. are reasoning, how important it is to track these additional information to changes, hence a modification of parameters or the underlying reaction network may change the outcome, breaking the reproducibility of this model. To prevent this it is important to detect certain changes and 
+	react corresponding.
+	Further, Scharm argues, that change records may help to predict if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reusebility of this model.
+	However with an increasing size of the change records, also the difficulty increase to perceive the relevance of certain changes. Therefore it is important to these changes.
+	
+	In order to fulfill all this requirements, \comodi is organized in four branches, inheriting from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
+	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. Whereby \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change.
+	
+	
+	
 	\begin{itemize}
 		\item cf. \cite{Scharm2016}
 		\item  They clarify the intended semantics of the data, which makes the data more accessible, sharable, and interoperable 
