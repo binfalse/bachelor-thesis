@@ -27,6 +27,7 @@
 	\end{comment}
 	
 	\subsection{XML Diff}
+	\label{sec:background:diff:xml-diff}
 	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \cite{Ronnau2005}
 	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number. \cite{Wang2003,Chawathe1996,Cobena2002}
 	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently. \cite{Cobena2002}
@@ -50,6 +51,9 @@
 	\end{comment}
 	
 	\subsection{BiVeS}
+	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically. \cite{Scharm2015}
+	
+	
 	\begin{itemize}
 		\item benefits of XyDiff compared to unix-diff
 		\subitem problems with XML
