@@ -51,9 +51,23 @@
 	\end{comment}
 	
 	\subsection{BiVeS}
+	\todo{use the terms source and destination document}
 	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically. \cite{Scharm2015}
 	
+	As mentioned the \bives algorithm is based on XyDiff, and similar to it, \bives tries to match subtrees of both models. To make this process as fast as possible, \bives is calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
+	First the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second this initial mapping is propagated upwards in the document structure, meaning the connection of a nodes children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates, the most promising mapping is chosen.
+	Third the initially generated hashes are used to mapped remaining subtrees. A priority queue maintains the processing order, so the larger subtrees are mapped first.
+	As last step the quality of the mapping is improved by examining the network structure top-down. Each unmapped child is compared to unmatched children in the opposite document and new mappings are created with a maximum distance of $0.9$. This ensures, that completely unrelated nodes are not connected.
+	Additionally domain specific mapping rules are in place to apply different strategies for specific characteristics. For instance, certain parts of a model document are treated as atomic units. Whereby different changes in the hierarchical structure are forbidden, which means, that these mappings are unlinked. This is a crucial step, leading to better performance, when compared to standard \xml delta algorithms.
 	
+	Finally the different change types are distinguished, by comparing the mappings. An \texttt{insert} is for instance only present in the destination model, but has no mapping to the source model. In contrast a \texttt{delete} can only be found in the source model, certainly not in the destination.
+	However these two are called unmapped changes, hence they are identified by the missing link. Opposed to this kind of changes, mapped nodes lead to either an \texttt{update}, \texttt{move}, or no change.
+	A \texttt{move} is specified as case, when the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update} -- however -- happens, when the value of an attribute, the content of a text node or the tag name was alternated.
+	
+	After all calculation are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
+	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}
+	
+	\begin{comment}
 	\begin{itemize}
 		\item benefits of XyDiff compared to unix-diff
 		\subitem problems with XML
@@ -85,6 +99,7 @@
 		\subitem After the mapping, we distinguish two types of nodes: mapped nodes and unmapped nodes. Unmapped nodes n 2 T 1 [ T 2 are nodes for which the algorithm could not find a matching node in the opposite tree. These nodes and their attributes correspond to either inserts or deletes, depending on their origin 
 		\subitem In contrast, mapped nodes are nodes for which the algorithm did find a matching node in the opposite tree. If the parents of such a mapping of n 2 T 2 onto m 2 T 1 are not connected, or if the se- quence among their siblings has changed, then these nodes are included in the set of moves 
 	\end{itemize}
+	\end{comment}
 	
 \section{Managing Versions}
 	\subsection{Traditional Version Control Systems}
@@ -138,7 +153,7 @@
 	\todo{http://msb.embopress.org/content/7/1/543.short for ontology overview}
 	
 	\subsection{\comodi}
-	\label{sec:background:comodi}
+	\label{sec:background:onto:comodi}
 	\begin{itemize}
 		\item cf. \cite{Scharm2016}
 		\item  They clarify the intended semantics of the data, which makes the data more accessible, sharable, and interoperable 
