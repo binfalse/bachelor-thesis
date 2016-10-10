@@ -1,19 +1,26 @@
 % !TeX spellcheck = en_US
 \section{Existing Model repositories}
 \todo{}
+
 \begin{itemize}
 	\item use/cite mostly introduction from \cite{Waltemath2013}
 	\item maybe also cite \cite{Lysenko2016}?
 \end{itemize}
 
 \section{Using graph databases to store \sysbio models}
-\label{sec:graph-db}
+\label{sec:backgroung:graph-db}
+\sysbio models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for the generation of assumptions and basic information mining. Further, data often needs to be converted to comply with the database schema, which implies changes to later, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \cite{Lysenko2016}
+
+In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database. \cite{Henkel2015}
+
+\begin{comment}
 \begin{itemize}
 	\item \masymos exists
 	\item graph databases (eg. neo4j) are more suitable for inhomogeneous data
 	\item queries are easier
 	\item bio networks are graphs -> graph database \cite{Lysenko2016}
 \end{itemize}
+\end{comment}
 
 \subsection{Graph Databases}
 \begin{itemize}
@@ -21,11 +28,11 @@
 \end{itemize}
 
 \subsection{Graph Database schema and the Entity Relation model}
-\label{sec:graph-db:er}
+\label{sec:background:graph-db:er}
 Relational databases have established a supremacy over the time, it is therefore standardized, how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \cite{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Due to most new databases following the noSQL paradigm, do not rely on strong and fixed data structures \cite{Tudorica2011}.
 Since architectural planing and design is an essential part of software development, it is still useful to define formal data structure and relations.
 
-Even though \neoj, introduced in Section \ref{sec:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
+Even though \neoj, introduced in Section \ref{sec:backgroung:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
 %Unfortunately the neo4j team does not use an establish modeling language, but relies on example graphs for their documentation and examples.
 I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
 However, as Siriwaradhana shows it is easy to translate standard ER-models into graph-database structure. \cite{Siriwaradhana2014}
@@ -72,7 +79,6 @@ For all translations relation directions of the edges do not matter, since there
 \label{sec:background:graph-db:masymos}
 
 This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \todo{add cite to neo4j book}.
-As mentioned in Section \ref{sec:graph-db}, models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult \todo{elaborate}, hence those databases are made to store highly structured information, e.g. numerical data. In conclusion they are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database.
 
 Since \masymos is developed for "storing and retrieving structural information of biological models" \cite{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \cite{Henkel2015}
 
@@ -85,7 +91,7 @@ Further semantic annotations, like ontology terms or publication and author rela
 Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but traversing to more detailed ones and vice versa.
 Commonly imported ontologies are biomodels-qualifier \footnote{\todo{get link to biomq}}, gene ontology \footnote{\todo{go link}} and \todo{another onto}
 
-In addition to explicit links the graph database backend of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with common annotations, or even between models using annotations of the same ontology branch
+In addition to explicit links the graph database back-end of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with common annotations, or even between models using annotations of the same ontology branch
 Further, to allow for easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
 
 \todo{paragraph about shortcomings}
