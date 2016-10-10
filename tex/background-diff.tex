@@ -54,17 +54,17 @@
 	\todo{use the terms source and destination document}
 	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically. \cite{Scharm2015}
 	
-	As mentioned the \bives algorithm is based on XyDiff, and similar to it, \bives tries to match subtrees of both models. To make this process as fast as possible, \bives is calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
+	As mentioned, the \bives algorithm is based on XyDiff, and similar to it, \bives tries to match subtrees of both models. To make this process as fast as possible, \bives is calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
 	First the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second this initial mapping is propagated upwards in the document structure, meaning the connection of a nodes children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates, the most promising mapping is chosen.
-	Third the initially generated hashes are used to mapped remaining subtrees. A priority queue maintains the processing order, so the larger subtrees are mapped first.
+	Third the initially generated hashes are used to map remaining subtrees. A priority queue maintains the processing order, so the larger subtrees are mapped first.
 	As last step the quality of the mapping is improved by examining the network structure top-down. Each unmapped child is compared to unmatched children in the opposite document and new mappings are created with a maximum distance of $0.9$. This ensures, that completely unrelated nodes are not connected.
-	Additionally domain specific mapping rules are in place to apply different strategies for specific characteristics. For instance, certain parts of a model document are treated as atomic units. Whereby different changes in the hierarchical structure are forbidden, which means, that these mappings are unlinked. This is a crucial step, leading to better performance, when compared to standard \xml delta algorithms.
+	Additionally domain specific mapping rules are in place to apply different strategies for specific characteristics. For instance, certain parts of a model document are treated as atomic units. Whereby different changes in the hierarchical structure are forbidden, which means, that these mappings are unlinked. This is a crucial step, leading to better quality results, when compared to standard \xml delta algorithms.
 	
 	Finally the different change types are distinguished, by comparing the mappings. An \texttt{insert} is for instance only present in the destination model, but has no mapping to the source model. In contrast a \texttt{delete} can only be found in the source model, certainly not in the destination.
 	However these two are called unmapped changes, hence they are identified by the missing link. Opposed to this kind of changes, mapped nodes lead to either an \texttt{update}, \texttt{move}, or no change.
-	A \texttt{move} is specified as case, when the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update} -- however -- happens, when the value of an attribute, the content of a text node or the tag name was alternated.
+	A \texttt{move} is specified as a case, in which the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update}, however, happens, when the value of an attribute, the content of a text node or the tag name was alternated.
 	
-	After all calculation are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
+	After all calculations are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
 	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}
 	\todo{include a nice bives figure}
 	
@@ -156,17 +156,17 @@
 	\subsection{\comodi}
 	\label{sec:background:onto:comodi}
 	\todo{include nice comodi figure}
-	Identifying the position and the existence of changes is only the first step in deeper understanding the evolution of a document or biological model. To truly explain the historical development, reason, purpose, and target of a modification are important. 
+	Identifying the position and the existence of changes is only the first step in deeper understanding, the evolution of a document or biological model. To truly explain this evolution, the historical development, reason, purpose, and target of a modification are important. 
 	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, which can be utilized for automatic processing of the data, making them "more accessible, sharable and interoperable" \cite{Scharm2016}.
-	An ontology is well suited tool for building interlinked and structured vocabularies, which can be used in semantic annotations and therefore encoding meaning of otherwise blank data.
+	An ontology is well suited tool for building interlinked and structured vocabularies, which can be used in semantic annotations and therefore encoding meaning of otherwise plain data.
 	
-	\comodi was developed to provide exactly this layer of semantic information to differences between two versions of a biological model, allowing to store the substance of a change together with its potential implications.
-	Scharm et al. are reasoning, how important it is to track these additional information to changes, hence a modification of parameters or the underlying reaction network may change the outcome, breaking the reproducibility of this model. To prevent this it is important to detect certain changes and 
-	react corresponding.
-	Further, Scharm argues, that change records may help to predict if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reusebility of this model.
+	\comodi was developed to provide exactly this layer of semantic information to differences between two versions of a biological model, allowing to store the essential meaning of a change together with its potential implications.
+	Scharm et al. are reasoning, how important it is to track these additional information to changes, because a modification of parameters or the underlying reaction network may change the outcome, breaking the reproducibility of this model. To prevent this it is important to detect certain changes and 
+	react correspondingly.
+	Further, Scharm et al. argue, that change records may help to predict, if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reusebility of this model.
 	However with an increasing size of the change records, also the difficulty increase to perceive the relevance of certain changes. Therefore it is important to these changes.
 	
-	In order to fulfill all this requirements, \comodi is organized in four branches, linking from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
+	In order to fulfill all these requirements, \comodi is organized in four branches, linking from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
 	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. Whereby \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change. For instance a \texttt{Reason} for a change might be a \texttt{MismatchWithPublication} causing a parameter update.
 	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
 	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: The first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
