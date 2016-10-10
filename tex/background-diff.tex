@@ -166,14 +166,17 @@
 	Further, Scharm argues, that change records may help to predict if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reusebility of this model.
 	However with an increasing size of the change records, also the difficulty increase to perceive the relevance of certain changes. Therefore it is important to these changes.
 	
-	In order to fulfill all this requirements, \comodi is organized in four branches, inheriting from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
+	In order to fulfill all this requirements, \comodi is organized in four branches, linking from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
 	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. Whereby \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change. For instance a \texttt{Reason} for a change might be a \texttt{MismatchWithPublication} causing a parameter update.
 	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
 	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: The first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
 	Further on the second layer -- \texttt{ModelAnnotation} -- is meant to express changes on the semantic layer, e.g. annotations. 
-	On the contrary further branches refer to changes effecting the actual model behavior.
+	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY ontology \cite{Courtot2011}\todo{cite teddy} and therefore makes it possible to captures changes in the dynamics of the system.
+	Additionally to the different branches, \comodi allows to model causality of changes by introducing a \texttt{wasTriggeredBy} relation, which expresses "mutual dependencies". However, \comodi does not provide any terms to describe provenance information, but it can be easily incorporated with ontologies build for this purpose.
 	
 	
+	
+	\begin{comment}
 	\begin{itemize}
 		\item cf. \cite{Scharm2016}
 		\item  They clarify the intended semantics of the data, which makes the data more accessible, sharable, and interoperable 
@@ -193,3 +196,4 @@
 		\item COMODI terms can also be applied to differences detected between models in any other encoding format, including even code from proprietary languages such as MATLAB 
 		\item COMODI cannot, however, be used to encode provenance, such as information about the user who changed the model or information about the tool used to update the file. It can, however, easily be coupled with ontologies for provenance.
 	\end{itemize}
+	\end{comment}
