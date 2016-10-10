@@ -22,16 +22,16 @@
 
 \subsection{Graph Database schema and the Entity Relation model}
 \label{sec:graph-db:er}
-Relational databases have established a supremacy over the time, it is therefore well known, how to convert formal modeling approaches like entity-relationship (ER) models and UML class diagrams into a relational schema. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got. Mostly because they do not dictate a defined data structure.
+Relational databases have established a supremacy over the time, it is therefore standardized, how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \cite{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Due to most new databases following the noSQL paradigm, do not rely on strong and fixed data structures \todo{cite}.
 Since architectural planing and design is an essential part of software development, it is still useful to define formal data structure and relations.
 
-Even though \neoj, introduced in section \ref{sec:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
+Even though \neoj, introduced in Section \ref{sec:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
 %Unfortunately the neo4j team does not use an establish modeling language, but relies on example graphs for their documentation and examples.
 I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
 However, as Siriwaradhana shows it is easy to translate standard ER-models into graph-database structure. \cite{Siriwaradhana2014}
-An example for a translation is shown in figure \ref{fig:example-er-diagram}.
+An example for a translation is shown in Figure \ref{fig:example-er-diagram}.
 
-It is suggested, that a name of an entity is translated into a vertex name or -- in case of \neoj\ -- a node label. All associated attributes become vertex properties.
+It is suggested, that a name of an entity is translated into a vertex name or, in case of \neoj, a node label. All associated attributes become vertex properties.
 In case of a simple binary relation, an edge with type (\neoj label) of the relation name is added. Similar to entities the attributes are becoming properties. end- and start-point fo the edge are the corresponding vertex-types to the two entities connected by the relation.
 
 N-ary relations on the other hand are a challenge to translated. To map those it is necessary to add a vertex with the name of the relation, due to the restriction of property graphs regarding relations, which cannot handle relations between more than 2 vertexes.
@@ -72,7 +72,7 @@ For all translations relation directions of the edges do not matter, since there
 \label{sec:background:graph-db:masymos}
 
 This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \todo{add cite to neo4j book}.
-As mentioned in section \ref{sec:graph-db}, models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. In conclusion they are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database.
+As mentioned in Section \ref{sec:graph-db}, models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult \todo{elaborate}, hence those databases are made to store highly structured information, e.g. numerical data. In conclusion they are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database.
 
 Since \masymos is developed for "storing and retrieving structural information of biological models" \cite{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \cite{Henkel2015}
 
@@ -88,10 +88,11 @@ Commonly imported ontologies are biomodels-qualifier \footnote{\todo{get link to
 In addition to explicit links the graph database backend of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with common annotations, or even between models using annotations of the same ontology branch
 Further, to allow for easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
 
+\todo{paragraph about shortcomings}
 \begin{figure}
 	\centering
 	\includegraphics[height=150pt]{resources/masymos_struc_figure2.eps}
-	\caption{Structure representing \sbml and \cellml models in \masymos \cite{Henkel2015}}
+	\caption{Structure representing \sbml and \cellml models in \masymos. Figure taken from Henkel et al., 2015 \cite{Henkel2015}}
 	\label{fig:background:graph-db:masymos}
 \end{figure}
 

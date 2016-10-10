@@ -24,14 +24,14 @@
 	\subitem higher storage consumption
 \item extended storage model
 \end{itemize}
-
+\todo{update description to fit the updated ER model}
 % description of ER model
 Figure \ref{fig:db-er-model} shows the proposed database schema as ER model. To reduce complexity and redundancy, for some entities only classes of higher hierarchy are modeled. E.g. a \texttt{DiffEntry} could be a \texttt{DiffInsert}, \texttt{DiffDelete}, \texttt{DiffModify} or \texttt{DiffMove}. Same applies for \texttt{ModelEntityType} and \texttt{ModelEntity}.
 On the left hand side the model shows the existing structure, developed with \masymos. The entities and relations shown on the middle and right hand side shall be added in to process of prototype development.
 \todo{Add color to the diagram, to ease explanation}
 \todo{Find out, to what a Diff can link}
 
-The schema is build around a \texttt{Diff} entity linking two \texttt{Document} entities, which are representing an (XML-)document containing a model. This entity does not necessarily need to span between two consecutive versions, but I decided for a standard setup it might be less useful to store differences between every possible combination of versions, since it would consume unreasonable amount of storage. Further are diffs concatable, so it does not take any computational effort to generate a diff for larger version steps out of consecutive diffs.
+The schema is build around a \texttt{Diff} entity linking two \texttt{Document} entities, which represent an (XML-)document containing a model. This entity does not necessarily need to span between two consecutive versions, but I decided for a standard setup it might be less useful to store differences between every possible combination of versions, since it would consume unreasonable amount of storage. Further are diffs concatable, so it does not take any computational effort to generate a diff for larger version steps out of consecutive diffs.
 
 Every \texttt{Diff} entity links to multiple \texttt{DiffEntry} entities via the \texttt{has\_entry} relation. Each \texttt{DiffEntry} represents a difference detected by \bives \cite{Scharm2015}. Not modeled in the ER model is the differentiation between possible types of the diff (insert, delete, move, modify), which will be represented by using different additional label in \neoj.
 Each \texttt{DiffEntry} links to at least on \texttt{ModleEntityType} or \texttt{ModelEntity} via either \texttt{old\_entity}, a \texttt{new\_entity}, or both, depending on the type of the difference.
