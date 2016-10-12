@@ -15,8 +15,8 @@
 	\label{sec:background:diff:unix-diff}
 	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version complete is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
 	
-	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files. \cite{Hunt1976}
-	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}
+	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \cite{Hunt1976}.
+	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}.
 	
 	\begin{comment}
 	\begin{itemize}
@@ -28,9 +28,9 @@
 	
 	\subsection{XML Diff}
 	\label{sec:background:diff:xml-diff}
-	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \cite{Ronnau2005}
-	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number. \cite{Wang2003,Chawathe1996,Cobena2002}
-	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently. \cite{Cobena2002}
+	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information \cite{Ronnau2005}.
+	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number \cite{Wang2003,Chawathe1996,Cobena2002}.
+	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently \cite{Cobena2002}.
 	
 	\todo{add ref to both examples XyDiff + the other one?}
 	
@@ -52,7 +52,7 @@
 	
 	\subsection{BiVeS}
 	\todo{use the terms source and destination document}
-	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically. \cite{Scharm2015}
+	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \cite{Scharm2015}.
 	
 	As mentioned, the \bives algorithm is based on XyDiff, and similar to it, \bives tries to match subtrees of both models. To make this process as fast as possible, \bives is calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
 	First the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second this initial mapping is propagated upwards in the document structure, meaning the connection of a nodes children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates, the most promising mapping is chosen.
@@ -65,7 +65,7 @@
 	A \texttt{move} is specified as a case, in which the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update}, however, happens, when the value of an attribute, the content of a text node or the tag name was alternated.
 	
 	After all calculations are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
-	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}
+	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}.
 	\todo{include a nice bives figure}
 	
 	\begin{comment}
@@ -171,7 +171,7 @@
 	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
 	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: The first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
 	Further on the second layer -- \texttt{ModelAnnotation} -- is meant to express changes on the semantic layer, e.g. annotations. 
-	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY ontology \cite{Courtot2011}\todo{cite teddy} and therefore makes it possible to captures changes in the dynamics of the system.
+	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY\footnote{\url{http://purl.bioontology.org/ontology/TEDDY}} ontology \cite{Courtot2011} and therefore makes it possible to captures changes in the dynamics of the system.
 	Additionally to the different branches, \comodi allows to model causality of changes by introducing a \texttt{wasTriggeredBy} relation, which expresses "mutual dependencies". However, \comodi does not provide any terms to describe provenance information, but it can be easily incorporated with ontologies build for this purpose.
 	
 	
