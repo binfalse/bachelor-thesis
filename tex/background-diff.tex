@@ -143,7 +143,18 @@
 
 
 \section{Ontologies in Computer Science}
-
+	The idea of a semantic web was first introduced by Tim Berners-Lee et al. in 2001 \cite{Berners-Lee2001}, he described the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and "understood" by computer algorithms. The aspired goal, was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with an 
+	aggregated information or even an decision, ready for approval.
+	Merging mentioned federated data sources, is by far not easy. Even though the semantic web introduces a number of standards and formats, it is fairly difficult to link information from different data sources, because their might differences in the used schema, the type of data does not overlap entirely, or they describe information on a different level of abstraction \cite{Berners-Lee2001}.
+	To overcome this issue, ontologies were introduced. "In philosophy, an ontology is a theory about the nature of existence, of what types of things exist; ontology as a discipline studies such theories" \cite{Berners-Lee2001}
+	In contrast computer science and more specifically the semantic web research, has borrowed this term, but uses it to describe a hierarchically structured group of terms or a taxonomy, together with a set of reasoning rules.
+	
+	To communicate and use these taxonomies the \owl standard was introduced \cite{Bechhofer2004,Bechhofer2009}. It encodes all terms, their relation, attributes and verbal description, as well as all rules.
+	
+	\sysbio uses this technology not directly as initially intended by Berners-Lee et al. \cite{Berners-Lee2001}, but to annotate already machine readable data files, instead of data sources available over the web. They hereby serve the purpose of giving additional information about parts of a model or the model itself. The variety of available ontologies ranges from biological species identification (SBO), over the description of simulation algorithms and proceeding (KiSAO) to the characterization of dynamics (TEDDY) \cite{Courtot2011}.
+	
+	\begin{comment}
+	
 	\begin{itemize}
 	\item definition
 		\subitem formal definition, properties and relation of entities
@@ -152,7 +163,7 @@
 
 	\todo{cite owl standard, when explaining comodi import}
 	\todo{http://msb.embopress.org/content/7/1/543.short for ontology overview}
-	
+	\end{comment}
 	\subsection{\comodi}
 	\label{sec:background:onto:comodi}
 	\todo{include nice comodi figure}
