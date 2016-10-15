@@ -30,6 +30,24 @@ In conclusion relational databases are less efficient in storing standard encode
 \end{comment}
 
 \subsection{Graph Databases}
+"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model. Graph databases are generally built for use with transactional (OLTP) systems." \cite{Robinson2013}
+
+property graph characteristics:
+	contains nodes and relationships
+	nodes contain properties (key-value pairs)
+	relationships are named and directed, and always have a start and end node
+	relationships can also contain properties
+	cf. \cite[Chapter 1]{Robinson2013}
+	main difference to a Hypergraph, for instance, is the restriction of relationships, which are only allowed to connect 2 nodes, whereby a Hyperedge can connect any number of nodes. \cite[Appendix A]{Robinson2013}
+
+reasons for a graph-db:
+	"[...] this motivation exists in the form of a set of use cases and data patterns whose performance improves by one or more orders of magnitude when implemented in a graph [...]" \cite{Robinson2013}
+	
+	"[...] we want to connect data as the domain dictates, thereby allowing structure and schema to emerge in tandem with our growing understanding of the problem space, rather than being imposed upfront, when we know least about the real shape and intricacies of the data. Graph databases address this want directly" \cite{Robinson2013}
+	
+	"Graphs are naturally additive, meaning we can add new kinds of relationships, new nodes, and new subgraphs to an existing structure without disturbing existing queris and application functionality." \cite{Robinson2013}
+	
+	
 \begin{itemize}
 	\item \todo{explain neo4j}
 \end{itemize}
@@ -85,7 +103,7 @@ For all translations relation directions of the edges do not matter, since there
 \subsection{\masymos}
 \label{sec:background:graph-db:masymos}
 
-This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \todo{add cite to neo4j book}.
+This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \cite{Robinson2013}
 
 Since \masymos is developed for "storing and retrieving structural information of biological models" \cite{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \cite{Henkel2015}
 
