@@ -2,10 +2,13 @@
 # This is a tool to semi automatically push model files to MaSyMoS
 # using the REST Endpoints
 
+import logging
+
 import yaml
+import json
 import requests
 import argparse
-
+import urllib.parse
 import threading
 import http.server
 import socketserver
@@ -17,8 +20,11 @@ config = {}
 # dict with default settings, gets overwritten with values from the config
 settings = {
         'http_port': 8080,
-        'http_path': '/models/{file_id}/{version_id}.xml'
+        'http_path': "/models/{file_id}/{version_id}.xml",
+        'masymos_url': "http://localhost:7474/morre/",
         }
+
+log = None
 
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -75,6 +81,7 @@ def load_config(config_file):
     Loads and parses the main config file and returns it as a map.
     """
     # load file content
+    log.info("reading config file {file}".format(file=config_file)
     with open(config_file, 'r') as fhandler:
         content = fhandler.read()
     return yaml.safe_load(content)
@@ -85,6 +92,7 @@ def generate_paths():
     builds a dict mapping http paths to a model file in the filesystem.
     Also extends to config object, with the generated http path
     """
+    log.info("generating http paths for model files")
     path_dict = {}
     for model in config['models']:
         for version in model['versions']:
@@ -97,17 +105,83 @@ def generate_paths():
             http_path = settings['http_path'].format(**kwargs)
             path_dict[http_path] = version['path']
             version['http_path'] = http_path
+            log.debug('linking {http} -> {fs}'.format(http=http_path, fs=version['path'])
 
     return path_dict
+
+def push_models():
+    """
+    does the actual model-push to masymos
+    """
+    # generate the endpoint url
+    add_model_url = urllib.parse.urljoin(settings["masymos_url"], "model_update_service/add_model_version")
+    log.info("start pushing model to masymos, using {url}".format(url=add_model_url))
+
+    for model in config["models"]:
+        prior_version = None
+        log.info("processing changeset for model '{file_id}'".format(file_id=model['file_id']))
+
+        for version in model["versions"]:
+            # generate payload dict
+            payload = {
+                    'fileId': model['fileId'],
+                    'versionId': version['versionId'],
+                    'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_host'], port=settings['http_port']), version['http_path']),
+                    'modelType': model['model_type'],
+                    'metaMap': json.dumps(version['meta']),
+                    'parentMap': {model['fileId']: [prior_version]} if prior_version or None,
+                }
+
+            log.info("push version '{version_id}'".format(version_id=version['version_id']))
+            resp = requests.post(add_model_url,
+                    headers={
+                        'Content-Type': 'application/json',
+                    },
+                    data=json.dumps(payload),
+                )
+
+            log.debug("...done")
+            if resp.status_code != requests.codes.ok:
+                # http error
+                log.error("HTTP error {code} while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
+                    code=resp.status_code, file_id=model['file_id'], version_id=version['version_id']), extra={'model': model, 'version': version})
+                break
+            else:
+                # http ok -> check response json
+                try:
+                    data = resp.json()
+                    if data['ok'] not in (True, 'true'):
+                        log.info("ok")
+                        # set prior version, to establish history
+                        prior_version = version['version_id']
+                    else:
+                        log.error("Masymos error while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
+                            json=json.dumps(data), file_id=model['file_id'], version_id=version['version_id']), extra={'model': model, 'version': version, 'data': data})
+                        break
+
+                except Exception as e:
+                    log.error("Could not parse json response. Skip following versions of this model. {}", e.msg, extra=e)
+                    break
+
 
 if __name__ == "__main__":
     # module is started as cmd program
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="path to the yaml config file")
+    parser.add_argument("--log", help="defines the log level", default="WARNING")
     parser.add_argument("-d", "--daemon", help="Daemonize after pushing all models. (Does not close the HTTP Server)", action="store_true")
     parser.add_argument("-n", "--no-push", help="Does not push anythin, but just serves the models via HTTP. Implies -d", action="store_true")
 
     args = parser.parse_args()
+
+    if args.log:
+        num_log_level = getattr(logging, args.log.upper(), None)
+        if not isinstance(num_log_level, int):
+            raise ValueError("{level} is not a valid log level".format(level=args.log))
+        logging.basicConfig(level=num_log_level)
+
+    log = logging.getLogger('push2masymos')
+    log.info("push2masymos started")
 
     # loads the main config from file
     config = load_config(args.config)
@@ -124,6 +198,9 @@ if __name__ == "__main__":
     # creates a separate thread, to handle the httpd and starts it
     httpd_thread = threading.Thread(target=httpd.serve_forever)
     httpd_thread.start()
+
+    # do the actual pushing
+    push_models()
 
     if args.daemon or args.no_push:
         # needs to daemonize

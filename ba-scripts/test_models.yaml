@@ -1,6 +1,8 @@
 settings:
+        http_hostname: 'localhost'
         http_port: 8038
         http_path: "/test/{name}/{version_id}.xml"
+        masymos_url: "http://localhost:7474/morre/"
 
 models:
         - file_id: "urn:model:uni.freakybytes.net:test:demo-sbml:!:demo-sbml"
