@@ -21,6 +21,7 @@ config = {}
 settings = {
         'http_port': 8080,
         'http_path': "/models/{file_id}/{version_id}.xml",
+        'http_hostname': 'localhost',
         'masymos_url': "http://localhost:7474/morre/",
         }
 
@@ -124,12 +125,12 @@ def push_models():
         for version in model["versions"]:
             # generate payload dict
             payload = {
-                    'fileId': model['fileId'],
-                    'versionId': version['versionId'],
-                    'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_host'], port=settings['http_port']), version['http_path']),
+                    'fileId': model['file_id'],
+                    'versionId': version['version_id'],
+                    'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_hostname'], port=settings['http_port']), version['http_path']),
                     'modelType': model['model_type'],
                     'metaMap': json.dumps(version['meta']),
-                    'parentMap': {model['fileId']: [prior_version]} if prior_version else None,
+                    'parentMap': {model['file_id']: [prior_version]} if prior_version else None,
                 }
 
             log.info("push version '{version_id}'".format(version_id=version['version_id']))
@@ -143,24 +144,28 @@ def push_models():
             log.debug("...done")
             if resp.status_code != requests.codes.ok:
                 # http error
-                log.error("HTTP error {code} while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
+                log.error("HTTP error {code}, while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
                     code=resp.status_code, file_id=model['file_id'], version_id=version['version_id']), extra={'model': model, 'version': version})
                 break
             else:
                 # http ok -> check response json
                 try:
                     data = resp.json()
-                    if data['ok'] not in (True, 'true'):
+                    log.debug(data)
+                    if isinstance(data, dict) and data.get('ok', False) not in (True, 'true'):
                         log.info("ok")
                         # set prior version, to establish history
                         prior_version = version['version_id']
+                    elif isinstance(data, (tuple, list)):
+                        log.error("Masymos exception '{error}', while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model.".format(
+                            error=','.join(data), file_id=model['file_id'], version_id=version['version_id']), extra={'model': model, 'version': version, 'data': data})
                     else:
-                        log.error("Masymos error while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
+                        log.error("Unknown masymos error, while pushing model '{file_id}' in version '{version_id}' to masymos. Skip following versions of this model".format(
                             json=json.dumps(data), file_id=model['file_id'], version_id=version['version_id']), extra={'model': model, 'version': version, 'data': data})
                         break
 
                 except Exception as e:
-                    log.error("Could not parse json response. Skip following versions of this model. {}", e.msg, extra=e)
+                    log.exception("Could not parse json response. Skip following versions of this model.", e)
                     break
 
 
