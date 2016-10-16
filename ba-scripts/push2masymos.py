@@ -129,11 +129,12 @@ def push_models():
                     'versionId': version['version_id'],
                     'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_hostname'], port=settings['http_port']), version['http_path']),
                     'modelType': model['model_type'],
-                    'metaMap': json.dumps(version['meta']),
-                    'parentMap': {model['file_id']: [prior_version]} if prior_version else None,
+                    'metaMap': version['meta'],
+                    'parentMap': {model['file_id']: [prior_version]} if prior_version else {},
                 }
 
             log.info("push version '{version_id}'".format(version_id=version['version_id']))
+            log.debug(json.dumps(payload))
             resp = requests.post(add_model_url,
                     headers={
                         'Content-Type': 'application/json',
@@ -152,8 +153,8 @@ def push_models():
                 try:
                     data = resp.json()
                     log.debug(data)
-                    if isinstance(data, dict) and data.get('ok', False) not in (True, 'true'):
-                        log.info("ok")
+                    if isinstance(data, dict) and data.get('ok', False) in (True, 'true'):
+                        log.info("success!")
                         # set prior version, to establish history
                         prior_version = version['version_id']
                     elif isinstance(data, (tuple, list)):
@@ -199,13 +200,10 @@ if __name__ == "__main__":
     request_handler.path_dict = generate_paths()
     httpd = socketserver.TCPServer(("", settings["http_port"]), RequestHandler)
 
-    print(yaml.dump(config))
     # creates a separate thread, to handle the httpd and starts it
     httpd_thread = threading.Thread(target=httpd.serve_forever)
     httpd_thread.start()
 
-    print(args.daemon)
-    print(args.no_push)
     # do the actual pushing
     if args.no_push is not True:
         log.info("start pushing models to masymos")
