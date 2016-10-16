@@ -23,3 +23,5 @@
 *.synctex.gz
 *.pdf
 *.bak
+.ropeproject/
+*.swp
