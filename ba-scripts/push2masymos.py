@@ -81,7 +81,7 @@ def load_config(config_file):
     Loads and parses the main config file and returns it as a map.
     """
     # load file content
-    log.info("reading config file {file}".format(file=config_file)
+    log.info("reading config file {file}".format(file=config_file))
     with open(config_file, 'r') as fhandler:
         content = fhandler.read()
     return yaml.safe_load(content)
@@ -105,7 +105,7 @@ def generate_paths():
             http_path = settings['http_path'].format(**kwargs)
             path_dict[http_path] = version['path']
             version['http_path'] = http_path
-            log.debug('linking {http} -> {fs}'.format(http=http_path, fs=version['path'])
+            log.debug('linking {http} -> {fs}'.format(http=http_path, fs=version['path']))
 
     return path_dict
 
@@ -129,7 +129,7 @@ def push_models():
                     'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_host'], port=settings['http_port']), version['http_path']),
                     'modelType': model['model_type'],
                     'metaMap': json.dumps(version['meta']),
-                    'parentMap': {model['fileId']: [prior_version]} if prior_version or None,
+                    'parentMap': {model['fileId']: [prior_version]} if prior_version else None,
                 }
 
             log.info("push version '{version_id}'".format(version_id=version['version_id']))
@@ -169,8 +169,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="path to the yaml config file")
     parser.add_argument("--log", help="defines the log level", default="WARNING")
-    parser.add_argument("-d", "--daemon", help="Daemonize after pushing all models. (Does not close the HTTP Server)", action="store_true")
-    parser.add_argument("-n", "--no-push", help="Does not push anythin, but just serves the models via HTTP. Implies -d", action="store_true")
+    parser.add_argument("-d", "--daemon", help="Daemonize after pushing all models. (Does not close the HTTP Server)", default="False", action="store_true")
+    parser.add_argument("-n", "--no-push", help="Does not push anythin, but just serves the models via HTTP. Implies -d", default="False", action="store_true")
 
     args = parser.parse_args()
 
@@ -199,10 +199,16 @@ if __name__ == "__main__":
     httpd_thread = threading.Thread(target=httpd.serve_forever)
     httpd_thread.start()
 
+    print(args.daemon)
+    print(args.no_push)
     # do the actual pushing
-    push_models()
+    if args.no_push is not True:
+        log.info("start pushing models to masymos")
+        push_models()
+    else:
+        log.info("skip pushing")
 
-    if args.daemon or args.no_push:
+    if args.daemon is True or args.no_push is True:
         # needs to daemonize
         # wait for httpd thread
         while True:
@@ -213,5 +219,8 @@ if __name__ == "__main__":
     time.sleep(1)
     # shuts down the httpd and waits until the separate thread ended
     # successfully
+    log.info("send shutdown to httpd thread")
     httpd.shutdown()
+    log.info("wait for httpd thread termination")
     httpd_thread.join()
+    log.info("exiting")
