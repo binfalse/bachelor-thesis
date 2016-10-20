@@ -24,7 +24,6 @@
 	\subitem higher storage consumption
 \item extended storage model
 \end{itemize}
-\todo{update description to fit the updated ER model}
 % description of ER model
 Figure \ref{fig:db-er-model} shows the proposed database schema as ER model. To reduce complexity and redundancy, the storage structure of models in \masymos is simplified, shown on the left hand side of the figure. Further the \comodi ontology (cf. Section \ref{sec:background:onto:comodi}) is not remodeled, but instead represented as generic \texttt{OntologyTerm}.
 
@@ -45,6 +44,10 @@ Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}, which ag
 
 \todo{add table (or similar) of all entities and relations in the appendix}
 \todo{make visible, that ER model is just a sub-ER}
+
+This storage structure, I decided on, does not make use of efficient reverse-delta storage, as traditional VCS (cf. Section \ref{sec:background:manage-versions:traditional-vcs}), instead each model is stored complete for multiple reasons: It allows for a very lose coupling to the base \masymos implement ion, means the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base. Further the core functionality of \masymos, providing a full text and structural search index, is not disturbed, so if required each version of a model can be treated as single instance. Resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
+
+On the other hand the complete storage of each model increases the database size significantly. But to keep the scope of this work concise and the implementation reasonable, I focused on a good data interlinkage and less on a storage efficient data model. \todo{revise?}
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{resources/db-concept-er.pdf}
