@@ -5,23 +5,6 @@ settings:
         masymos_url: "http://localhost:7474/morre/"
 
 models:
-        - file_id: "urn:model:uni.freakybytes.net:test:demo-sbml:!:demo-sbml"
-          name: "demo-sbml"
-          model_type: "SBML"
-          versions:
-                  - version_id: "v1"
-                    path: "../supplementary/demo-sbml/version1.xml"
-                    meta:
-                            source: "TEST"
-                            versionDate: "08.09.2016-18:01:10"
-                            crawledDate: "08.09.2016-18:01:10"
-
-                  - version_id: "v2"
-                    path: "../supplementary/demo-sbml/version2.xml"
-                    meta:
-                            source: "TEST"
-                            versionDate: "08.09.2016-18:02:20"
-                            crawledDate: "08.09.2016-18:02:20"
         - file_id: "urn:model:uni.freakybytes.net:test:demo-sbml-simple:!:simple-demo"
           name: "demo-sbml-simple"
           model_type: "SBML"
