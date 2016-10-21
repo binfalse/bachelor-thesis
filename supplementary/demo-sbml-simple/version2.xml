@@ -1,0 +1,24 @@
+<?xml verion="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+	<model name="test_model_ba">
+		<listOfCompartments>
+			<compartment id="default" name="Default Compartment" size="1" />
+		</listOfCompartments>
+		<listOfSpecies>
+			<species id="specA" name="A" compartment="default" initialConcentration="120" />
+			<species id="specB" name="B" compartment="default" initialConcentration="0" />
+			<species id="specC" name="C" compartment="default" initialConcentration="0" />
+		</listOfSpecies>
+		<listOfReactions>
+			<reaction id="r" name="R">
+				<listOfReactants>
+					<speciesReference species="specA" />
+				</listOfReactants>
+				<listOfProducts>
+					<speciesReference species="specB" />
+					<speciesReference species="specC" />
+				</listOfProducts>
+			</reaction>
+		</listOfReactions>
+	</model>
+</sbml>
