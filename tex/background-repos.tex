@@ -1,5 +1,6 @@
 % !TeX spellcheck = en_US
 \section{Existing Model repositories}
+\label{sec:background:modelrepo}
 Over the time modeling evolved to one of the major methods in Computational and Systems Biology \cite{Finkelstein2004}. Thus more and more data in terms of models were produced and grow more complex. \cite{Henkel2010} As a result a number of projects require the reuse and recomposition of models, which prove to be difficult, if there is no central database available. \cite{Waltemath2013}
 Out of this need, multiple projects started to collect, curate, and distribute models, to improve overall reusebility.
 The two major repositories, which I choose to focus on are, on the one hand \emph{BioModels Database}\footnote{\url{https://www.ebi.ac.uk/biomodels-main/}} \cite{Li2010}, focusing on \sbml encoded models and on the other hand the \emph{Physiome Model Repository}\footnote{\url{http://models.cellml.org/cellml}} (PMR2) \cite{Yu2011}, which is mainly providing \cellml encoded models.
@@ -30,6 +31,7 @@ In conclusion relational databases are less efficient in storing standard encode
 \end{comment}
 
 \subsection{Graph Databases}
+\label{sec:background:graph-db:neo4j}
 \todo{smooth connection between upper subsection, and this one}
 "A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model." \cite{Robinson2013}
 Most graph databases are implemented as a property graph, meaning they consist out of nodes and relationships connecting exactly two nodes. Both nodes and relations may have additional properties attached to them, in form a of a key-value tuple.
