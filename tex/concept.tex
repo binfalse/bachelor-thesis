@@ -50,7 +50,7 @@ Figure \ref{fig:db-er-model} shows the proposed database schema as ER model. To 
 \todo{Add color to the diagram, to ease explanation}
 \todo{Find out, to what a Diff can link}
 
-The schema is organized around a \texttt{Diff} entity linking two \texttt{Document} entities, which represent an (XML-)document containing a model. The interlink is expressed via the \texttt{has\_diff} relation, which can be expressed in two roles: \texttt{source} and \texttt{destination}. I decided to use these terms in order to prevent confusion regarding the time line of the model versions, since \bives also does not discriminate any temporal information.
+The schema is organized around a \texttt{Diff} entity linking two \texttt{Document} entities, which represent an (XML-)document containing a model. If these \texttt{Documents} contain two consecutive versions of a model, they are linked with a \texttt{has\_successor} and a \texttt{has\_predecessor} relation. These relations are maintained by \masymos itself, whereby the interlink, created to anchor a diff, is expressed via the \texttt{has\_diff} relation, which can be declared in two roles: \texttt{source} and \texttt{destination}. I decided to use these terms in order to prevent confusion regarding the time line of the model versions, since \bives also does not discriminate any temporal information.
 This 2-hop relation does not necessarily need to span between two consecutive versions, but I decided for a standard setup it might be less useful to store differences between every possible combination of versions, since it would consume unreasonable amount of storage. Further are deltas concatable, so it does not take any significant computational effort to generate a diff for larger version steps out of consecutive diffs.
 
 Every \texttt{Diff} entity links to one or multiple \texttt{DiffEntry} via the \texttt{has\_entry} relation.  
@@ -64,6 +64,7 @@ Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}, which ag
 
 \todo{add table (or similar) of all entities and relations in the appendix}
 \todo{make visible, that ER model is just a sub-ER}
+\todo{add version relation to document entity}
 
 This storage structure, I decided on, does not make use of efficient reverse-delta storage, as traditional VCS (cf. Section \ref{sec:background:manage-versions:traditional-vcs}), instead each model is stored complete for multiple reasons: It allows for a very lose coupling to the base \masymos implement ion, means the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base. Further the core functionality of \masymos, providing a full text and structural search index, is not disturbed, so if required each version of a model can be treated as single instance. Resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
 
@@ -86,3 +87,15 @@ On the other hand the complete storage of each model increases the database size
 
 \section{The HTTP file server}
 \label{sec:concept:filestorage}
+
+The concept of having a HTTP daemon serving all original model files in the \masymos database, as introduced in Section \ref{sec:concept:sysarchitecture}, was originally developed during my early days as student assistant at the Department of \sysbio and Bioinformatics at the University of Rostock, but was improved in preparation of this work.
+
+The file structure, created by the \modelcrawler, is organized around the concept of a \texttt{fileId} and a \texttt{versionId}. First one is uniquely identifying one (model) file over time, whereby the \texttt{versionId} have to unique within the specific history of this file. Together they point to one version of a model and therefore form a primary key.
+When designing this concept, we needed to take special care for the \cellml Model Repository PMR2 (cf. Section \ref{sec:background:modelrepo}), because the \cellml provides an import feature for submodels or unit definition and consequently one model may consist of a lot of different files. In order to not break the import directives, the relative positions of these files need to be recreated. As a result the \texttt{fileId}, represented as URN, is split into 2 parts separated by an explanation mark (\texttt{!}). The first part points to the \emph{workspace} of the model, meaning the folder/git repository containing all relevant files, and is therefore equal for all files belonging into one workspace. The second part indicates the relative position of the file, \emph{within} the workspace.
+Consequently a valid \texttt{fileId} would for instance look like this:\\ \texttt{urn:model:models.cellml.org:workspace:novak\_tyson\_1997:!:novak\_tyson\_1997.cellml}\\
+In this example \texttt{urn:model} is the prefix, \texttt{models.cellml.org:workspace:novak\_tyson\_1997} the workspace, and \texttt{novak\_tyson\_1997.cellml} the path of the actual model file within the workspace. In advance, the separation marker could also be concatenated with the \texttt{versionId}, using one URN to describe on specific version of a model. This extended URN format can also be directly converted into an absolute URL, pointing to a model file, if the address of the HTTP server is known.
+Given the \texttt{versionId} in above mentioned example would be \texttt{3614b6d39b91d78e0038bbd113814686c316616b}, and under the assumption the HTTP server is available under the imaginary host \texttt{models.example.org}, the following URL could be used to access the actual file:\\
+\texttt{http://models.example.org/models.cellml.org/workspace/novak\_tyson\_1997/3614b6d39b91d78e0038bbd113814686c316616b/novak\_tyson\_1997.cellml}
+
+Additionally to the actual model files, extracted from the repositories, the \modelcrawler also creates \json encoded information files in the root of the workspace path. These files contain information about the origin, the date, and crawled date of each version, to ensure that basic provenance information are also available, if the \masymos database is unavailable.
+
