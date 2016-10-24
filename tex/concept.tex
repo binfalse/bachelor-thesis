@@ -54,13 +54,13 @@ The schema is organized around a \texttt{Diff} entity linking two \texttt{Docume
 This 2-hop relation does not necessarily need to span between two consecutive versions, but I decided for a standard setup it might be less useful to store differences between every possible combination of versions, since it would consume unreasonable amount of storage. Further are deltas concatable, so it does not take any significant computational effort to generate a diff for larger version steps out of consecutive diffs.
 
 Every \texttt{Diff} entity links to one or multiple \texttt{DiffEntry} via the \texttt{has\_entry} relation.  
-A \texttt{DiffEntry} can be either a \texttt{DiffInsert},  \texttt{DiffDelete}, \texttt{DiffMove} or a \texttt{DiffUpdate} entity, following the terms used by \bives \cite{Scharm2015} and \comodi \cite{Scharm2016}.
+A \texttt{DiffEntry} can be either a \texttt{DiffInsert},  \texttt{DiffDelete}, \texttt{DiffMove} or a \texttt{DiffUpdate} entity, following the terms used by \bives \citep{Scharm2015} and \comodi \citep{Scharm2016}.
 
-Each \texttt{DiffEntry} represents a difference detected by \bives \cite{Scharm2015} and links to at least on \texttt{ModelEntity} via either \texttt{is\_source}, a \texttt{is\_destination}, or both, depending on the type of the difference.
+Each \texttt{DiffEntry} represents a difference detected by \bives \citep{Scharm2015} and links to at least on \texttt{ModelEntity} via either \texttt{is\_source}, a \texttt{is\_destination}, or both, depending on the type of the difference.
 For instance a \texttt{DiffInsert} links to a \texttt{ModelEntity} of the \emph{destination} with a \texttt{is\_destination} relation.
 In contrast a \texttt{DiffDelete} links to the \emph{source} version with \texttt{is\_source} to a \texttt{ModelEntity}. Whereby \texttt{DiffMove} and \texttt{DiffModify} use both relations \texttt{is\_source} - linking to the \emph{source} - and \texttt{is\_destination} - linking to the \emph{destination} version.
 
-Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}, which again are hierarchical structured, but not modeled in this ER model. Those terms are currently only taken from the \comodi ontology \cite{Scharm2016}, cf. Section \ref{sec:background:onto:comodi}, since no other ontology exists, describing changes.
+Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}, which again are hierarchical structured, but not modeled in this ER model. Those terms are currently only taken from the \comodi ontology \citep{Scharm2016}, cf. Section \ref{sec:background:onto:comodi}, since no other ontology exists, describing changes.
 
 \todo{add table (or similar) of all entities and relations in the appendix}
 \todo{make visible, that ER model is just a sub-ER}

@@ -22,6 +22,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+\usepackage[square,comma]{natbib}
+
 % set date format
 \usepackage[style=iso]{datetime2}
 %\usepackage[yyyymmdd]{datetime}
@@ -70,9 +72,15 @@
 	\chapter{Outlook}
 	\input{outlook.tex}
 	
-	%\bibliography{ba-thesis.bib}
+	\nocite{*}
+	%\bibliographystyle{apalike}
+	%\bibliographystyle{apacitep}
+	%\bibliographystyle{named}
+	%\bibliographystyle{abstract}
+	%\bibliographystyle{plainnat}
+	\bibliographystyle{abbrvnat}
+	%\bibliographystyle{unsrtnat}
 	\bibliography{zotero.bib}
-	\bibliographystyle{apalike}
 	
 	\begin{appendix}
 		\listoffigures

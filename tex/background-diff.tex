@@ -15,43 +15,43 @@
 	\label{sec:background:diff:unix-diff}
 	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version complete is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
 	
-	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \cite{Hunt1976}.
-	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}.
+	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \citep{Hunt1976}.
+	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \citep{Hunt1976}.
 	
 	\begin{comment}
 	\begin{itemize}
 		\item Based on solving the longest common subsequence problem
-		\item "The program diff reports differences between two files, expressed as a minimal list of line changes to bring either file into agreement with the other" \cite{Hunt1976}
-		\item "The central algorithm of diff solves the ‘longest common subsequence problem’ to find the lines that do not change between files" \cite{Hunt1976}
+		\item "The program diff reports differences between two files, expressed as a minimal list of line changes to bring either file into agreement with the other" \citep{Hunt1976}
+		\item "The central algorithm of diff solves the ‘longest common subsequence problem’ to find the lines that do not change between files" \citep{Hunt1976}
 	\end{itemize}
 	\end{comment}
 	
 	\subsection{XML Diff}
 	\label{sec:background:diff:xml-diff}
-	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information \cite{Ronnau2005}.
-	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number \cite{Wang2003,Chawathe1996,Cobena2002}.
-	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently \cite{Cobena2002}.
+	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information \citep{Ronnau2005}.
+	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number \citep{Wang2003,Chawathe1996,Cobena2002}.
+	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently \citep{Cobena2002}.
 	
 	\todo{add ref to both examples XyDiff + the other one?}
 	
 	\begin{comment}
-	cf. Cobena2002 \cite{Cobena2002} and \cite{Waltemath2013} in section 2.2.1
-	Chawathe et al., 1996 \cite{Chawathe1996}
+	cf. Cobena2002 \citep{Cobena2002} and \citep{Waltemath2013} in section 2.2.1
+	Chawathe et al., 1996 \citep{Chawathe1996}
 	\begin{itemize}
-		\item "With flat information deltas may be represented simply as sets of tuples or records inserted into, deleted from, and updated in relations. In hierarchical information, we want to identify changes not just to the 'nodes' in the data, but also to their relationships." \cite{Chawathe1996}
-		\item "General-purpose version control systems attempt to handle any kind of document and thus make no assumptions about the underlying document format. Usually, those systems distinguish between binary documents and text documents. Appropriate diff algorithms are employed to detect changes between two versions of a document. Those diff algorithms are either line based (for text documents) or byte based (for binary documents). General-purpose version control systems provide good control for line-organized text documents such as source code or latex documents. For XML documents, where the organization into lines can be neglected, 2 line-based version control is inappropriate." \cite{Ronnau2005}
+		\item "With flat information deltas may be represented simply as sets of tuples or records inserted into, deleted from, and updated in relations. In hierarchical information, we want to identify changes not just to the 'nodes' in the data, but also to their relationships." \citep{Chawathe1996}
+		\item "General-purpose version control systems attempt to handle any kind of document and thus make no assumptions about the underlying document format. Usually, those systems distinguish between binary documents and text documents. Appropriate diff algorithms are employed to detect changes between two versions of a document. Those diff algorithms are either line based (for text documents) or byte based (for binary documents). General-purpose version control systems provide good control for line-organized text documents such as source code or latex documents. For XML documents, where the organization into lines can be neglected, 2 line-based version control is inappropriate." \citep{Ronnau2005}
 		\item requirements
-			\subitem "Within a delta, the exact location of the change must be identified." \cite{Ronnau2005}
-			\subitem "XML Structure Information. An XML document is generally a hierarchically structured document, and can be represented in a tree structure. However, an XML document has other features that distinguish it from a general labeled tree. X-Diff introduces the	notion of node signature and a new matching between the trees corresponding to the two versions of a 	document. Together, these two features are used to find the minimum-cost matching and generate a minimum-cost edit script that is capable of transforming the original version of the document to the new version." \cite{Wang2003}
-			\subitem "Unordered Trees. Since XML documents can be represented as trees, the change detection problem is related to the problem of change detection on trees." \cite{Wang2003}
-		\item "It [the algorithm] tries to detect (large) subtrees that were left unchanged between the old and new versions. These are matched. Starting from there, the algorithm tries to match more nodes by considering ancestors and descendants of matched nodes and taking labels into consideration. Our algorithm also takes advantage of the specificities of XML data. For instance, it knows of attributes and attribute updates and treat them differently from element or text nodes. It also takes into account ID attributes to match elements." \cite{Cobena2002}
+			\subitem "Within a delta, the exact location of the change must be identified." \citep{Ronnau2005}
+			\subitem "XML Structure Information. An XML document is generally a hierarchically structured document, and can be represented in a tree structure. However, an XML document has other features that distinguish it from a general labeled tree. X-Diff introduces the	notion of node signature and a new matching between the trees corresponding to the two versions of a 	document. Together, these two features are used to find the minimum-cost matching and generate a minimum-cost edit script that is capable of transforming the original version of the document to the new version." \citep{Wang2003}
+			\subitem "Unordered Trees. Since XML documents can be represented as trees, the change detection problem is related to the problem of change detection on trees." \citep{Wang2003}
+		\item "It [the algorithm] tries to detect (large) subtrees that were left unchanged between the old and new versions. These are matched. Starting from there, the algorithm tries to match more nodes by considering ancestors and descendants of matched nodes and taking labels into consideration. Our algorithm also takes advantage of the specificities of XML data. For instance, it knows of attributes and attribute updates and treat them differently from element or text nodes. It also takes into account ID attributes to match elements." \citep{Cobena2002}
 	\end{itemize}
 	\end{comment}
 	
 	\subsection{BiVeS}
 	\label{sec:background:diff:bives}
 	\todo{use the terms source and destination document}
-	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \cite{Scharm2015}.
+	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives is addressing this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), but also incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \citep{Scharm2015}.
 	
 	As mentioned, the \bives algorithm is based on XyDiff, and similar to it, \bives tries to match subtrees of both models. To make this process as fast as possible, \bives is calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
 	First the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second this initial mapping is propagated upwards in the document structure, meaning the connection of a nodes children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates, the most promising mapping is chosen.
@@ -64,7 +64,7 @@
 	A \texttt{move} is specified as a case, in which the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update}, however, happens, when the value of an attribute, the content of a text node or the tag name was alternated.
 	
 	After all calculations are finished, the result can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
-	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \cite{Scharm2015}.
+	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \citep{Scharm2015}.
 	\todo{include a nice bives figure}
 	
 	\begin{comment}
@@ -72,8 +72,8 @@
 		\item benefits of XyDiff compared to unix-diff
 		\subitem problems with XML
 		\subitem no deeper "understanding"
-		\item cf. \cite{Waltemath2013} (Oxford 2012), \cite{Scharm2015}
-		\item algorithm (list of quotes from \cite{Scharm2015})
+		\item cf. \citep{Waltemath2013} (Oxford 2012), \citep{Scharm2015}
+		\item algorithm (list of quotes from \citep{Scharm2015})
 		\subitem two versions of an XML-encoded model are translated into an internal tree structure. For every node n in the tree, a hash sum n r and a weight n x are calculated 
 		\subitem The weight of a node is thus always greater than the weight of its children. As such, the weight represents the size of the corresponding subtree 
 		\subitem The hash sum of a node n represents the signature of the subtree rooted at n 
@@ -105,20 +105,20 @@
 	\subsection{Traditional Version Control Systems}
 	\label{sec:background:manage-versions:traditional-vcs}
 	
-	A Version Control System (VCS) or sometimes Revision Control System, is an automated system to manage multiple versions, or revisions, of information pieces \cite{OSullivan2009}.
-	Further, since larger projects are rarely developed by a single person, nearly all VCSs provide mechanisms for collaboration. Version control supports this inherently social endeavor, consisting of continuous introduction, discussion, or evaluation of changes, or even undoing of such \cite{Collins-Sussman2004}.
+	A Version Control System (VCS) or sometimes Revision Control System, is an automated system to manage multiple versions, or revisions, of information pieces \citep{OSullivan2009}.
+	Further, since larger projects are rarely developed by a single person, nearly all VCSs provide mechanisms for collaboration. Version control supports this inherently social endeavor, consisting of continuous introduction, discussion, or evaluation of changes, or even undoing of such \citep{Collins-Sussman2004}.
 
-	This said, a VCS is a crucial tool for every major project and therefore also found interest in Systems Biology, as multiple research paper suggest \cite{Waltemath2013,Beard2009,Hucka2003,Li2010,Miller2011}.
+	This said, a VCS is a crucial tool for every major project and therefore also found interest in Systems Biology, as multiple research paper suggest \citep{Waltemath2013,Beard2009,Hucka2003,Li2010,Miller2011}.
 	All VCS, besides using different files with a version tag, automatically track each version of a file along with relevant meta information. These usually contain date of the change, author and a checksum of the version.
-	Outgoing from this basic feature set, two types of VCS are currently used: On the one hand there are centralized VCS, like CVS or its successor Subversion. They focus on one central server, keeping track of all changes. Due to that, working offline is not possible \cite{Collins-Sussman2004}
-	On the other hand recently a trend around Distributed Version Control Systems (DVCSs) evolved, for instance Mercurial and Git. There basic architecture does not require a central unit, instead every client keeps a full copy of the version history, exchanging changes nearly always require a merge operation between at least two change sets \cite{OSullivan2009}.
+	Outgoing from this basic feature set, two types of VCS are currently used: On the one hand there are centralized VCS, like CVS or its successor Subversion. They focus on one central server, keeping track of all changes. Due to that, working offline is not possible \citep{Collins-Sussman2004}
+	On the other hand recently a trend around Distributed Version Control Systems (DVCSs) evolved, for instance Mercurial and Git. There basic architecture does not require a central unit, instead every client keeps a full copy of the version history, exchanging changes nearly always require a merge operation between at least two change sets \citep{OSullivan2009}.
 	But DVCSs do not completely abandon the idea of a central server, instead it is treated as a place to share changes with other teammates, still allowing for experiments or off-mainstream development.
 	
 	\begin{comment}
 	\begin{itemize}
 		\item benefits of version control systems
 			\subitem \todo{elaborate}
-			\subitem "The need for model version control has been previously discussed in research groups facing model evolution in computational biology (Beard et al., 2009; Cuellar et al., 2006; Hucka et al., 2010; Li et al., 2010; Miller et al., 2011). In general, VCSs such as Subversion (http://subversion.apache.org/) (SVN)" \cite{Waltemath2013}
+			\subitem "The need for model version control has been previously discussed in research groups facing model evolution in computational biology (Beard et al., 2009; Cuellar et al., 2006; Hucka et al., 2010; Li et al., 2010; Miller et al., 2011). In general, VCSs such as Subversion (http://subversion.apache.org/) (SVN)" \citep{Waltemath2013}
 		\item simple file storage
 			\subitem storing files next to each other in the file system
 			\subitem "-version1", "-version2", "-final"
@@ -147,42 +147,42 @@
 		\item no semantic information about the changes (cf. comodi)
 		\item no domain specific knowledge to improve mapping of different XML-tree branches
 			\subitem important for good detection of tree branch movement etc. 
-			\subitem "A model VCS should be tailored to existing model representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users." \cite{Waltemath2013}
+			\subitem "A model VCS should be tailored to existing model representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users." \citep{Waltemath2013}
 			\subitem "These
-			common changes are detected by the LCS algorithm, but they are in fact irrelevant for the model’s history and would be neglected by entity-based algorithms. In other words, although being successfully used for source code version control, LCS is not suitable for XML version control (Chawathe et al., 1996)." \cite{Waltemath2013}
-		\item As proposed in \cite{Waltemath2013} there are 2 major approaches to keep track of changes:
+			common changes are detected by the LCS algorithm, but they are in fact irrelevant for the model’s history and would be neglected by entity-based algorithms. In other words, although being successfully used for source code version control, LCS is not suitable for XML version control (Chawathe et al., 1996)." \citep{Waltemath2013}
+		\item As proposed in \citep{Waltemath2013} there are 2 major approaches to keep track of changes:
 			\subitem keeping track of (minor) changes in the model itself
 			\subitem tracking versions in the repository
 	\end{itemize}
 
 
 \section{Ontologies in Computer Science}
-	The idea of a semantic web was first introduced by Tim Berners-Lee et al. in 2001 \cite{Berners-Lee2001}, he described the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and "understood" by computer algorithms. The aspired goal, was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with an 
+	The idea of a semantic web was first introduced by Tim Berners-Lee et al. in 2001 \citep{Berners-Lee2001}, he described the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and "understood" by computer algorithms. The aspired goal, was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with an 
 	aggregated information or even an decision, ready for approval.
-	Merging mentioned federated data sources, is by far not easy. Even though the semantic web introduces a number of standards and formats, it is fairly difficult to link information from different data sources, because their might differences in the used schema, the type of data does not overlap entirely, or they describe information on a different level of abstraction \cite{Berners-Lee2001}.
-	To overcome this issue, ontologies were introduced. "In philosophy, an ontology is a theory about the nature of existence, of what types of things exist; ontology as a discipline studies such theories" \cite{Berners-Lee2001}
+	Merging mentioned federated data sources, is by far not easy. Even though the semantic web introduces a number of standards and formats, it is fairly difficult to link information from different data sources, because their might differences in the used schema, the type of data does not overlap entirely, or they describe information on a different level of abstraction \citep{Berners-Lee2001}.
+	To overcome this issue, ontologies were introduced. "In philosophy, an ontology is a theory about the nature of existence, of what types of things exist; ontology as a discipline studies such theories" \citep{Berners-Lee2001}
 	In contrast computer science and more specifically the semantic web research, has borrowed this term, but uses it to describe a hierarchically structured group of terms or a taxonomy, together with a set of reasoning rules.
 	
-	To communicate and use these taxonomies the \owl standard was introduced \cite{Bechhofer2004,Bechhofer2009}. It encodes all terms, their relation, attributes and verbal description, as well as all rules.
+	To communicate and use these taxonomies the \owl standard was introduced \citep{Bechhofer2004,Bechhofer2009}. It encodes all terms, their relation, attributes and verbal description, as well as all rules.
 	
-	\sysbio uses this technology not directly as initially intended by Berners-Lee et al. \cite{Berners-Lee2001}, but to annotate already machine readable data files, instead of data sources available over the web. They hereby serve the purpose of giving additional information about parts of a model or the model itself. The variety of available ontologies ranges from biological species identification (SBO\footnote{\url{http://bioportal.bioontology.org/ontologies/SBO}}), over the description of simulation algorithms and proceeding (KiSAO\footnote{\url{http://bioportal.bioontology.org/ontologies/KISAO}}) to the characterization of dynamics (TEDDY\footnote{\url{http://bioportal.bioontology.org/ontologies/TEDDY}}) \cite{Courtot2011}.
+	\sysbio uses this technology not directly as initially intended by Berners-Lee et al. \citep{Berners-Lee2001}, but to annotate already machine readable data files, instead of data sources available over the web. They hereby serve the purpose of giving additional information about parts of a model or the model itself. The variety of available ontologies ranges from biological species identification (SBO\footnote{\url{http://bioportal.bioontology.org/ontologies/SBO}}), over the description of simulation algorithms and proceeding (KiSAO\footnote{\url{http://bioportal.bioontology.org/ontologies/KISAO}}) to the characterization of dynamics (TEDDY\footnote{\url{http://bioportal.bioontology.org/ontologies/TEDDY}}) \citep{Courtot2011}.
 	
 	\begin{comment}
 	
 	\begin{itemize}
 	\item definition
 		\subitem formal definition, properties and relation of entities
-	\item use of BioOntologies cf. Courtot \cite{Courtot2011}
+	\item use of BioOntologies cf. Courtot \citep{Courtot2011}
 	\end{itemize}
 
-	\todo{cite owl standard, when explaining comodi import}
+	\todo{citep owl standard, when explaining comodi import}
 	\todo{http://msb.embopress.org/content/7/1/543.short for ontology overview}
 	\end{comment}
 	\subsection{\comodi}
 	\label{sec:background:onto:comodi}
 	\todo{include nice comodi figure}
 	Identifying the position and the existence of changes is only the first step in deeper understanding, the evolution of a document or biological model. To truly explain this evolution, the historical development, reason, purpose, and target of a modification are important. 
-	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, which can be utilized for automatic processing of the data, making them "more accessible, sharable and interoperable" \cite{Scharm2016}.
+	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, which can be utilized for automatic processing of the data, making them "more accessible, sharable and interoperable" \citep{Scharm2016}.
 	An ontology is well suited tool for building interlinked and structured vocabularies, which can be used in semantic annotations and therefore encoding meaning of otherwise plain data.
 	
 	\comodi was developed to provide exactly this layer of semantic information to differences between two versions of a biological model, allowing to store the essential meaning of a change together with its potential implications.
@@ -196,14 +196,14 @@
 	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
 	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: The first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
 	Further on the second layer -- \texttt{ModelAnnotation} -- is meant to express changes on the semantic layer, e.g. annotations. 
-	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY\footnote{\url{http://purl.bioontology.org/ontology/TEDDY}} ontology \cite{Courtot2011} and therefore makes it possible to captures changes in the dynamics of the system.
+	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY\footnote{\url{http://purl.bioontology.org/ontology/TEDDY}} ontology \citep{Courtot2011} and therefore makes it possible to captures changes in the dynamics of the system.
 	Additionally to the different branches, \comodi allows to model causality of changes by introducing a \texttt{wasTriggeredBy} relation, which expresses "mutual dependencies". However, \comodi does not provide any terms to describe provenance information, but it can be easily incorporated with ontologies build for this purpose.
 	
 	
 	
 	\begin{comment}
 	\begin{itemize}
-		\item cf. \cite{Scharm2016}
+		\item cf. \citep{Scharm2016}
 		\item  They clarify the intended semantics of the data, which makes the data more accessible, sharable, and interoperable 
 		\item An ontology is a tool to provide meaning to data, the information of which can then be subjected to algorithmic processing
 		\item We believe that a similar approach should be taken for the semantic description of differences between versions of a model. Using the semantic layer to describe changes in a model allows for storing meaning together with possible implications of these changes.

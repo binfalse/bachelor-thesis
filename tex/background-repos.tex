@@ -1,74 +1,74 @@
 % !TeX spellcheck = en_US
 \section{Existing Model repositories}
 \label{sec:background:modelrepo}
-Over the time modeling evolved to one of the major methods in Computational and Systems Biology \cite{Finkelstein2004}. Thus more and more data in terms of models were produced and grow more complex. \cite{Henkel2010} As a result a number of projects require the reuse and recomposition of models, which prove to be difficult, if there is no central database available. \cite{Waltemath2013}
+Over the time modeling evolved to one of the major methods in Computational and Systems Biology \citep{Finkelstein2004}. Thus more and more data in terms of models were produced and grow more complex. \citep{Henkel2010} As a result a number of projects require the reuse and recomposition of models, which prove to be difficult, if there is no central database available. \citep{Waltemath2013}
 Out of this need, multiple projects started to collect, curate, and distribute models, to improve overall reusebility.
-The two major repositories, which I choose to focus on are, on the one hand \emph{BioModels Database}\footnote{\url{https://www.ebi.ac.uk/biomodels-main/}} \cite{Li2010}, focusing on \sbml encoded models and on the other hand the \emph{Physiome Model Repository}\footnote{\url{http://models.cellml.org/cellml}} (PMR2) \cite{Yu2011}, which is mainly providing \cellml encoded models.
+The two major repositories, which I choose to focus on are, on the one hand \emph{BioModels Database}\footnote{\url{https://www.ebi.ac.uk/biomodels-main/}} \citep{Li2010}, focusing on \sbml encoded models and on the other hand the \emph{Physiome Model Repository}\footnote{\url{http://models.cellml.org/cellml}} (PMR2) \citep{Yu2011}, which is mainly providing \cellml encoded models.
 
-However, these existing model repositories provide a rich set of information about the model itself, it is now important to focus on associated information. Integrating additional information, as simulation experiments descriptions (SED), result information ,and publication and author references, will increase the reusebility even further \cite{Waltemath2013,Henkel2012}.
+However, these existing model repositories provide a rich set of information about the model itself, it is now important to focus on associated information. Integrating additional information, as simulation experiments descriptions (SED), result information ,and publication and author references, will increase the reusebility even further \citep{Waltemath2013,Henkel2012}.
 
 
 \begin{comment}
 \begin{itemize}
-	\item use/cite mostly introduction from \cite{Waltemath2013}
-	\item maybe also cite \cite{Lysenko2016}?
+	\item use/citep mostly introduction from \citep{Waltemath2013}
+	\item maybe also citep \citep{Lysenko2016}?
 \end{itemize}
 \end{comment}
 
 \section{Using graph databases to store \sysbio models}
 \label{sec:backgroung:graph-db}
-\sysbio models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for the generation of assumptions and basic information mining. Further, data often needs to be converted to comply with the database schema, which implies changes to later, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \cite{Lysenko2016}
+\sysbio models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for the generation of assumptions and basic information mining. Further, data often needs to be converted to comply with the database schema, which implies changes to later, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \citep{Lysenko2016}
 
-In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database. \cite{Henkel2015}
+In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database. \citep{Henkel2015}
 
 \begin{comment}
 \begin{itemize}
 	\item \masymos exists
 	\item graph databases (eg. neo4j) are more suitable for inhomogeneous data
 	\item queries are easier
-	\item bio networks are graphs -> graph database \cite{Lysenko2016}
+	\item bio networks are graphs -> graph database \citep{Lysenko2016}
 \end{itemize}
 \end{comment}
 
 \subsection{Graph Databases}
 \label{sec:background:graph-db:neo4j}
 \todo{smooth connection between upper subsection, and this one}
-"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model." \cite{Robinson2013}
+"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model." \citep{Robinson2013}
 Most graph databases are implemented as a property graph, meaning they consist out of nodes and relationships connecting exactly two nodes. Both nodes and relations may have additional properties attached to them, in form a of a key-value tuple.
-The main difference to, for instance, a Hypergraph is the strict limitation of nodes connected by a relation. Whereby a Hyperedge is able to link $n+2, n \in \mathbb{N}_0$ nodes. \cite[Appendix A]{Robinson2013}
+The main difference to, for instance, a Hypergraph is the strict limitation of nodes connected by a relation. Whereby a Hyperedge is able to link $n+2, n \in \mathbb{N}_0$ nodes. \citep[Appendix A]{Robinson2013}
 Graph database are contradictory concept, when compared with traditional relation databases, but offer great benefits in a variety of use cases. These include all types of querying for structural information, but also environments, which demand a more flexible approach to data modeling. 
-Due to the fact, that graph structures are additive, new relationships, node (classes) or even subgraphs can be added, without irritating existing queries or applications. Which in turn allows to interlink data, as it is demanded by the domain and not being locked into a schema, rather it allows for a genetic evolution of structure and schema with expanding understanding of the problem. cf. \cite{Robinson2013}
+Due to the fact, that graph structures are additive, new relationships, node (classes) or even subgraphs can be added, without irritating existing queries or applications. Which in turn allows to interlink data, as it is demanded by the domain and not being locked into a schema, rather it allows for a genetic evolution of structure and schema with expanding understanding of the problem. cf. \citep{Robinson2013}
 
 In this work I focus on neo4j as a major graph database management system, because it also forms the foundation for \masymos, which is again the system my implementation is based on. (cf. Section \ref{sec:background:graph-db:masymos})
 
 \begin{comment}
-"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model. Graph databases are generally built for use with transactional (OLTP) systems." \cite{Robinson2013}
+"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model. Graph databases are generally built for use with transactional (OLTP) systems." \citep{Robinson2013}
 
 property graph characteristics:
 	contains nodes and relationships
 	nodes contain properties (key-value pairs)
 	relationships are named and directed, and always have a start and end node
 	relationships can also contain properties
-	cf. \cite[Chapter 1]{Robinson2013}
-	main difference to a Hypergraph, for instance, is the restriction of relationships, which are only allowed to connect 2 nodes, whereby a Hyperedge can connect any number of nodes. \cite[Appendix A]{Robinson2013}
+	cf. \citep[Chapter 1]{Robinson2013}
+	main difference to a Hypergraph, for instance, is the restriction of relationships, which are only allowed to connect 2 nodes, whereby a Hyperedge can connect any number of nodes. \citep[Appendix A]{Robinson2013}
 
 reasons for a graph-db:
-	"[...] this motivation exists in the form of a set of use cases and data patterns whose performance improves by one or more orders of magnitude when implemented in a graph [...]" \cite{Robinson2013}
+	"[...] this motivation exists in the form of a set of use cases and data patterns whose performance improves by one or more orders of magnitude when implemented in a graph [...]" \citep{Robinson2013}
 	
-	"[...] we want to connect data as the domain dictates, thereby allowing structure and schema to emerge in tandem with our growing understanding of the problem space, rather than being imposed upfront, when we know least about the real shape and intricacies of the data. Graph databases address this want directly" \cite{Robinson2013}
+	"[...] we want to connect data as the domain dictates, thereby allowing structure and schema to emerge in tandem with our growing understanding of the problem space, rather than being imposed upfront, when we know least about the real shape and intricacies of the data. Graph databases address this want directly" \citep{Robinson2013}
 	
-	"Graphs are naturally additive, meaning we can add new kinds of relationships, new nodes, and new subgraphs to an existing structure without disturbing existing queris and application functionality." \cite{Robinson2013}
+	"Graphs are naturally additive, meaning we can add new kinds of relationships, new nodes, and new subgraphs to an existing structure without disturbing existing queris and application functionality." \citep{Robinson2013}
 \end{comment}                        
 
 \subsection{Graph Database schema and the Entity Relation model}
 \label{sec:background:graph-db:er}
-Relational databases have established a supremacy over the time, it is therefore standardized, how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \cite{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Due to most new databases following the noSQL paradigm, do not rely on strong and fixed data structures \cite{Tudorica2011}.
+Relational databases have established a supremacy over the time, it is therefore standardized, how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \citep{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Due to most new databases following the noSQL paradigm, do not rely on strong and fixed data structures \citep{Tudorica2011}.
 Since architectural planing and design is an essential part of software development, it is still useful to define formal data structure and relations.
 
 Even though \neoj, introduced in Section \ref{sec:backgroung:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
 %Unfortunately the neo4j team does not use an establish modeling language, but relies on example graphs for their documentation and examples.
 I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
-However, as Siriwaradhana shows it is easy to translate standard ER-models into graph-database structure. \cite{Siriwaradhana2014}
+However, as Siriwaradhana shows it is easy to translate standard ER-models into graph-database structure. \citep{Siriwaradhana2014}
 An example for a translation is shown in Figure \ref{fig:example-er-diagram}.
 
 It is suggested, that a name of an entity is translated into a vertex name or, in case of \neoj, a node label. All associated attributes become vertex properties.
@@ -94,7 +94,7 @@ For all translations relation directions of the edges do not matter, since there
 \subsubitem new vertex-type includes edges to vertex-types corresponding to the related entity-types
 \subsubitem these edges are labeled after the role of the participating entity in the relationship
 \subsubitem directions do not matter
-\item cf. \cite{Siriwaradhana2014}
+\item cf. \citep{Siriwaradhana2014}
 \end{itemize}
 \end{comment}
 
@@ -111,9 +111,9 @@ For all translations relation directions of the edges do not matter, since there
 \subsection{\masymos}
 \label{sec:background:graph-db:masymos}
 
-This work is mainly based on \masymos, "a graph database for simulation models and associated data" \cite{Henkel2015}, which is implemented using \neoj \cite{Robinson2013}
+This work is mainly based on \masymos, "a graph database for simulation models and associated data" \citep{Henkel2015}, which is implemented using \neoj \citep{Robinson2013}
 
-Since \masymos is developed for "storing and retrieving structural information of biological models" \cite{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \cite{Henkel2015}
+Since \masymos is developed for "storing and retrieving structural information of biological models" \citep{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \citep{Henkel2015}
 
 The internal schema used by \masymos is shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. It represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which in contrast is the entry point for the actual model and represents the \xml root node.
 
@@ -131,54 +131,54 @@ Further, to allow for easy upwards traversal, all relations also feature a commo
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{resources/masymos_struc_figure2.eps}
-	\caption{Structure representing \sbml and \cellml models in \masymos. Figure taken from Henkel et al., 2015 \cite{Henkel2015}}
+	\caption{Structure representing \sbml and \cellml models in \masymos. Figure taken from \citealt{Henkel2015}}
 	\label{fig:background:graph-db:masymos}
 \end{figure}
 
 \begin{comment}
 % following some quotes from the Henkel2015 paper
 \begin{itemize}
-	\item This work is based on MaSyMoS, "a graph database for simulation models and associated data" \cite{Henkel2015}
-	\subitem \cite{Henkel2015} Many models in public databases encode networks that can be represented as graphs
-	\subitem \cite{Henkel2015} relational databases were developed for homogeneous, structured data, e.g. numerical data
-	\subitem \cite{Henkel2015} Designing a relational representation for these links and keeping the database efficient at the same time are impossible
+	\item This work is based on MaSyMoS, "a graph database for simulation models and associated data" \citep{Henkel2015}
+	\subitem \citep{Henkel2015} Many models in public databases encode networks that can be represented as graphs
+	\subitem \citep{Henkel2015} relational databases were developed for homogeneous, structured data, e.g. numerical data
+	\subitem \citep{Henkel2015} Designing a relational representation for these links and keeping the database efficient at the same time are impossible
 	
-	\item \cite{Henkel2015} MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models
-	\subitem \cite{Henkel2015} We chose the graph database Neo4J (25)
-	\subitem \cite{Henkel2015} follows the fundamental properties of databases, i.e. the ACID principles
+	\item \citep{Henkel2015} MaSyMos is a database based on neo4j for storing and retrieving structural information of biological models
+	\subitem \citep{Henkel2015} We chose the graph database Neo4J (25)
+	\subitem \citep{Henkel2015} follows the fundamental properties of databases, i.e. the ACID principles
 	
-	\item \cite{Henkel2015} biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their highly linked structure
-	\subitem \cite{Henkel2015} No unified schema exists for models and meta-data, making it difficult to define a relational database schema
-	\subitem \cite{Henkel2015} highly linked models, model entities and meta-data are difficult to represent in a table-based relational database
+	\item \citep{Henkel2015} biological models are represented in heterogenous data structures e.g. networks. Traditional relational databases are build to quickly process highly structured data in tables, therefore they are less efficient in storing and retrieving standard encoded models, due to their highly linked structure
+	\subitem \citep{Henkel2015} No unified schema exists for models and meta-data, making it difficult to define a relational database schema
+	\subitem \citep{Henkel2015} highly linked models, model entities and meta-data are difficult to represent in a table-based relational database
 	\item \masymos data model and structure
-	\subitem \cite{Henkel2015} document root node is created for each data item
+	\subitem \citep{Henkel2015} document root node is created for each data item
 	\subitem each model is represented by a model node
 	\subsubitem entry point for each model import is a document node
-	\subitem \cite{Henkel2015} Attached to the model node are annotation nodes, including the reference publication
+	\subitem \citep{Henkel2015} Attached to the model node are annotation nodes, including the reference publication
 	\subitem in SBML compartments, species and reactions are linked to the model node
 	\subitem in CellML each component is linked to the model node, further containing variables and mathematical relationships to manipulate other variables
-	\subsubitem \cite{Henkel2015} component contains vari- ables and mathematical relationships that manipulate those variables
+	\subsubitem \citep{Henkel2015} component contains vari- ables and mathematical relationships that manipulate those variables
 	\subitem Experiment setups are stored under a SEDML node, instead of a model node. In comparison to species, reactions, compartments or components the SEDML node has links to Modelreference nodes, as well as nodes pointing to different model entities used in plots. Nevertheless no processing information is stored in the database.
-	\subsubitem \cite{Henkel2015} SEDML node serves as the anchor for an experiment
-	\subsubitem \cite{Henkel2015} Modelreference node links the experiment to all Model nodes used in the simulation
-	\subsubitem \cite{Henkel2015} do not store the specific processing of a model entity
+	\subsubitem \citep{Henkel2015} SEDML node serves as the anchor for an experiment
+	\subsubitem \citep{Henkel2015} Modelreference node links the experiment to all Model nodes used in the simulation
+	\subsubitem \citep{Henkel2015} do not store the specific processing of a model entity
 	\subitem Semantic annotations and cross-references from the models are stored as seperate nodes and linked to the ontology node representing the used ontology term.
-	\subsubitem \cite{Henkel2015} Semantic annotations and cross-references
-	\subsubitem \cite{Henkel2015} We parse these ontologies and add all concepts and relations as nodes and edges, respectively.
+	\subsubitem \citep{Henkel2015} Semantic annotations and cross-references
+	\subsubitem \citep{Henkel2015} We parse these ontologies and add all concepts and relations as nodes and edges, respectively.
 	\subitem ensure an easy traversal upwards, a connection is created from each node of the stored model that points to the parent of the current node. The corresponding edges are named belongsTo]
 	\item Linking model related data
 	\subitem main advantage to prior mentioned storage in relational databases is the possibility to flexibly link data between different domains. //Henkel et al.// describes 3 different links, which are currently implemented: 1. links between (model) annotations and the corresponding ontology term 2. links between models or model entities and SEDML simulation descriptions or respectively SEDML variables 3. links between model entities in different standard format representation
-	\subsubitem \cite{Henkel2015} The main advantage of the previously described concept is its possibility to define flexible links between the data do\item mains)
-	\subsubitem \cite{Henkel2015} links between annotations (in SBML, CellML and SED-ML) and ontology concepts)
-	\subsubitem \cite{Henkel2015} links between models (in SBML or CellML format) and SED-ML
-	\subsubitem \cite{Henkel2015} link is that between a model and a simulation description
-	\subsubitem \cite{Henkel2015} links between model entities and SED-ML variables
-	\subsubitem \cite{Henkel2015} links between model entities from different model rep- resentation formats
-	\subitem \cite{Henkel2015} For each annotation in a model we add an explicit link to the data entry in the ref- erenced bio-ontology
+	\subsubitem \citep{Henkel2015} The main advantage of the previously described concept is its possibility to define flexible links between the data do\item mains)
+	\subsubitem \citep{Henkel2015} links between annotations (in SBML, CellML and SED-ML) and ontology concepts)
+	\subsubitem \citep{Henkel2015} links between models (in SBML or CellML format) and SED-ML
+	\subsubitem \citep{Henkel2015} link is that between a model and a simulation description
+	\subsubitem \citep{Henkel2015} links between model entities and SED-ML variables
+	\subsubitem \citep{Henkel2015} links between model entities from different model rep- resentation formats
+	\subitem \citep{Henkel2015} For each annotation in a model we add an explicit link to the data entry in the ref- erenced bio-ontology
 	\subitem This link is shared between all models using this annotation, regardless of the format
 	\subitem Further to explicit links (one hop in the graph), MaSyMoS is able to determine implicit links between different models. Those can be established over shared resources like a publication, publication author or annotations with common bio-ontologies. Regarding a publications the database may establish connections based on the likelihood of names by Hemming Distance, resulting in a confidence which can be increased, "" if the entities' annotations match
-	\subsubitem \cite{Henkel2015} In addition, we determine implicit links between models of different representation formats
-	\subsubitem \cite{Henkel2015} If two models share a publication, the systems can infer implicit links between those entities that are equally named
+	\subsubitem \citep{Henkel2015} In addition, we determine implicit links between models of different representation formats
+	\subsubitem \citep{Henkel2015} If two models share a publication, the systems can infer implicit links between those entities that are equally named
 	\item Implementation
 	\subitem MaSyMoS is designed to run as both standalone commandline application with embedded neo4j and as an extension to the neo4j server. Latter is controlled by an unmanaged neo4j plugin providing a RESTful json interface.
 	\subitem Same interface also cooperates with the retrieval engine Morre, by providing endpoints to query different search indexes.
