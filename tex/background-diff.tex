@@ -1,5 +1,6 @@
 % !TeX spellcheck = en_US
 \section{Data formats for System Biology models}
+	\label{sec:background:formats}
 	\begin{itemize}
 		\item formats
 		\subitem SBML
@@ -11,11 +12,13 @@
 	\todo{look at STATS paper/MOST for version statistics}
 
 \section{Detecting differences in Version Control Systems}
+	\label{sec:background:diff}
+	
 	\subsection{Unix Diff}
 	\label{sec:background:diff:unix-diff}
 	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version complete is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
 	
-	Nowadays all general-purpose VCS use the \texttt{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \citep{Hunt1976}.
+	Nowadays all general-purpose VCS use the \emph{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \citep{Hunt1976}.
 	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \citep{Hunt1976}.
 	
 	\begin{comment}
@@ -139,9 +142,23 @@
 	\end{itemize}
 	\end{comment}
 		
-	\subsection{Challenges traditional VCS face with Systems Biology models}
+	\subsection{Challenges traditional VCSs face with Systems Biology models}
 	\label{sec:background:manage-versions:challenges}
 	
+	But even with VCSs being heavily used in most software development projects nowadays, \sysbio struggles to adapt those systems for a variety of reasons.
+	The most obvious one, would be the missing awareness among Systems Biologists, due to their strong foundation in Biology. Means the priority for them might be less in good data management, but more on understanding biological processes.
+	Besides these difficult to prove social aspects, there are also a lot of technical reasons, why common VCSs fail to perform well in \sysbio.
+	
+	All currently used VCSs rely by default on the \emph{UNIX diff} tool (cf. Section \ref{sec:background:diff:unix-diff}) to identify changes between versions. Since all in this work used data formats for \sysbio models are using \xml to encode them (cf. Section \ref{sec:background:formats}), the normally used \emph{UNIX diff} is widely unsuitable (cf. Section \ref{sec:background:diff:xml-diff}).
+	But even specialized algorithms for delta generation of \xml files, may fail to perform well (cf. Section \ref{sec:background:diff:xml-diff}). To improve this situation the algorithms need to take domain specific knowledge into account and be specifically fitted to the representation format \citep{Waltemath2013}.
+	If the used algorithm fails to do so, changes in the encoding, but with no effect on the model, may be detected and flood the change log -- rendering it useless.
+	But even with sufficient knowledge about the domain and suitable \xml delta algorithms, it may be impossible to determine the importance or the scope or impact of a change. Hence a VCS, tailored for \sysbio, is not only supposed to store different revisions of a model, but also to "reflect the temporal evolution [...] and present model changes to the user" \citep{Waltemath2013} in a clear way, a semantic taxonomy is required, to communicate these changes (cf. to \comodi, Section \ref{sec:background:onto:comodi}).
+	
+	Currently there are 2 major approaches to store version information \citep{Waltemath2013}: The oldest one suggests to store a change log of minor changes in the model itself \citep{Beard2009}.
+	The second, more applied approach, is to keep track of changes within a repository.
+	Neither of these methods meet all requirements, mentioned above.
+	
+	\begin{comment}
 	\begin{itemize}
 		\item SVN and GIT are using unix-diff -> not suitable for XML files (cf. XML diff section)
 		\item no semantic information about the changes (cf. comodi)
@@ -154,7 +171,7 @@
 			\subitem keeping track of (minor) changes in the model itself
 			\subitem tracking versions in the repository
 	\end{itemize}
-
+	\end{comment}
 
 \section{Ontologies in Computer Science}
 	The idea of a semantic web was first introduced by Tim Berners-Lee et al. in 2001 \citep{Berners-Lee2001}, he described the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and "understood" by computer algorithms. The aspired goal, was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with an 
