@@ -16,7 +16,7 @@
 	
 	\subsection{Unix Diff}
 	\label{sec:background:diff:unix-diff}
-	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version complete is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
+	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more version, because just storing each version completely is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
 	
 	Nowadays all general-purpose VCS use the \emph{diff} utility, developed as part of UNIX. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \citep{Hunt1976}.
 	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \citep{Hunt1976}.
@@ -31,7 +31,8 @@
 	
 	\subsection{XML Diff}
 	\label{sec:background:diff:xml-diff}
-	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is however, that they do not make any assumptions about the underlying document and therefore fail to recognize feature specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information \citep{Ronnau2005}.
+	The problem with general-purpose VCS or more specific the difference algorithm used by them (cf. section \ref{sec:background:diff:unix-diff}) is, however, that they do not make any or very little assumptions about the underlying document and therefore fail to recognize features, specific to the format. These line-base algorithms proved to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \citep{Ronnau2005}
+	
 	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. Generally \xml can be represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, instead by a line-number \citep{Wang2003,Chawathe1996,Cobena2002}.
 	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently \citep{Cobena2002}.
 	

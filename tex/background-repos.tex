@@ -1,11 +1,11 @@
 % !TeX spellcheck = en_US
-\section{Existing Model repositories}
+\section{Existing Model Repositories}
 \label{sec:background:modelrepo}
 Over the time modeling evolved to one of the major methods in Computational and Systems Biology \citep{Finkelstein2004}. Thus more and more data in terms of models were produced and grow more complex. \citep{Henkel2010} As a result a number of projects require the reuse and recomposition of models, which prove to be difficult, if there is no central database available. \citep{Waltemath2013}
 Out of this need, multiple projects started to collect, curate, and distribute models, to improve overall reusebility.
 The two major repositories, which I choose to focus on are, on the one hand \emph{BioModels Database}\footnote{\url{https://www.ebi.ac.uk/biomodels-main/}} \citep{Li2010}, focusing on \sbml encoded models and on the other hand the \emph{Physiome Model Repository}\footnote{\url{http://models.cellml.org/cellml}} (PMR2) \citep{Yu2011}, which is mainly providing \cellml encoded models.
 
-However, these existing model repositories provide a rich set of information about the model itself, it is now important to focus on associated information. Integrating additional information, as simulation experiments descriptions (SED), result information ,and publication and author references, will increase the reusebility even further \citep{Waltemath2013,Henkel2012}.
+However, these existing model repositories provide a rich set of information about the model itself, it is now important to focus on associated information. Integrating additional information, as simulation experiments descriptions (SED), result information, and publication and author references, will increase the reusebility even further \citep{Waltemath2013,Henkel2012}.
 
 
 \begin{comment}
@@ -17,7 +17,7 @@ However, these existing model repositories provide a rich set of information abo
 
 \section{Using graph databases to store \sysbio models}
 \label{sec:backgroung:graph-db}
-\sysbio models often encode simulation networks, which can easily be represented as graphs, but are inhomogeneous. This proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for the generation of assumptions and basic information mining. Further, data often needs to be converted to comply with the database schema, which implies changes to later, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \citep{Lysenko2016}
+\sysbio models often encode simulation networks, which can easily be represented as graphs. These networks tend to be widely inhomogeneous, what proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for the generation of assumptions and basic information mining. Further, data often needs to be converted to comply with the database schema, which implies changes to later, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \citep{Lysenko2016}
 
 In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database. \citep{Henkel2015}
 
@@ -35,11 +35,11 @@ In conclusion relational databases are less efficient in storing standard encode
 \todo{smooth connection between upper subsection, and this one}
 "A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model." \citep{Robinson2013}
 Most graph databases are implemented as a property graph, meaning they consist out of nodes and relationships connecting exactly two nodes. Both nodes and relations may have additional properties attached to them, in form a of a key-value tuple.
-The main difference to, for instance, a Hypergraph is the strict limitation of nodes connected by a relation. Whereby a Hyperedge is able to link $n+2, n \in \mathbb{N}_0$ nodes. \citep[Appendix A]{Robinson2013}
+The main difference to, for instance, a Hypergraph is the strict limitation of nodes connected by a relation. Whereby a Hyperedge is able to link $n+2, n \in \mathbb{N}_0$ nodes \citep[Appendix A]{Robinson2013}.
 Graph database are contradictory concept, when compared with traditional relation databases, but offer great benefits in a variety of use cases. These include all types of querying for structural information, but also environments, which demand a more flexible approach to data modeling. 
-Due to the fact, that graph structures are additive, new relationships, node (classes) or even subgraphs can be added, without irritating existing queries or applications. Which in turn allows to interlink data, as it is demanded by the domain and not being locked into a schema, rather it allows for a genetic evolution of structure and schema with expanding understanding of the problem. cf. \citep{Robinson2013}
+Due to the fact, that graph structures are additive, new relationships, node (classes) or even subgraphs can be added, without irritating existing queries or applications. Which in turn allows to interlink data, as it is demanded by the domain and not being locked into a schema, rather it allows for a genetic evolution of structure and schema with expanding understanding of the problem. \citep{Robinson2013}
 
-In this work I focus on neo4j as a major graph database management system, because it also forms the foundation for \masymos, which is again the system my implementation is based on. (cf. Section \ref{sec:background:graph-db:masymos})
+In this work I focus on \neoj as a major graph database management system, because it also forms the foundation for \masymos, which is again the system my implementation is based on. (cf. Section \ref{sec:background:graph-db:masymos})
 
 \begin{comment}
 "A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model. Graph databases are generally built for use with transactional (OLTP) systems." \citep{Robinson2013}
@@ -62,21 +62,21 @@ reasons for a graph-db:
 
 \subsection{Graph Database schema and the Entity Relation model}
 \label{sec:background:graph-db:er}
-Relational databases have established a supremacy over the time, it is therefore standardized, how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \citep{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Due to most new databases following the noSQL paradigm, do not rely on strong and fixed data structures \citep{Tudorica2011}.
-Since architectural planing and design is an essential part of software development, it is still useful to define formal data structure and relations.
+Relational databases have established a supremacy over the time, it is therefore standardized how to convert formal modeling approaches like entity-relationship (ER) models into a relational schema \citep{Saake2010,Teorey1986}. With the introduction of so called noSQL databases, which break with classic relational design, modeling schema got optional. Because most new databases following the noSQL paradigm, they do not rely on strong and fixed data structures \citep{Tudorica2011}.
+However, since architectural planing and design is an essential part of software development, it is still useful to define formal data structure and relations.
 
-Even though \neoj, introduced in Section \ref{sec:backgroung:graph-db}, is part of the schema-free noSQL, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
-%Unfortunately the neo4j team does not use an establish modeling language, but relies on example graphs for their documentation and examples.
+Even though \neoj, introduced in Section \ref{sec:backgroung:graph-db}, is part of the schema-free noSQL trend, it provides mechanisms to imply and enforce them\footnote{\url{https://neo4j.com/docs/developer-manual/current/cypher\#cypher-schema}}.
+%Unfortunately the \neoj team does not use an establish modeling language, but relies on example graphs for their documentation and examples.
 I decided to use ER models, because they are well established and widely accepted, even though they are not used in the context of graph databases regularly.
-However, as Siriwaradhana shows it is easy to translate standard ER-models into graph-database structure. \citep{Siriwaradhana2014}
+However, as \citeauthor{Siriwaradhana2014} shows it is easy to translate standard ER-models into graph-database structure \citep{Siriwaradhana2014}.
 An example for a translation is shown in Figure \ref{fig:example-er-diagram}.
 
 It is suggested, that a name of an entity is translated into a vertex name or, in case of \neoj, a node label. All associated attributes become vertex properties.
 In case of a simple binary relation, an edge with type (\neoj label) of the relation name is added. Similar to entities the attributes are becoming properties. end- and start-point fo the edge are the corresponding vertex-types to the two entities connected by the relation.
 
-N-ary relations on the other hand are a challenge to translated. To map those it is necessary to add a vertex with the name of the relation, due to the restriction of property graphs regarding relations, which cannot handle relations between more than 2 vertexes.
+N-ary relations on the other hand are challenging to translate. To map those it is necessary to add a vertex with the name of the relation, due to the restriction of property graphs regarding relations, which cannot handle relations between more than 2 vertexes.
 This new vertex represents the relation and is assigned with all associated properties. The participating entities in this relation are connected via edges, which are labeled according to the role of the participating entity. If no role is specified, the edge name could be a combination of relationship- and target-vertex name.
-For all translations relation directions of the edges do not matter, since there is no way to define this in ER models. Anyway, the directions should be chosen, so role and therefore edge names make sense.
+For all translations relation directions of the edges do not matter, since there is no way to define this in ER models. Anyway, the directions should be chosen, so it supports the meaning of role and therefore edge names.
 \begin{comment}
 \begin{itemize}
 \item entities:
@@ -115,16 +115,16 @@ This work is mainly based on \masymos, "a graph database for simulation models a
 
 Since \masymos is developed for "storing and retrieving structural information of biological models" \citep{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \citep{Henkel2015}
 
-The internal schema used by \masymos is shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. It represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which in contrast is the entry point for the actual model and represents the \xml root node.
+The internal schema used by \masymos, as shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. This \texttt{DOCUMENT} node represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which, in contrast, is the entry point for the actual model and represents the \xml root node.
 
-Beyond these two nodes, the schema depends on the format, encoding the imported model. For \sbml the \texttt{MODEL} node is linked to compartments, species, and reactions. Which on the other hand are linked among each other, expressions relations like reaction reactants and products, or association to a compartment.
+Beyond these two nodes, the schema depends on the format, encoding the imported model. For \sbml the \texttt{MODEL} node is linked to compartments, species, and reactions. Which on the other hand can be linked among each other, expressing relations like reaction reactants and -products, or association to a compartment.
 Whereby in \cellml the \texttt{MODEL} node links to components, which again contain variables and mathematical expressions, manipulating other variables.
 
-Further semantic annotations, like ontology terms or publication and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
-Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but traversing to more detailed ones and vice versa.
-Commonly imported ontologies are biomodels-qualifier \footnote{\todo{get link to biomq}}, gene ontology \footnote{\todo{go link}} and \todo{another onto}
+Further semantic annotations, like ontology terms or publication, and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
+Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but still support traversing to more detailed terms and vice versa.
+Commonly imported ontologies are System Biology Ontology\footnote{\todo{get link to SBO}} (SBO), Gene Ontology\footnote{\todo{go link}} (GO), KiSAO\footnote{\todo{kisao link}} and Chebi Ontology\footnote{\todo{Link to chebi}}
 
-In addition to explicit links the graph database back-end of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with common annotations, or even between models using annotations of the same ontology branch
+In addition to explicit links the graph database back-end of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with, common annotations, or even between models using annotations of the same ontology branch.
 Further, to allow for easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
 
 \todo{paragraph about shortcomings}
