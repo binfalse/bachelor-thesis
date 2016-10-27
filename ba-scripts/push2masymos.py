@@ -129,7 +129,7 @@ def push_models():
                     'versionId': version['version_id'],
                     'xmldoc': urllib.parse.urljoin('http://{host}:{port}/'.format(host=settings['http_hostname'], port=settings['http_port']), version['http_path']),
                     'modelType': model['model_type'],
-                    'metaMap': version['meta'],
+                    'metaMap': version['meta'] if 'meta' in version else {},
                     'parentMap': {model['file_id']: [prior_version]} if prior_version else {},
                 }
 
