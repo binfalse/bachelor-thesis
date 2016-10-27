@@ -9,3 +9,9 @@ original sbml demo:
 Match (doc1:DOCUMENT)-[r1:HAS_DIFF]->(diff:DIFF)<-[r2:HAS_DIFF]-(doc2:DOCUMENT), (doc1)-[r9:HAS_SUCCESSOR]->(doc2), (diff)-[r3]->(node:DIFF_NODE), (doc1)-[r4]->(m1:MODEL)-[r5]->(mn1), (doc2)-[r6]->(m2:MODEL)-[r7]->(mn2), (node)-[r8]->(target)
 Where node.inherit = False and doc1.FILEID = doc2.FILEID = "urn:model:uni.freakybytes.net:test:demo-sbml:!:demo-sbml"
 Return doc1, doc2, diff, node, target, m1, m2, mn1, mn2, r1, r2, r3, r4, r5, r6, r7, r8, r9
+
+tyson query:
+
+Match (doc1:DOCUMENT)-[r1:HAS_DIFF]->(diff:DIFF)<-[r2:HAS_DIFF]-(doc2:DOCUMENT), (doc1)-[r9:HAS_SUCCESSOR]->(doc2), (diff)-[r3]->(node:DIFF_NODE), (doc1)-[r4]->(m1:MODEL)-[r5]->(mn1), (doc2)-[r6]->(m2:MODEL)-[r7]->(mn2), (node)-[r8]->(target)
+Where node.inherit = False and doc1.FILEID = doc2.FILEID = "urn:model:localhost:biomodels:releases:BIOMD0000000005.xml:!:BIOMD0000000005.xml"
+Return doc1, doc2, diff, node, target, m1, m2, mn1, mn2, r1, r2, r3, r4, r5, r6, r7, r8, r9
