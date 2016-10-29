@@ -1,4 +1,6 @@
 % !TeX spellcheck = en_US
+\label{sec:concept}
+
 \section{Overall system architecture and services}
 \label{sec:concept:sysarchitecture}
 \todo{highlight the differences between optimal (proposed) infrastructure and the implementation}
@@ -66,7 +68,6 @@ Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}, which ag
 
 \todo{add table (or similar) of all entities and relations in the appendix}
 \todo{make visible, that ER model is just a sub-ER}
-\todo{add version relation to document entity}
 
 This storage structure, I decided on, does not make use of efficient reverse-delta storage, as traditional VCS (cf. Section \ref{sec:background:manage-versions:traditional-vcs}), instead each model is stored complete for multiple reasons: It allows for a very lose coupling to the base \masymos implementation, meaning the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base. Further the core functionality of \masymos, providing a full text and structural search index, is not interrupted, so if required each version of a model can be treated as single instance. Resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
 
