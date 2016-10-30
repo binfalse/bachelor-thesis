@@ -21,6 +21,7 @@
 \usepackage{amsmath}
 
 \usepackage[square,comma]{natbib}
+\usepackage[titletoc]{appendix}
 
 % set date format
 \usepackage[style=iso]{datetime2}
@@ -48,7 +49,7 @@
 	
 	% set paragraph indents
 	%\setlength{\parindent}{0pt}
-	%\setlength{\parskip}{12pt plus 4mm minus 3mm}
+	%\setlength{\parskip}{12pt plus 0mm minus 3mm}
 	
 	\chapter{Introduction}
 	% comment command for Dagmar (defined in shortcuts.tex)
@@ -87,10 +88,13 @@
 	%\bibliographystyle{unsrtnat}
 	\bibliography{zotero.bib}
 	
-	\begin{appendix}
-		\listoffigures
+	\listoffigures
+	\begin{appendices}
+		\appendixpage
+		\noappendicestocpagenum
+		\addappheadtotoc
 		
-		\chapter*{Appendix}
-		%\input{appendix.tex}
-	\end{appendix}
+		%\chapter*{Appendix}
+		\input{appendix.tex}
+	\end{appendices}
 \end{document}
