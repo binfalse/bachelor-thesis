@@ -19,7 +19,8 @@ The \texttt{inherit} flag indicates, if a change detected by \bives, does not ha
 This, for instance, applies to changes of a mathematical parameter in a kinetic law of a reaction. In this specific example, the change would be linked to the node representing the reaction, since mathematical structures or kinetic laws are not represented by nodes in \masymos. Another example would be text nodes of any kind, which are stored within a Lucene index by \masymos, but not in the graph representation, since they are not an essential part of the models structure.
 The \texttt{inherit} flag consequently allows to store and analyze changes, which otherwise could not be integrated into the schema.
 
-Furthermore \texttt{DIFF\_NODE}s might link to multiple \comodi terms. \comodi's entire reasoned taxonomy is stored in \masymos, so queries matched against more abstract terms also include references to more specialized terms. The resulting network is shown in Appendix \ref{fig:appendix:neo4j-comodi}.
+Furthermore \texttt{DIFF\_NODE}s might link to multiple \comodi terms, whereby \comodi's own relationship names are used, instead of the generic \texttt{is\_a} link, proposed in the concept.
+Further \comodi's entire reasoned taxonomy is stored in \masymos, so queries matched against more abstract terms also include references to more specialized terms. The resulting network is shown in Appendix \ref{fig:appendix:neo4j-comodi}.
 Before generating any deltas the \comodi ontology needs to be imported initially. Otherwise terms might be created on occurrence, but not interlinked according to the taxonomy.
 The initial import is performed using mostly already existing mechanisms in \masymos, which were only adjusted, so they can work with dynamic ontology names (cf. Section \ref{sec:impl:masymos}). In this process the ontology is first of all loaded in its \owl representation and then validated with the Hermit\footnote{\todo{find resource to hermit}} reasoner. The second step not only makes sure only logically correct ontologies are imported, but also to import the \emph{inferred} ontology. This takes away logical classification steps, when querying for abstract ontology classes.
 
@@ -27,10 +28,12 @@ The import of actual models, however, is performed by the \modelcrawler (cf. Sec
 During a test run, done at ???, this resulted in \todo{add some fancy numbers here}.
 
 On the contrary, models for test purposes and to generate Figure \ref{fig:results:simple-diff} were imported using a small Python\footnote{\todo{link to Python?}} script. This script emulates a HTTP daemon, while simultaneously sending import commands to the \masymos \rest interface \morre. Using this script eases the process of importing test data, since neither the \modelcrawler needs to be configure, nor a sane folder structure needs to be build manually.
-import!
 
+In conclusion, the extension of the \masymos database allows to store, access, query, and compare multiple versions of biological models, supported by semantical links. Whereas the extended \masymos database is providing an efficient index for a variety of structural, textual and semantic aspects, the original files are still available in the filesystem. This attempt combines benefits from both approaches. On one hand the speed and good analytic features a (graph database) index provides and on the other hand the exact reproduction a storage of original files ensures.
+Overall this solution meets the requirements set by \citet{Waltemath2013}, that a good "model VCS should be tailored to existing model  representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users" \citep{Waltemath2013}.
 
-
+ 
+\begin{comment}
 \todo{what's done from the concept}
 \todo{still high-level}
 \todo{what problem is solved?}
@@ -45,17 +48,15 @@ import!
 	\item http server storage concept?
 \end{itemize}
 
-
-
 solved:
 "A model VCS should be tailored to existing model representation formats, which are typically XML and RDF based. It should furthermore reflect the temporal evolution of a model and present model changes to the users." \citep{Waltemath2013}
 
 The objective of this thesis is therefore to investigate into a concept to store systems biology models in a way, that multiple versions can be accessed, queried, and compared. Further, semantical annotations of changes between these versions shall be introduced. These additional relations are meant to improve the ability to query for a version of a model by specific criteria and consequently improving the user experience for biologists seeking to build onto existing models, as the evolution of them plays an important role for them \citep{Scharm2015}
+\end{comment}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{resources/neo4j-renders/demo-sbml-simple-diff.pdf}
 	\caption[Reduced representation of a delta in \masymos, between two versions of a the simple \sbml demo model]{Reduced representation of a delta in \masymos, between two versions of a the simple \sbml demo model. The delta, organized around the \texttt{DIFF} node, only shows changes, with a direct match in the graph representation. Further most up traversing relations are not shown, to increase readability.}
 	\label{fig:results:simple-diff}
-	
 \end{figure}
