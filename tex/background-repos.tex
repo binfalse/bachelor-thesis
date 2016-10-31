@@ -122,7 +122,7 @@ Whereby in \cellml the \texttt{MODEL} node links to components, which again cont
 
 Further semantic annotations, like ontology terms or publication, and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
 Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but still support traversing to more detailed terms and vice versa.
-Commonly imported ontologies are System Biology Ontology\footnote{\todo{get link to SBO}} (SBO), Gene Ontology\footnote{\todo{go link}} (GO), KiSAO\footnote{\todo{kisao link}} and Chebi Ontology\footnote{\todo{Link to chebi}}
+Commonly imported ontologies are System Biology Ontology\footnote{\url{http://purl.bioontology.org/ontology/SBO}} (SBO), Gene Ontology\footnote{\url{http://purl.bioontology.org/ontology/GO}} (GO), KiSAO\footnote{\url{http://purl.bioontology.org/ontology/KISAO}} and Chebi Ontology\footnote{\url{http://purl.bioontology.org/ontology/CHEBI}}
 
 In addition to explicit links the graph database back-end of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with, common annotations, or even between models using annotations of the same ontology branch.
 Further, to allow for easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
