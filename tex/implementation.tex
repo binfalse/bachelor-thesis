@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \todo{concrete, low-level stuff}
 \todo{what was used, version numbers, etc.}
 \todo{pretty short, every subproject gets a section}
@@ -5,7 +6,18 @@
 
 \section{\modelcrawler}
 	\label{sec:impl:modelcrawler}
-	\todo{to be decided}
+	The \modelcrawler is not directly product of this project, but was developed by me in course of my work as student assistant at the department for \sysbio and Bioinformatics. However, it is mentioned here, since it responsible for creating the repository containing all original files, which is one of the integral parts of the presented concept (cf. Section \ref{sec:concept:filestorage}).
+	
+	The version described here is 0.0.4 mark2, commit \texttt{abb63db}. Overall the function of the \modelcrawler is relatively simplistic and was designed, so it could be ran incrementally, gradually crawling only (a limited amount) new versions. Each pass through therefore consists of two steps: First the databases are crawled, the new versions or releases are downloaded and stored in said file structure.
+	Second the \modelcrawler pushes all new model versions to \masymos, theoretically allowing for improved write speed, due to transaction management. However, the main reason for splitting the actions is better error recovery. By keeping the time of write operations on the database short and not running any other concurrent task, the probability of interruptions is minimized. This means, when the \modelcrawler fails, due to bugs in the implementation, changes in the API, or other external influences (e.g. Java Heap Exceptions), the database does not get inconsistent. This is guaranteed, because ahead of inserting data, the \modelcrawler ensures all data is valid and consistent.
+	
+	However the first step, downloading all new versions, heavily depends on the to be crawled database.
+	In case of \emph{BioModels Database} all not already crawled release are downloaded from the FTP server with Apache Commons Net library version 3.3, unpacked with Apache Commons Compress version 1.9. Consequently each \xml file is analyzed.
+	If a file with equal name or BioModels ID is already indexed in \masymos, the SHA-1 hash of the files is calculated. If this differs from the file hash of the latest version in \masymos, a new version is assumed.
+	
+	This process is easier for \emph{PMR2}, since it already uses git repositories to keep track of versions/revisions of models. Therefore it is just a matter of interfacing the \rest API with Apache HttpClient 4.3 and FasterXMLs Jackson 2.5.1, to list all publicly available repositories. These repositories are then cloned or pulled with eclipses JGit library, version 3.7.0. Following all commits are iterated, and all newer than the latest version in \masymos are considered new.
+
+	Since the \modelcrawler relies on the \masymos database, to identify already existing versions, it can operate stateless between different pass throughs. However, it keeps separately track of already downloaded BioModels releases and all previously cloned git repositories in order to minimize the amount of data, which needs to be transfered.
 
 \section{Extension to the \masymos core}
 	\label{sec:impl:masymos}
