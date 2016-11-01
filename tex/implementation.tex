@@ -37,17 +37,24 @@
 
 \section{\masymos diff plugin}
 	\label{sec:impl:diff}
+	As mentioned above (cf. Section \ref{sec:impl:masymos}) the implementation structure of this project is meant to mimic the one of \masymos. Hence the main logic is implemented in a core, which possibly gets extended by multiple interfaces (cf. Section \ref{sec:impl:rest}).
 	
+	This core implementation is designed to operate completely asynchronous, which makes the \texttt{ThreadPoolExecutor} a central part of this implementation. This executor is fed by a priority queue, allowing to prioritize urgent tasks, which may be blocking in terms of user interaction.
+	Generally 3 tasks are implemented. First the \texttt{GatherTask}, traverses through the database and submits \texttt{DiffGenerationTask}s for every version hop, not already having a diff.
+	Secondly the \texttt{DiffGenerationTask} generates the actual delta with \bives and inserts its node representation into the database, using a single transaction.
+	Last the \texttt{DiffCleanTask} can be used to remove all existing diffs from the database, which is especially useful during development and testing, but also when \bives is updated, since it might detect certain changes better in newer versions.
+	
+	In the current version this implementation uses the \bives library in version 1.9.1. Initially it was planned to rely on the \bives web service, because this is easier to update and would allow for better load balancing in large installations.
 	
 	\begin{itemize}
 		\item interaction with \bives and neo4j
 		\item problems with Transaction rollback in actually successfull transactions
+		\item trigger for generating diffs for new versions
 	\end{itemize}
 
-\section{\rest interface and scheduling}
+\section{\rest interface}
 	\label{sec:impl:rest}
 	\begin{itemize}
 		\item \rest interface for requesting diffs
-		\item time based trigger for generating diffs for new versions
 	\end{itemize}
 
