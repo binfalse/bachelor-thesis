@@ -45,12 +45,18 @@
 	Last the \texttt{DiffCleanTask} can be used to remove all existing diffs from the database, which is especially useful during development and testing, but also when \bives is updated, since it might detect certain changes better in newer versions.
 	
 	In the current version this implementation uses the \bives library in version 1.9.1. Initially it was planned to rely on the \bives web service, because this is easier to update and would allow for better load balancing in large installations.
+	This design decision was changed, because the translation of the \bives \xml output into an interlinked graph representation requires profound knowledge of both compared models. To create a mapping of the XPath expressions from \bives to the actual \xml elements of the model and consequently to nodes in \masymos, the capability of \bives to decode these model files is used. Since the decoding and document tree parsing is also essential for the generation of deltas in \bives (cf. Section \ref{sec:background:diff:bives}), externalizing the delta computation would therefore lead to unnecessary redundant processing and accordingly increase the computation time.
 	
+	A major issue is occurred in reliability tests of large transactions on the graph database. The origin of this problem lies \neoj's transaction management. Due to the memory consuming nature of graph storage and operations, large transactions may fail, because the Heap Space of the Java Virtual Machine (JVM) was exceeded. Especially the cleaning task suffered from this problem, but also the main \texttt{DiffGenerationTask} did.
+	The space consumption of the \texttt{DiffGenerationTask} could be handled by increasing the maximum assigned memory of the JVM. Whereas it was necessary to modify the \texttt{DiffCleanTask} so it uses multiple smaller transaction per pass through.
+	
+	\begin{comment}
 	\begin{itemize}
 		\item interaction with \bives and neo4j
 		\item problems with Transaction rollback in actually successfull transactions
 		\item trigger for generating diffs for new versions
 	\end{itemize}
+	\end{comment}
 
 \section{\rest interface}
 	\label{sec:impl:rest}
