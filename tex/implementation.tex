@@ -40,7 +40,7 @@
 	As mentioned above (cf. Section \ref{sec:impl:masymos}) the implementation structure of this project is meant to mimic the one of \masymos. Hence the main logic is implemented in a core, which possibly gets extended by multiple interfaces (cf. Section \ref{sec:impl:rest}).
 	
 	This core implementation is designed to operate completely asynchronous, which makes the \texttt{ThreadPoolExecutor} a central part of this implementation. This executor is fed by a priority queue, allowing to prioritize urgent tasks, which may be blocking in terms of user interaction.
-	Generally 3 tasks are implemented. First the \texttt{GatherTask}, traverses through the database and submits \texttt{DiffGenerationTask}s for every version hop, not already having a diff.
+	Generally 3 tasks are implemented. First the \texttt{DiffGatherTask}, traverses through the database and submits \texttt{DiffGenerationTask}s for every version hop, not already having a diff.
 	Secondly the \texttt{DiffGenerationTask} generates the actual delta with \bives and inserts its node representation into the database, using a single transaction.
 	Last the \texttt{DiffCleanTask} can be used to remove all existing diffs from the database, which is especially useful during development and testing, but also when \bives is updated, since it might detect certain changes better in newer versions.
 	
@@ -60,7 +60,13 @@
 
 \section{\rest interface}
 	\label{sec:impl:rest}
+	
+	To interact with the diff plugin a \rest interface was implemented, similar to \masymos's \morre. It is realized as a unmanaged \neoj extension\footnote{\url{http://neo4j.com/docs/java-reference/current/\#server-unmanaged-extensions}}. As the \neoj manual suggests, it uses JAX-RS\footnote{\url{https://jax-rs-spec.java.net/}} 2.0 to define interfaces and Jackson\footnote{\url{http://wiki.fasterxml.com/JacksonHome}} 2.3.3 to serialize Java objects into \json.
+	
+	The \rest interface provides 4 endpoints to interact with, either triggering the \texttt{DiffGatherTask} or the \texttt{DiffGenerationTask}, or to enquire some basic statistics of the \texttt{ThreadPoolExecutor} or the database status in terms of generated deltas.
+	
+	\begin{comment}
 	\begin{itemize}
 		\item \rest interface for requesting diffs
 	\end{itemize}
-
+	\end{comment}
