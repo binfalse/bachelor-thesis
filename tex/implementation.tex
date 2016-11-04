@@ -64,6 +64,8 @@
 	To interact with the diff plugin a \rest interface was implemented, similar to \masymos's \morre. It is realized as a unmanaged \neoj extension\footnote{\url{http://neo4j.com/docs/java-reference/current/\#server-unmanaged-extensions}}. As the \neoj manual suggests, it uses JAX-RS\footnote{\url{https://jax-rs-spec.java.net/}} 2.0 to define interfaces and Jackson\footnote{\url{http://wiki.fasterxml.com/JacksonHome}} 2.3.3 to serialize Java objects into \json.
 	
 	The \rest interface provides 4 endpoints to interact with, either triggering the \texttt{DiffGatherTask} or the \texttt{DiffGenerationTask}, or to enquire some basic statistics of the \texttt{ThreadPoolExecutor} or the database status in terms of generated deltas.
+	The thread pool statistics include the number of queued tasks, currently executed tasks, and the immediate running tasks.
+	However, the database statistics show the number of \texttt{Diff}s, \texttt{DOCUMENT}s, versions per distinct model, and the distribution of the different types of changes.
 	
 	\begin{comment}
 	\begin{itemize}
