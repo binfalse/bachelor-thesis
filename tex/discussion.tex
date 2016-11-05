@@ -1,6 +1,15 @@
 % !TeX spellcheck = en_US
 
-Opposed to traditional VCSs (cf. Section \ref{sec:background:manage-versions:traditional-vcs}) the system presented in this thesis is not meant to support developers during the development process, but rather to assist other developers by building on existing models. ...
+Opposed to traditional VCSs (cf. Section \ref{sec:background:manage-versions:traditional-vcs}) the system presented in this thesis is not meant to support developers during the development process, but rather to assist other developers, who want to build on existing models.
+This shift in focus, allows to analyze and organize already published models, as well it does not need any interaction from the modelers. Second point might help to building up the data stock quicker.
+Which allowed me to accumulate a large test set of $14503$ model versions from $3367$ distinct models, filling the database with $4.307$ versions per model on average and consuming $8.5$ GBytes of disc storage.
+This test set was generated on 2016-10-14 from all publicly available workspaces in \emph{PMR2} and all releases from \emph{BioModels Database} (cf. Section \ref{sec:background:modelrepo}) using the \modelcrawler (cf. Section \ref{sec:impl:modelcrawler}).
+
+Being an analyzes platform and not a day-to-day tool sets different constraints. For instance access time becomes more crucial, whereby consumed drive space is less a concern.
+My implementation takes full advantage of this loosened space restriction, because I decided to neglect reverse delta storage to be able to easily query information about the delta. This decision might show some drawbacks with growing amount of models and versions.
+First issue to consider would be higher storage consumption. But also slower query execution should be considered.
+
+
 
 \todo{maybe pull last paragraph from db concept down here}
 \begin{itemize}
