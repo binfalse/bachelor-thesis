@@ -6,14 +6,14 @@
 
 \section{\modelcrawler}
 	\label{sec:impl:modelcrawler}
-	The \modelcrawler is not directly product of this project, but was developed by me in course of my work as student assistant at the department for \sysbio and Bioinformatics. However, it is mentioned here, since it responsible for creating the repository containing all original files, which is one of the integral parts of the presented concept (cf. Section \ref{sec:concept:filestorage}).
+	The \modelcrawler is not a direct product of this project, but was developed by me in course of my work as student assistant at the department for \sysbio and Bioinformatics. However, it is mentioned here, since it responsible for creating the repository containing all original files, which is one of the integral parts of the presented concept (cf. Section \ref{sec:concept:filestorage}).
 	
 	The version described here is 0.0.4 mark2, commit \texttt{abb63db}. Overall the function of the \modelcrawler is relatively simplistic and was designed, so it could be ran incrementally, gradually crawling only (a limited amount) new versions. Each pass through therefore consists of two steps: First the databases are crawled, the new versions or releases are downloaded and stored in said file structure.
 	Second the \modelcrawler pushes all new model versions to \masymos, theoretically allowing for improved write speed, due to transaction management. However, the main reason for splitting the actions is better error recovery. By keeping the time of write operations on the database short and not running any other concurrent task, the probability of interruptions is minimized. This means, when the \modelcrawler fails, due to bugs in the implementation, changes in the API, or other external influences (e.g. Java Heap Exceptions), the database does not get inconsistent. This is guaranteed, because ahead of inserting data, the \modelcrawler ensures all data is valid and consistent.
 	
-	However the first step, downloading all new versions, heavily depends on the to be crawled database.
-	In case of \emph{BioModels Database} all not already crawled release are downloaded from the FTP server with Apache Commons Net library version 3.3, unpacked with Apache Commons Compress version 1.9. Consequently each \xml file is analyzed.
-	If a file with equal name or BioModels ID is already indexed in \masymos, the SHA-1 hash of the files is calculated. If this differs from the file hash of the latest version in \masymos, a new version is assumed.
+	However the first step, downloading all new versions, depends heavily on the intended database.
+	In case of \emph{BioModels Database} all unknown/new releases are downloaded from the FTP server with Apache Commons Net library version 3.3, unpacked with the Apache Commons Compress version 1.9. Consequently each \xml file is analyzed.
+	If a file is already indexed in \masymos, the SHA-1 hash of the files is calculated. If this differs from the file hash of the latest version in \masymos, a new version is assumed. The files are distinguished by their name, which is equivalent to the \emph{BioModels ID}.
 	
 	This process is easier for \emph{PMR2}, since it already uses git repositories to keep track of versions/revisions of models. Therefore it is just a matter of interfacing the \rest API with Apache HttpClient 4.3 and FasterXMLs Jackson 2.5.1, to list all publicly available repositories. These repositories are then cloned or pulled with eclipses JGit library, version 3.7.0. Following all commits are iterated, and all newer than the latest version in \masymos are considered new.
 
@@ -24,9 +24,9 @@
 	\todo{add version number and commit hash}
 	The anatomy of the \masymos project is divided into 3 parts: a core, a command line interface, and web \rest interface (cf. Section \ref{sec:background:graph-db:masymos}). This project was designed to mimic this structure, so modifications to the original implementation of \masymos ca be kept minimal. Due to the additive nature of the database concept (cf. Section \ref{sec:concept:dbmodel}), this design constraint could be met, except in one case.
 	
-	The only direct extension of the core implementation concerns the import of ontologies. By default \masymos allows to load a hard coded set of ontologies, which unfortunately not includes \comodi. Therefore I needed to extend \masymos for this capability. But instead of adding another name to list, I rather implemented a dynamic unique factory. The way \masymos handles ontologies features in particular node label indexes for each ontology, which is used as reverse index to ensure uniqueness of nodes representing a specific term.
-	The benefit of this approach is, that even when an ontology is not yet imported, but an model or diff uses certain terms, these are created on demand. Later, when said ontology is loaded, the term representing nodes already exist and can be reused and correctly interconnected.
-	The new method I have implemented, now allows create other dynamic unique factories at runtime, effectively allowing to import any ontology.
+	The only direct extension of the core implementation concerns the import of ontologies. By default \masymos allows to load a hard coded set of ontologies, which unfortunately does not include \comodi. Therefore I needed to extend \masymos for this capability. But instead of adding another name to list, I rather implemented a dynamic unique factory. The way \masymos handles ontologies features in particular node label indexes for each ontology, which is used as reverse index to ensure uniqueness of nodes representing a specific term.
+	The benefit of this approach is, that even when an ontology is not yet imported, but a model or delta uses certain terms, these are created on demand. Later, when said ontology is loaded, the term representing nodes already exist and can be reused and correctly interconnected.
+	The new method I have implemented, now allows to create other dynamic unique factories at runtime, effectively allowing to import any ontology.
 
 	\begin{comment}
 	\begin{itemize}
@@ -40,9 +40,9 @@
 	As mentioned above (cf. Section \ref{sec:impl:masymos}) the implementation structure of this project is meant to mimic the one of \masymos. Hence the main logic is implemented in a core, which possibly gets extended by multiple interfaces (cf. Section \ref{sec:impl:rest}).
 	
 	This core implementation is designed to operate completely asynchronous, which makes the \texttt{ThreadPoolExecutor} a central part of this implementation. This executor is fed by a priority queue, allowing to prioritize urgent tasks, which may be blocking in terms of user interaction.
-	Generally 3 tasks are implemented. First the \texttt{DiffGatherTask}, traverses through the database and submits \texttt{DiffGenerationTask}s for every version hop, not already having a diff.
+	Generally 3 tasks are implemented. First the \texttt{DiffGatherTask}, traverses through the database and submits \texttt{DiffGenerationTask}s for every version hop, not already connected by a delta.
 	Secondly the \texttt{DiffGenerationTask} generates the actual delta with \bives and inserts its node representation into the database, using a single transaction.
-	Last the \texttt{DiffCleanTask} can be used to remove all existing diffs from the database, which is especially useful during development and testing, but also when \bives is updated, since it might detect certain changes better in newer versions.
+	Third the \texttt{DiffCleanTask} can be used to remove all existing diffs from the database, which is especially useful during development and testing, but also when \bives is updated, since newer versions might improve detection of  change and annotation of them.
 	
 	In the current version this implementation uses the \bives library in version 1.9.1. Initially it was planned to rely on the \bives web service, because this is easier to update and would allow for better load balancing in large installations.
 	This design decision was changed, because the translation of the \bives \xml output into an interlinked graph representation requires profound knowledge of both compared models. To create a mapping of the XPath expressions from \bives to the actual \xml elements of the model and consequently to nodes in \masymos, the capability of \bives to decode these model files is used. Since the decoding and document tree parsing is also essential for the generation of deltas in \bives (cf. Section \ref{sec:background:diff:bives}), externalizing the delta computation would therefore lead to unnecessary redundant processing and accordingly increase the computation time.
