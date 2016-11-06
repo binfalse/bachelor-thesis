@@ -67,11 +67,7 @@ Additionally a \texttt{DiffEntry} can link to an \texttt{OntologyTerm}. Ontology
 
 \todo{add table (or similar) of all entities and relations in the appendix}
 \todo{make visible, that ER model is just a sub-ER}
-\todo{maybe move next paragraph to discussion}
 
-This storage structure, I decided on, does not make use of efficient reverse-delta storage, as traditional VCS (cf. Section \ref{sec:background:manage-versions:traditional-vcs}). Instead each model is stored completely for multiple reasons: it allows for a very lose coupling to the base \masymos implementation, meaning the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base. Further the core functionality of \masymos, providing a full text and structural search index, is not interrupted, so if required each version of a model can be treated as single instance. Resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
-
-On the other hand the complete storage of each model increases the database size significantly. But to keep the scope of this work concise and the implementation reasonable, I focused on a good data interlinkage and less on a storage efficient data model. \todo{revise?}
 \todo{Add argument, that \masymos is only search index and does not allow for model reconstruction from the database}
 \todo{mention, what is stored in attributes}
 
