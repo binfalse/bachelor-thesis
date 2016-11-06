@@ -33,6 +33,14 @@
 	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
+% helper for importing csv files with underscores
+\DeclareUrlCommand\UScore{\urlstyle{rm}}
+\newcommand{\expUScore}{%
+	\expandafter\expandafter\expandafter
+	\UScore
+	\expandafter\expandafter\expandafter
+}
+
 \chapter{Simple demo \sbml models}
 \section{Simple demo SBML version1}
 \label{sec:appendix:simple-demo:v1}
@@ -53,7 +61,32 @@
 \chapter{Representation of \comodi in \masymos}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{resources/neo4j-renders/comodi.pdf}
+	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{resources/neo4j-renders/comodi.pdf}
 	\caption{Representation of \comodi in \masymos/\neoj}
 	\label{fig:appendix:neo4j-comodi}
 \end{figure}
+
+\chapter{Overview of Node- and Relationship types}
+\section{Graphical Overview}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{resources/neo4j-renders/large-test-meta-graph.pdf}
+	\caption{Overview of all used node types and relations between them}
+	\label{fig:appendix:meta-graph}
+\end{figure}
+
+\section{List of all used Node types}
+\begin{longtable}{ l r }
+	\hline \bfseries Node Label & \bfseries No. of Nodes \\\hline \endhead
+	\csvreader[head to column names]{resources/neo4j-renders/large-test-meta-graph-nodes.csv}{} %
+	{\expUScore{\label} & \count \\} %
+	\hline
+\end{longtable}
+
+\section{List of all used Relationship types}
+\begin{longtable}{ l c r }
+	\hline \bfseries Source Node Label & \bfseries Relationship Type & \bfseries Destination Node Label \\\hline \endhead %
+	\csvreader[]{resources/neo4j-renders/large-test-meta-graph-edges-expanded.csv}{Source=\sourceNode,Target=\targetNode,label=\relLabel} %
+	{\expUScore{\sourceNode} & \expUScore{\relLabel} & \expUScore{\targetNode} \\} %
+	\hline
+\end{longtable}
