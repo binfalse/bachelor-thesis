@@ -1,15 +1,25 @@
 % !TeX spellcheck = en_US
 
 Opposed to traditional VCSs (cf. Section \ref{sec:background:manage-versions:traditional-vcs}) the system presented in this thesis is not meant to support developers during the development process, but rather to assist other developers, who want to build on existing models.
-This shift in focus, allows to analyze and organize already published models, as well it does not need any interaction from the modelers. Second point might help to building up the data stock quicker.
-Which allowed me to accumulate a large test set of $14503$ model versions from $3367$ distinct models, filling the database with $4.307$ versions per model on average and consuming $8.5$ GBytes of disc storage.
+This shift in focus, allows to analyze and organize already published models, as well as it does not need any interaction from the modelers. Second point might help to building up the data stock quicker, but also limits the amount of meta information.
+By not relying on anybody specifically using this system, I was able to quickly accumulate a large test set of $14503$ model versions from $3367$ distinct models, filling the database with $4.307$ versions per model on average and consuming $8.5$ GBytes of disc storage.
 This test set was generated on 2016-10-14 from all publicly available workspaces in \emph{PMR2} and all releases from \emph{BioModels Database} (cf. Section \ref{sec:background:modelrepo}) using the \modelcrawler (cf. Section \ref{sec:impl:modelcrawler}).
 
 Being an analyzes platform and not a day-to-day tool sets different constraints. For instance access time becomes more crucial, whereby consumed drive space is less a concern.
 My implementation takes full advantage of this loosened space restriction, because I decided to neglect reverse delta storage to be able to easily query information about the delta. This decision might show some drawbacks with growing amount of models and versions.
 First issue to consider would be higher storage consumption. But also slower query execution should be considered.
+Secondly \bives creates multiple changes, which have a single common source. For instance adding a \texttt{Species} will result in at least five changes. These include the insertion of the element itself and the insertion of the attributes \texttt{id}, \texttt{name}, \texttt{initialConcentration}, and \texttt{compartment} reference.
+Storing this many borderline redundant changes is increasing the overall size dramatically.
+Both issues could be improved or even solved by using a database design with less redundancies. This means in relation to the first point, to implement the database as reverse-delta storage, accepting all the mentioned drawbacks.
+In the second issue less redundancies could be archived by grouping changes, which clearly share the same origin.
 
+Grouping in changes will inevitably lead to less accurate annotation with the \comodi ontology, which on the other hand will limit the use in analysis and statistics of changes. 
+Then again, currently the \comodi ontology is only partly used in this project. The \texttt{Reason} and \texttt{Intention} branches (cf. Section \ref{sec:background:onto:comodi}) are not used, because they aim to explain the cause and purpose of a change. These aspects are hard to determine automatically just with a delta between two model versions, therefore is \bives not capable of using these annotations automatically.
+To integrate also \texttt{Reason} and \texttt{Intention} in the annotations, further information would need be processed. This could be archived by user input, either from demanding formalized annotations or by text mining commit messages. 
+Both are a imaginable features for a version of this diff-database project, adjusted for the use as personal VCS, opposed to initial statement.
+Mentioned information could also be conceived by coupling this project with an existing VCS like Git or an data sharing platform like SEEK\footnote{\url{http://seek4science.org/}}.
 
+\todo{find a nice ending?}
 
 \todo{maybe pull last paragraph from db concept down here}
 \begin{itemize}
