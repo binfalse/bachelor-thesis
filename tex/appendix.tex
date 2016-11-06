@@ -34,10 +34,9 @@
 }
 
 % helper for importing csv files with underscores
-\DeclareUrlCommand\UScore{\urlstyle{rm}}
-\newcommand{\expUScore}{%
+\newcommand{\expScore}{%
 	\expandafter\expandafter\expandafter
-	\UScore
+	\detokenize
 	\expandafter\expandafter\expandafter
 }
 
@@ -81,15 +80,16 @@
 \section{List of all used Node types}
 \begin{longtable}{ l r }
 	\hline \bfseries Node Label & \bfseries No. of occurrence \\\hline \endhead
-	\csvreader[head to column names]{resources/neo4j-renders/large-test-meta-graph-nodes.csv}{} %
-	{\expUScore{\label} & \count \\} %
+	\csvreader[] %
+	{resources/neo4j-renders/large-test-meta-graph-nodes.csv}{label=\nodeLabel,count=\count} %
+	{\expScore{\nodeLabel} & \expScore{\count} \\} %
 	%\hline
 \end{longtable}
 
 \section{List of all used Relationship types}
-\begin{longtable}{ l c r r }
+\begin{longtable}{ l c r }
 	\hline \bfseries Source Node Label & \bfseries Relationship Type & \bfseries Destination Node Label \\\hline \endhead %
 	\csvreader[]{resources/neo4j-renders/large-test-meta-graph-edges-expanded.csv}{Source=\sourceNode,Target=\targetNode,label=\relLabel,count=\count} %
-	{\expUScore{\sourceNode} & \expUScore{\relLabel} & \expUScore{\targetNode}\\} %
+	{\expScore{\sourceNode} & \expScore{\relLabel} & \expScore{\targetNode} \\} %
 	%\hline
 \end{longtable}
