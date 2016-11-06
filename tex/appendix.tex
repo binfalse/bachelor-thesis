@@ -89,7 +89,7 @@
 \section{List of all used Relationship types}
 \begin{longtable}{ l c r }
 	\hline \bfseries Source Node Label & \bfseries Relationship Type & \bfseries Destination Node Label \\\hline \endhead %
-	\csvreader[]{resources/neo4j-renders/large-test-meta-graph-edges-expanded.csv}{Source=\sourceNode,Target=\targetNode,label=\relLabel,count=\count} %
+	\csvreader[]{resources/neo4j-renders/large-test-meta-graph-edges-expanded.csv}{Source=\sourceNode,Target=\targetNode,label=\relLabel} %
 	{\expScore{\sourceNode} & \expScore{\relLabel} & \expScore{\targetNode} \\} %
 	%\hline
 \end{longtable}
