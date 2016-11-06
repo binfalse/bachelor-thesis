@@ -16,7 +16,9 @@ First issue to consider would be higher storage consumption. But also slower que
 Secondly \bives creates multiple changes, which have a single common source. For instance adding a \texttt{Species} will result in at least five changes. These include the insertion of the element itself and the insertion of the attributes \texttt{id}, \texttt{name}, \texttt{initialConcentration}, and \texttt{compartment} reference.
 Storing this many borderline redundant changes is increasing the overall size dramatically.
 
-Both issues could be improved or even solved by using a database design with less redundancies. This means in relation to the first point, to implement the database as reverse-delta storage, accepting all the mentioned drawbacks.
+A way to reduce the overhead of storing deltas, could be to calculate these deltas only on demand. This would, however, reduce the database to a cache for \bives and distinguish all possibilities to analyze changes in large scale.
+
+Both issues could also be improved or even solved by using a database design with less redundancies. This means in relation to the first point, to implement the database as reverse-delta storage, accepting all the mentioned drawbacks.
 In the second issue less redundancies could be archived by grouping changes, which clearly share the same origin.
 
 Grouping in changes will inevitably lead to less accurate annotation with the \comodi ontology, which on the other hand will limit the use in analysis and statistics of changes. 
@@ -26,6 +28,13 @@ Both are a imaginable features for a version of this diff-database project, adju
 Mentioned information could also be conceived by coupling this project with an existing VCS like Git or an data sharing platform like SEEK\footnote{\url{http://seek4science.org/}}.
 
 \todo{find a nice ending?}
+\todo{incorporate former outlook section}
+\begin{itemize}
+	\item outlook
+	\subitem Improving search index with metrics on how much impact a change had to the search criteria
+	\subsubitem "Incremental Query Evaluation. When a user has a standing query against a time-varying data source, a change-detection tool can provide the query engine the delta data on which the query will be re-evaluated. Thus, the user doesn’t receive old results and the query engine avoids repeated work. Since the delta data is usually much smaller than the original data, query evaluation will also be much faster." \citep{Wang2003}
+	\subitem detecting similar changes on different models
+\end{itemize}
 
 \begin{comment}
 \begin{itemize}
