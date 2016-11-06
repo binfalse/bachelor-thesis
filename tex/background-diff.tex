@@ -196,9 +196,17 @@
 	\todo{citep owl standard, when explaining comodi import}
 	\todo{http://msb.embopress.org/content/7/1/543.short for ontology overview}
 	\end{comment}
+	
 	\subsection{\comodi}
 	\label{sec:background:onto:comodi}
-	\todo{include nice comodi figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,keepaspectratio]{resources/comodi-overview.pdf}
+		\caption[Visualisation of \comodi]{Visualization of all classes of the \comodi ontology, taken from \citet{Scharm2016}. \url{http://purl.uni-rostock.de/comodi/2016-03-12}}
+		\label{fig:background:onto:comodi}
+	\end{figure}
+	
 	Identifying the position and the existence of changes is only the first step in deeper understanding, the evolution of a document or biological model. To truly explain this evolution, the historical development, reason, purpose, and target of a modification are important. 
 	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, that can be used for automatic processing of the data, making them "more accessible, sharable and interoperable" \citep{Scharm2016}.
 	An ontology is well suited tool for building interlinked and structured vocabularies, which useful in semantic annotations and therefore enrich otherwise plain data with meaning.
@@ -209,7 +217,7 @@
 	Further, \citeauthor{Scharm2016} argue, that change records may help to predict, if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reuseability of this model.
 	However, with an increasing size of the change records, the difficulty to perceive the relevance of certain changes increases. Therefore it is important to add more information to these changes, allowing for ranking and filtering them.
 	
-	In order to fulfill all these requirements, \comodi is organized in four branches, linking from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}.
+	In order to fulfill all these requirements, \comodi is organized in four branches, linking from the main concept \texttt{Change}: \texttt{XmlEntity}, \texttt{Intention}, \texttt{Reason}, and \texttt{Target}. A visualization of all classes an their hierarchy is shown in Figure \ref{fig:background:onto:comodi}.
 	The concepts of \texttt{Intention} and \texttt{Reason} both express the purpose of a change. While \texttt{Intention} focuses on possible effects in the future, the \texttt{Reason} indicates the cause -- therefore expressing past events leading to the annotated change. For instance a \texttt{Reason} for a change might be a \texttt{MismatchWithPublication} causing a parameter update.
 	In contrast \texttt{Target} and \texttt{XmlEntity} both describe the entity, a change is pointing to.
 	More specific the \texttt{Target} branch is able to distinguish between 5 layers, which can modified in terms of a change: the first layer expresses changes of the formal \texttt{ModelEncoding}, this could be used to express an update of the used \sbml version.
