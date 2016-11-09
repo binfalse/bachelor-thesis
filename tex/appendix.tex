@@ -82,7 +82,7 @@
 	\hline \bfseries Node Label & \bfseries No. of occurrence \\\hline \endhead
 	\csvreader[] %
 	{resources/neo4j-renders/large-test-meta-graph-nodes.csv}{label=\nodeLabel,count=\count} %
-	{\expScore{\nodeLabel} & \expScore{\count} \\} %
+	{\small \texttt{\expScore{\nodeLabel}} & \expScore{\count} \\} %
 	%\hline
 \end{longtable}
 
@@ -90,6 +90,6 @@
 \begin{longtable}{ l c r }
 	\hline \bfseries Source Node Label & \bfseries Relationship Type & \bfseries Destination Node Label \\\hline \endhead %
 	\csvreader[]{resources/neo4j-renders/large-test-meta-graph-edges-expanded.csv}{Source=\sourceNode,Target=\targetNode,label=\relLabel} %
-	{\expScore{\sourceNode} & \expScore{\relLabel} & \expScore{\targetNode} \\} %
+	{\texttt{\expScore{\sourceNode}} & \texttt{\expScore{\relLabel}} & \texttt{\expScore{\targetNode}} \\} %
 	%\hline
 \end{longtable}
