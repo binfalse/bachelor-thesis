@@ -1,6 +1,21 @@
 % !TeX spellcheck = en_US
 \section{Data formats for System Biology models}
 	\label{sec:background:formats}
+	
+	At the time this thesis is written, there are two major formats to encode models in \sysbio. With combined over 3237 models in 14439 versions openly available\footnote{\url{http://most.sems.uni-rostock.de/}}, \sbml and \cellml encode a large amount of accessible models in \sysbio.
+	Both were independently developed, but serve the similar purpose of "support[ing] basic biochemical network models" \citep{Cuellar2003}. Further they use the eXtensible Markup Language \citep{Bray1998} (\xml) as base format, which makes them human readable and enables the use of generic \xml tools and standards \citep{Cuellar2003,Hucka2003} like MathML \citep{Carlisle2003}, XLink \citep{DeRose2010}, and \rdf \citep{Lassila1998}.
+	
+	Even with serving similar purpose \sbml and \cellml are structured quite different.
+	\cellml, for instance, defines a broader scope and features a modular structure, which allows to describe "complex interconnected cell models" \citep{Cuellar2003}.
+	The basic design of \cellml represents a "network of interconnected components" \citep{Cuellar2003}, which may contain \emph{variables}, and mathematical \emph{equations}. These \emph{equations} determine the behavior of a \emph{component} within a model.
+	A \emph{component} is meant to represent a biochemical reaction with it reactants and products, which are represented by \emph{variables}.
+	To interlink individual \emph{components} different variables are mapped between them. These mappings are organized in so called \emph{connections}, which are defined between two \emph{components}. Additionally \emph{connections} have to be unique for to given \emph{components}, which means that all mappings between two \emph{components} have to be listed in a single \emph{connections}. (cf. \citet{Cuellar2003})
+	
+	In contrast to the generic concept of \cellml, defines \sbml more specific design elements.
+	A \sbml \emph{compartment} provides a logical or biological container for \emph{species} and \emph{reactions}.
+	
+	
+	\begin{comment}
 	\begin{itemize}
 		\item formats
 		\subitem SBML
@@ -9,7 +24,7 @@
 		\item everything in XML
 		\item semantic annotations
 	\end{itemize}
-	\todo{look at STATS paper/MOST for version statistics}
+	\end{comment}
 
 \section{Detecting differences in Version Control Systems}
 	\label{sec:background:diff}
