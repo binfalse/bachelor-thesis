@@ -131,10 +131,11 @@
 	A Version Control System (VCS), also called Revision Control System, is an automated system to manage multiple versions, or revisions, of information pieces \citep{OSullivan2009}.
 	Further, since larger projects are rarely developed by a single person, nearly all VCSs provide mechanisms for collaboration. Version control supports this inherently social endeavor, consisting of continuous introduction, discussion, evaluation of changes, or even undoing them \citep{Collins-Sussman2004}.
 
-	This said, a VCS is a crucial tool for every major project and therefore also found interest in Systems Biology, as multiple research paper suggest \citep{Waltemath2013,Beard2009,Hucka2003,Li2010,Miller2011}.
-	All VCS, besides using different files with a version tag, automatically track each version of a file along with relevant meta information. These usually contain date of the change, author and a checksum of the version.
-	Outgoing from this basic feature set, two types of VCS are currently used. On one hand there are centralized VCS, like CVS or its successor Subversion. They focus on one central server, keeping track of all changes. Due to that, working offline is not possible \citep{Collins-Sussman2004}.
-	On the other hand recently a trend around Distributed Version Control Systems (DVCSs) evolved, for instance Mercurial and Git. Their basic architecture does not require a central unit, instead every client keeps a full copy of the version history, exchanging changes nearly always require a merge operation between at least two change sets \citep{OSullivan2009}.
+	This said, a VCS is a crucial tool for every major project and therefore also of interest in \sysbio \citep{Waltemath2013,Beard2009,Hucka2003,Li2010,Miller2011}.
+	All VCS, besides using different files with a version tag, automatically track each version of a file along with relevant meta information. These usually contain the date of change, author and a checksum of the version.
+	Originating from this basic feature set, two types of VCS are currently used. On one hand there are centralized VCS, like CVS and its successor Subversion. They focus on one central server, keeping track of all changes. Due to that, working offline is not possible \citep{Collins-Sussman2004}.
+	On the other hand a trend around Distributed Version Control Systems (DVCSs) recently evolved. Popular examples for this concept are Mercurial and Git. Their basic architecture does not require a central unit, instead every client keeps a full copy of the version history.
+	This structure requires strong merge algorithms, since a merging multiple change sets in always required when the base version of different clients differs \citep{OSullivan2009}.
 	But DVCSs do not completely abandon the idea of a central server, instead it is treated as a place to share changes with other teammates, still allowing for experiments or off-mainstream development.
 	
 	\begin{comment}
@@ -165,18 +166,18 @@
 	\subsection{Challenges traditional VCSs face with Systems Biology models}
 	\label{sec:background:manage-versions:challenges}
 	
-	But even with VCSs being heavily used in most software development projects nowadays, \sysbio struggles to adapt those systems for a variety of reasons.
-	The most obvious one, would be the missing awareness among Systems Biologists, due to their strong foundation in Biology. Means the priority for them might be less in good data management, but more on understanding biological processes.
-	Besides these difficult to prove social aspects, there are also a lot of technical reasons, why common VCSs fail to perform well in \sysbio.
+	Even with VCSs being heavily used in most software development projects nowadays, \sysbio struggles to adapt those systems for a variety of reasons.
+	The most obvious one would be the missing awareness among Systems Biologists, due to their strong foundation in Biology. Means the priority for them might be less in good data management, but more on understanding biological processes.
+	Besides social aspects, there are also a lot of technical reasons, why common VCSs fail to perform well in \sysbio.
 	
-	All currently used VCSs rely by default on the \emph{UNIX diff} tool (cf. Section \ref{sec:background:diff:unix-diff}) to identify changes between versions. Since all in this work used data formats for \sysbio models are using \xml to encode them (cf. Section \ref{sec:background:formats}), the normally used \emph{UNIX diff} is widely unsuitable (cf. Section \ref{sec:background:diff:xml-diff}).
+	All currently used VCSs rely by default on the \emph{UNIX diff} tool (cf. Section \ref{sec:background:diff:unix-diff}) to identify changes between versions. Since all in this work used data formats for \sysbio models are using \xml to encode them (cf. Section \ref{sec:background:formats}), the commonly used \emph{UNIX diff} is widely unsuitable (cf. Section \ref{sec:background:diff:xml-diff}).
 	But even specialized algorithms for delta generation of \xml files, may fail to perform well (cf. Section \ref{sec:background:diff:xml-diff}). To improve this situation the algorithms need to take domain specific knowledge into account and be specifically fitted to the representation format \citep{Waltemath2013}.
-	If the used algorithm fails to do so, changes in the encoding, but with no effect on the model, may be detected and flood the change log -- rendering it useless.
+	If the used algorithm is not fitted to the format, changes in the encoding may be detected and flood the change log. Often these encoding changes do not affect the model and will therefore render the change log useless.
 	But even with sufficient knowledge about the domain and suitable \xml delta algorithms, it may be impossible to determine the importance or the scope or impact of a change. Hence a VCS, tailored for \sysbio, is not only supposed to store different revisions of a model, but also to "reflect the temporal evolution [...] and present model changes to the user" \citep{Waltemath2013} in a clear way, a semantic taxonomy is required, to communicate these changes (cf. to \comodi, Section \ref{sec:background:onto:comodi}).
 	
-	Currently there are 2 major approaches to store version information \citep{Waltemath2013}: The oldest one suggests to store a change log of minor changes in the model itself \citep{Beard2009}.
-	The second, more applied approach, is to keep track of changes within a repository.
-	Neither of these methods meet all requirements, mentioned above.
+	Currently there are 2 major approaches to store version information \citep{Waltemath2013}:
+	The very first approach suggests to store a change log of minor changes in the model itself \citep{Beard2009}.
+	The second suggests to keep track of changes within a repository, which is currently more applied. However, neither of these methods meet all requirements, mentioned above.
 	
 	\begin{comment}
 	\begin{itemize}
@@ -202,7 +203,7 @@
 	
 	To communicate and use these taxonomies and rule sets the \owl standard was introduced \citep{Bechhofer2004,Bechhofer2009}. It encodes all terms, their relations, attributes and verbal descriptions, as well as all rules.
 	
-	\sysbio uses this technology to annotate already machine readable data files, instead of data sources available over the web. They hereby serve the purpose of giving additional information about parts of a model or the model itself. The variety of available ontologies ranges from biological species identification with \emph{Systems Biology Ontology} (SBO\footnote{\url{http://purl.bioontology.org/ontology/SBO}}), over the description of simulation algorithms and proceeding with \emph{Kinetic Simulation Algorithm Ontology} (KiSAO\footnote{\url{http://purl.bioontology.org/ontology/KISAO}}) to the characterization of dynamics with the \emph{Terminology for the Description of Dynamics} (TEDDY\footnote{\url{http://purl.bioontology.org/ontology/TEDDY}}) \citep{Courtot2011}.
+	\sysbio uses this technology to annotate already machine readable data files, instead of data sources available over the web. They hereby serve the purpose of giving additional information about parts of a model or the model itself. The variety of available ontologies ranges from biological species identification with \emph{Systems Biology Ontology} (SBO\footnote{\url{http://purl.bioontology.org/ontology/SBO}}), the description of simulation algorithms and proceeding with \emph{Kinetic Simulation Algorithm Ontology} (KiSAO\footnote{\url{http://purl.bioontology.org/ontology/KISAO}}), to the characterization of dynamics with the \emph{Terminology for the Description of Dynamics} (TEDDY\footnote{\url{http://purl.bioontology.org/ontology/TEDDY}}) \citep{Courtot2011}.
 	
 	\begin{comment}
 	
