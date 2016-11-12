@@ -1,34 +1,39 @@
 % !TeX spellcheck = en_US
 
-Opposed to traditional VCSs (cf. Section \ref{sec:background:manage-versions:traditional-vcs}) the system presented in this thesis is not meant to support developers during the development process, but rather to assist other developers, who want to build on existing models.
-This shift in focus, allows to analyze and organize already published models, as well as it does not need any interaction from the modelers. Second point might help to building up the data stock quicker, but also limits the amount of meta information.
-By not relying on anybody specifically using this system, I was able to quickly accumulate a large test set of $14503$ model versions from $3367$ distinct models, filling the database with $4.307$ versions per model on average and consuming $8.5$ GBytes of disc storage.
-This test set was generated on 2016-10-14 from all publicly available workspaces in \emph{PMR2} and all releases from \emph{BioModels Database} (cf. Section \ref{sec:background:modelrepo}) using the \modelcrawler (cf. Section \ref{sec:impl:modelcrawler}).
+Opposed to traditional VCSs (cf. Section \ref{sec:background:manage-versions:traditional-vcs}) the system presented in this thesis is not meant to support developers during the development process, since \masymos is originally developed as a search index (cf. Section \ref{sec:background:graph-db:masymos}).
+Rather it is designed to assist other developers, who want to build upon existing models.
+This shift in focus, allows to analyze and organize already published models, as well as it does not need any interaction from the modelers. The lacking need of user cooperation might help to building up the data stock quicker, but also limits the amount of meta information.
+However, by not relying on anybody specifically using this system, I was able to quickly accumulate a large test set, as mentioned in the Results (cf. Chapter \ref{sec:results}).
 
-Being an analyzes platform and not a day-to-day tool sets different constraints. For instance access time becomes more crucial, whereby consumed drive space is less a concern.
+Being an analytic platform and not a day-to-day tool sets different constraints. For instance access time becomes more crucial, whereby consumed drive space is less a concern.
 My implementation takes full advantage of this loosened space restriction.
-The storage structure, I decided on, does not make use of an efficient reverse-delta storage, as traditional VCS (cf. Section \ref{sec:background:manage-versions:traditional-vcs}). Instead each model is stored completely for multiple reasons: it allows for a very lose coupling to the base \masymos implementation, meaning the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base. Further the core functionality of \masymos, providing a full text and structural search index, is not interrupted, so if required each version of a model can be treated as single instance. Resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
+The storage structure, I decided on, is not optimized by using an efficient reverse-delta storage as traditional VCS would do (cf. Section \ref{sec:background:manage-versions:traditional-vcs}).
+Instead each model is stored completely for multiple reasons: it allows for a very lose coupling to the base \masymos implementation, meaning the diff-extension is additive to the features of \masymos and does not require for intrusive changes of the code base.
+Further the core functionality of \masymos is not disturbed and provides a full text and structural search index entry for each version of a model.
+Therefore every single model version is treated as distinct model, resulting in easier structural analyses per model version and less expensive operations on the indexes, when inserting a new model version.
 
-On the other hand the complete storage of each model increases the database size significantly. But to keep the scope of this work concise and the implementation reasonable, I focused on a good data interlinkage and less on a storage efficient data model.
+On the downside, the complete storage of each model increases the database size significantly. But to keep the scope of this work concise and the prototype implementation of reasonable complexity, I focused on a good data interlinkage and less on an efficient storage model.
 
-This decision might show some drawbacks with growing amount of models and versions.
-First issue to consider would be higher storage consumption. But also slower query execution should be considered.
-Secondly \bives creates multiple changes, which have a single common source. For instance adding a \texttt{Species} will result in at least five changes. These include the insertion of the element itself and the insertion of the attributes \texttt{id}, \texttt{name}, \texttt{initialConcentration}, and \texttt{compartment} reference.
-Storing this many borderline redundant changes is increasing the overall size dramatically.
+This decision might show some drawbacks with a growing amount of models and versions.
+First issue to consider would be higher storage consumption, but also slower query execution should be considered.
+Second, \bives creates multiple changes, which have a single common source. For instance adding a \emph{species} in \sbml will result in at least five changes. These include the insertion of the element itself and the insertion of the attributes \texttt{id}, \texttt{name}, \texttt{initialConcentration}, and \texttt{compartment} reference.
+Storing this many changes encoding similar information increases the overall size dramatically.
 
-A way to reduce the overhead of storing deltas, could be to calculate these deltas only on demand. This would, however, reduce the database to a cache for \bives and distinguish all possibilities to analyze changes in large scale.
+A way to reduce the overhead of storing deltas could be to calculate them only on demand. This would, however, reduce the database to a cache for \bives and eliminate all possibilities to analyze changes in large scale.
 
 Both issues could also be improved or even solved by using a database design with less redundancies. This means in relation to the first point, to implement the database as reverse-delta storage, accepting all the mentioned drawbacks.
-In the second issue less redundancies could be archived by grouping changes, which clearly share the same origin.
+In the second issue less redundancies could be archived by grouping changes which clearly share the same origin.
 
-Grouping in changes will inevitably lead to less accurate annotation with the \comodi ontology, which on the other hand will limit the use in analysis and statistics of changes. 
-Then again, currently the \comodi ontology is only partly used in this project. The \texttt{Reason} and \texttt{Intention} branches (cf. Section \ref{sec:background:onto:comodi}) are not used, because they aim to explain the cause and purpose of a change. These aspects are hard to determine automatically just with a delta between two model versions, therefore is \bives not capable of using these annotations automatically.
-To integrate also \texttt{Reason} and \texttt{Intention} in the annotations, further information would need be processed. This could be archived by user input, either from demanding formalized annotations or by text mining commit messages. 
-Both are a imaginable features for a version of this diff-database project, adjusted for the use as personal VCS, opposed to initial statement.
+Grouping changes will inevitably lead to less accurate annotation with the \comodi ontology, which on the other hand will limit the use in analysis and statistics of changes. 
+Then again, currently the \comodi ontology is only partly used in this project. The \texttt{Reason} and \texttt{Intention} branches (cf. Section \ref{sec:background:onto:comodi}) are not linked from changes, because they aim to explain the cause and purpose of a change. These aspects are hard to determine automatically. Therefore \bives is not capable of using these annotations automatically.
+To integrate \texttt{Reason} and \texttt{Intention} in the annotations, further information would need to be processed. This could be archived by user input, either from demanding formalized annotations or by text mining commit messages. 
+Both are a imaginable features for a version of this database project adjusted for the use as personal VCS.
 Mentioned information could also be conceived by coupling this project with an existing VCS like Git or an data sharing platform like SEEK\footnote{\url{http://seek4science.org/}}.
 
-Concluding I believe, that the basic design, explored in this thesis, has the potential to help solving the essential problem of reproducibility. The database design lays a solid foundation to increase transparency and therefore reproducibility by allowing users and third party tools to explore the evolution of a model with all external links \masymos already provides. In addition with \comodi-annotations common changes or trends could be detected.
-Further search engines could suggest which version matches best the requirements of the user, instead of only returning the newest version. These requirements may be a specific species or compatibility to a \sedml script or another model.
+Concluding, I believe, that the basic design investigated in this thesis has the potential to help solving the essential problem of reproducibility. The database design provides a solid foundation to increase transparency and therefore reproducibility. It allows users and third party tools to explore the evolution of a model with all external links \masymos already provides. In addition with \comodi-annotations common changes or trends can be detected.
+Further search engines front-ends could suggest which version matches best the requirements of the user, instead of only returning the newest version. These requirements may be a specific species or compatibility to a \sedml script or another model.
+
+At last it is important to point out, that 
 
 %All in all is this work just as good as the supplied data, therefore it is important to facilitate cooperations and interlink more and more open data.
 \todo{add point about not being another bio database/repository}
