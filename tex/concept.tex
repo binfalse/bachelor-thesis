@@ -91,10 +91,18 @@ The concept of having a HTTP daemon serving all original model files in the \mas
 
 The file structure, created by the \modelcrawler, is organized around the concept of a \texttt{fileId} and a \texttt{versionId}. First one is uniquely identifying one (model) file over time, whereby the \texttt{versionId} has to be unique within the specific history of this file. Together they point to one version of a model and therefore form a primary key.
 When designing this concept, we needed to take special care for the \cellml Model Repository PMR2 (cf. Section \ref{sec:background:modelrepo}), because the \cellml provides an import feature for submodels or unit definition and consequently one model may consist of a lot of different files. In order to not break the import directives, the relative positions of these files need to be recreated. As a result the \texttt{fileId}, represented as URN, is split into 2 parts separated by an explanation mark (\texttt{!}). The first part points to the \emph{workspace} of the model, meaning the folder/git repository containing all relevant files, and is therefore equal for all files belonging into one workspace. The second part indicates the relative position of the file, \emph{within} the workspace.
-Consequently a valid \texttt{fileId} would for instance look like this:\\ \texttt{urn:model:models.cellml.org:workspace:novak\_tyson\_1997:!:novak\_tyson\_1997.cellml}\\
-In this example \texttt{urn:model} is the prefix, \texttt{models.cellml.org:workspace:novak\_tyson\_1997} the workspace, and \texttt{novak\_tyson\_1997.cellml} the path of the actual model file within the workspace. In addition, the separation marker could also be concatenated with the \texttt{versionId}, using one URN to describe on specific version of a model. This extended URN format can also be directly converted into an absolute URL, pointing to a model file, if the address of the HTTP server is known.
-Given the \texttt{versionId} in above mentioned example would be \texttt{3614b6d39b91d78e0038bbd113814686c316616b}, and assuming the HTTP server is available under the imaginary host \texttt{models.example.org}, the following URL could be used to access the actual file:\\
-\texttt{http://models.example.org/models.cellml.org/workspace/novak\_tyson\_1997/3614b6d39b91d78e0038bbd113814686c316616b/novak\_tyson\_1997.cellml}
+Consequently a valid \texttt{fileId} would for instance look like this:
+\begin{quote}
+	\texttt{urn:model:models.cellml.org:workspace:novak\_tyson\_1997:!:\linebreak
+	novak\_tyson\_1997.cellml}
+\end{quote}
+In this example \texttt{urn:model} is the prefix, \texttt{models.cellml.org:workspace:\ novak\_tyson\_1997} the workspace, and \texttt{novak\_tyson\_1997.cellml} the path of the actual model file within the workspace. In addition, the separation marker could also be concatenated with the \texttt{versionId}, using one URN to describe on specific version of a model. This extended URN format can also be directly converted into an absolute URL, pointing to a model file, if the address of the HTTP server is known.
+Given the \texttt{versionId} in above mentioned example would be \texttt{3614b6d39b91d78e0038bbd113814686c316616b}, and assuming the HTTP server is available under the imaginary host\linebreak[4] \texttt{models.example.org}, the following URL could be used to access the actual file:
+\begin{quote}
+	\texttt{http://models.example.org/models.cellml.org/workspace/
+		novak\_tyson\_1997/3614b6d39b91d78e0038bbd113814686c316616b/
+		novak\_tyson\_1997.cellml}
+\end{quote}
 
 Additionally the \modelcrawler also creates files in the root of the workspace path with additional information about the origin, the date, and crawled date of each version.
 The purpose of these \json encoded files is to ensure that basic provenance information are also available, if the \masymos database is unavailable.
