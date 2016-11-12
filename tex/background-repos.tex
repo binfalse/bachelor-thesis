@@ -16,7 +16,7 @@ However, these existing repositories provide a rich set of information about the
 \end{itemize}
 \end{comment}
 
-\section{Using graph databases to store \sysbio models}
+\section{Using graph databases to store models}
 \label{sec:backgroung:graph-db}
 \todo{simplify this paragraph}
 \sysbio models often encode simulation networks, which can easily be represented as graphs. These networks tend to be widely inhomogeneous, what proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for generating assumptions and basic information mining.
@@ -125,7 +125,7 @@ Whereby in \cellml the \texttt{MODEL} node links to components, which again cont
 
 Further semantic annotations, like ontology terms or publication, and author relations, are represented by additional nodes and link to the corresponding ontology term, stored in \neoj, or the interrelated publication or person node. 
 Ontology terms are imported according to their hierarchical structure from the \owl representation, which preserves the classification information and therefore allows for searching for abstract terms, but still support traversing to more detailed terms and vice versa.
-Commonly imported ontologies are System Biology Ontology\footnote{\url{http://purl.bioontology.org/ontology/SBO}} (SBO), Gene Ontology\footnote{\url{http://purl.bioontology.org/ontology/GO}} (GO), KiSAO\footnote{\url{http://purl.bioontology.org/ontology/KISAO}} and Chebi Ontology\footnote{\url{http://purl.bioontology.org/ontology/CHEBI}}
+Commonly imported ontologies are \emph{Systems Biology Ontology}\footnote{\url{http://purl.bioontology.org/ontology/SBO}} (SBO), \emph{Gene Ontology}\footnote{\url{http://purl.bioontology.org/ontology/GO}} (GO), \emph{KiSAO}\footnote{\url{http://purl.bioontology.org/ontology/KISAO}} and \emph{Chebi Ontology}\footnote{\url{http://purl.bioontology.org/ontology/CHEBI}}
 
 In addition to explicit links, the graph database back-end of \masymos allows to include implicit links into analysis (those with more than one hop in the graph). Implicit links can link between two models, published by the same person or between model with, common annotations, or even between models using annotations of the same ontology branch.
 Further, to allow easy upwards traversal, all relations also feature a common relation to the next higher node in hierarchy, called \texttt{belongs\_to}.
