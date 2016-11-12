@@ -23,6 +23,20 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\hypersetup{
+	pdfauthor={Martin Peters},
+	pdfauthortitle={Bachelor Student},
+	pdfcreator={},
+	pdflang={en},
+	pdfkeywords={SBML, CellML, BiVeS, MaSyMoS, Neo4j, graph database, database, version, model, Systems Biology},
+	pdftype={Text},
+	pdfcopyright={Copyright (C) 2016, Martin Peters. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. (CC-BY-SA)},
+	pdflicenseurl={http://creativecommons.org/licenses/by-sa/4.0/}
+}
+
 \usepackage[square,comma]{natbib}
 \usepackage[titletoc]{appendix}
 
@@ -45,7 +59,14 @@
 	% info about compiling date
 	\pagebreak
 	~ \vfill
-	{\hfill \tiny \LaTeX ~compiled at \DTMnow}
+	{
+		\tiny \noindent
+		{\normalsize \href{http://creativecommons.org/licenses/by-sa/4.0/}{\ccbysa}} \\*[-0.5em]
+		This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons\\*[-1em] Attribution-ShareAlike 4.0 International License}. \\
+		The license of the supplementary material especially source code\\*[-1em]
+		may differ. Please refer to the respective LICENSE files.\\
+		\LaTeX ~compiled at \DTMnow
+	}
 	\pagebreak
 	% the toc
 	\tableofcontents
@@ -82,7 +103,7 @@
 	\input{discussion.tex}
 	
 	%\nocite{*}
-	\nocite{Scharm2014a}
+	\nocite{Scharm2014a} % just for the lolz?
 	
 	%\bibliographystyle{apalike}
 	%\bibliographystyle{apacitep}
