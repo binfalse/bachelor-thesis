@@ -16,3 +16,6 @@
 [submodule "source/masymos-cli"]
 	path = source/masymos-cli
 	url = gitolite@sems.uni-rostock.de:masymos-cli
+[submodule "source/ModelCrawler"]
+	path = source/ModelCrawler
+	url = git@github.com:FreakyBytes/ModelCrawler.git
