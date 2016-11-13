@@ -4,6 +4,15 @@ About this repository
 This repository contains all bits and pieces I gather, created or modified in the process of writing my Bachelors thesis.
 This work is supervised by Martin Scharm, Dagmar Waltemath and Prof. Olaf Wolkenhauer 
 
+Associated Repositories
+=======================
+
+The source code developed during this thesis is also published on Github. It can be either accessed directly or via the submodules in the `source` directory.
+
+  * [MaSyMoS diff plugin](https://github.com/FreakyBytes/masymos-diff)
+  * [MaSyMoS diff REST plugin](https://github.com/FreakyBytes/masymos-diff-rest)
+  * [MaSyMoS diff CLI](https://github.com/FreakyBytes/masymos-diff-cli)
+
 License
 =======
 
