@@ -18,12 +18,12 @@
 
 \section{Extension to the \masymos core}
 	\label{sec:impl:masymos}
-	\todo{add version number and commit hash}
-	The anatomy of the \masymos project is divided into 3 parts: a core, a command line interface, and web \rest interface (cf. Section \ref{sec:background:graph-db:masymos}). This project was designed to mimic this structure, so modifications to the original implementation of \masymos ca be kept minimal. Due to the additive nature of the database concept (cf. Section \ref{sec:concept:dbmodel}), this design constraint could be met, except in one case.
+	The anatomy of the \masymos project is divided into 3 parts: a core, a command line interface, and web \rest interface (cf. Section \ref{sec:background:graph-db:masymos}). All tree parts were used in version 0.9.1. This project was designed to mimic this structure, so modifications to the original implementation of \masymos ca be kept minimal. Due to the additive nature of the database concept (cf. Section \ref{sec:concept:dbmodel}), this design constraint could be met, except in one case.
 	
 	The only direct extension of the core implementation concerns the import of ontologies. By default \masymos allows to load a hard coded set of ontologies, which unfortunately does not include \comodi. Therefore I needed to extend \masymos for this capability. But instead of adding another name to list, I rather implemented a dynamic unique factory. The way \masymos handles ontologies features in particular node label indexes for each ontology, which is used as reverse index to ensure uniqueness of nodes representing a specific term.
 	The benefit of this approach is, that even when an ontology is not yet imported, but a model or delta uses certain terms, these are created on demand. Later, when said ontology is loaded, the term representing nodes already exist and can be reused and correctly interconnected.
 	The new method I have implemented, now allows to create other dynamic unique factories at runtime, effectively allowing to import any ontology.
+	The outcome of the used import method is illustrated in Appendix \ref{fig:appendix:neo4j-comodi}, which shows the \neoj representation of \comodi.
 
 	\begin{comment}
 	\begin{itemize}

@@ -70,7 +70,6 @@
 	
 	\subsection{BiVeS}
 	\label{sec:background:diff:bives}
-	\todo{use the terms source and destination document}
 	Continuing on the problem described in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives addresses this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), and by incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \citep{Scharm2015}.
 	
 	\bives tries to match subtrees of two models, by calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
