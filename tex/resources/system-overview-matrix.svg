@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="276.72372mm"
+   width="340.90753mm"
    height="125.53908mm"
-   viewBox="0 0 980.51714 444.8235"
+   viewBox="0 0 1207.9401 444.8235"
    id="svg4247"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -180,9 +180,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="330.53702"
-     inkscape:cy="195.07448"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="420.12667"
+     inkscape:cy="-152.96434"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -198,11 +198,11 @@
      fit-margin-right="2"
      fit-margin-bottom="2">
     <sodipodi:guide
-       position="750.57341,311.46059"
+       position="750.57344,311.46062"
        orientation="0,1"
        id="guide4968" />
     <sodipodi:guide
-       position="539.14485,200.03202"
+       position="539.14487,200.03204"
        orientation="0,1"
        id="guide4972" />
   </sodipodi:namedview>
@@ -222,7 +222,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(206.28771,-93.285029)">
+     transform="translate(206.28771,-93.285044)">
     <rect
        style="fill:#808080;fill-opacity:0.1254902;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect7438"
@@ -230,6 +230,12 @@
        height="271.99054"
        x="98.918053"
        y="100.37164" />
+    <path
+       style="fill:#ff0101;fill-opacity:0.1254902;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:0.50196078"
+       d="m 324.47461,99.4375 0,51.51758 539.83789,0 0,57.57812 -539.83789,0 0,51.51758 618.79883,0 7.49609,0 249.08397,0 0,-51.50195 -249.08397,0 0,-57.60742 249.08397,0 0,-51.50391 -249.08397,0 -626.29492,0 z"
+       transform="translate(-206.28771,93.285014)"
+       id="rect5012"
+       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -327,12 +333,6 @@
          x="-311.24432"
          y="710.22137"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Droid Serif';-inkscape-font-specification:'Droid Serif'">neo4j</tspan></text>
-    <path
-       style="fill:#ff0101;fill-opacity:0.1254902;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:0.50196078"
-       d="m 118.1875,192.72266 0,51.51757 539.83677,0 0,57.57813 -539.83677,0 0,51.51758 c 205.36179,0 431.63033,0 626.29492,0 l 0,-160.61328 c -211.82491,0 -440.74713,0 -626.29492,0 z"
-       id="rect5012"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccccc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -565,5 +565,41 @@
        id="path15246"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4352"
+       y="169.64792"
+       x="857.99982"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Droid Serif';-inkscape-font-specification:'Droid Serif Bold'"
+         id="tspan4354"
+         y="169.64792"
+         x="857.99982"
+         sodipodi:role="line">CLI</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4361"
+       y="226.64792"
+       x="795.79889"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         y="226.64792"
+         x="795.79889"
+         id="tspan4363"
+         sodipodi:role="line">MaSyMoS-CLI</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="836.961"
+       y="338.07648"
+       id="text4365"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4367"
+         x="836.961"
+         y="338.07648"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">diff-CLI</tspan></text>
   </g>
 </svg>
