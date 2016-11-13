@@ -1,0 +1,18 @@
+[submodule "source/masymos-diff"]
+	path = source/masymos-diff
+	url = git@github.com:FreakyBytes/masymos-diff.git
+[submodule "source/masymos-diff-rest"]
+	path = source/masymos-diff-rest
+	url = git@github.com:FreakyBytes/masymos-diff-rest.git
+[submodule "source/masymos-diff-cli"]
+	path = source/masymos-diff-cli
+	url = git@github.com:FreakyBytes/masymos-diff-cli.git
+[submodule "source/masymos-core"]
+	path = source/masymos-core
+	url = gitolite@sems.uni-rostock.de:masymos-core
+[submodule "source/masymos-morre"]
+	path = source/masymos-morre
+	url = gitolite@sems.uni-rostock.de:masymos-morre
+[submodule "source/masymos-cli"]
+	path = source/masymos-cli
+	url = gitolite@sems.uni-rostock.de:masymos-cli
