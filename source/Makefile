@@ -12,6 +12,7 @@ clean:
 	cd masymos-diff-cli && $(MVN) clean
 	cd masymos-diff-rest && $(MVN) clean
 	rm -rf neo4j
+	cd ModelCrawler/ModelCrawler && $(MVN) clean
 
 core:
 	cd masymos-core && $(MVN) install
@@ -51,4 +52,5 @@ neo4j: all
 	$(PATCH) neo4j/conf/neo4j-wrapper.conf neo4j-wrapper.conf.patch
 	$(PATCH) neo4j/bin/neo4j-shared.sh neo4j-shared.sh.patch
 
-
+modelcrawler:
+	cd ModelCrawler/ModelCrawler && $(MVN) package
