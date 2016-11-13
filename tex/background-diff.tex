@@ -2,8 +2,8 @@
 \section{Data formats for models in \sysbio}
 	\label{sec:background:formats}
 	
-	At the time this thesis is written, there are two major formats to encode models in \sysbio. With combined over 3237 models in 14439 versions openly available\footnote{\url{http://most.sems.uni-rostock.de/}}, \sbml and \cellml encode a large amount of accessible models in \sysbio.
-	Both were independently developed, but serve the similar purpose of supporting basic biochemical network models \citep{Cuellar2003}. Further they use the eXtensible Markup Language \citep{Bray1998} (\xml) as base format, which makes them human readable and enables the use of generic \xml tools and standards \citep{Cuellar2003,Hucka2003} like MathML \citep{Carlisle2003}, XLink \citep{DeRose2010}, and \rdf \citep{Lassila1998}.
+	At the time this thesis is written, there are two major formats to encode models in \sysbio. With combined over 3237 models in 14439 versions openly available\footnote{\url{http://most.sems.uni-rostock.de/}}, \sbml and \cellml encode a large amount of free accessible models in \sysbio.
+	Both were independently developed, but serve the similar purpose of supporting model of biochemical network \citep{Cuellar2003}. Further they both use the eXtensible Markup Language \citep{Bray1998} (\xml) as base format, which makes them human readable and enables the use of generic \xml tools and standards \citep{Cuellar2003,Hucka2003} like MathML \citep{Carlisle2003}, XLink \citep{DeRose2010}, and \rdf \citep{Lassila1998}.
 	
 	Even with serving similar purpose \sbml and \cellml are structured quite different.
 	\cellml, for instance, defines a broader scope and features a modular structure, which allows to describe complex interconnected cell models \citep{Cuellar2003}.
@@ -16,8 +16,6 @@
 	Both are organized in \emph{compartments}, providing a logical or biological container. 
 	Another way to control the models behavior is to introduce \emph{rules}. They can be used to establish constraints between \emph{species}, \emph{reactions}, and \emph{parameter}.
 	\emph{Parameter} are a tool to further tweak \emph{reactions} and \emph{rules}. They provide a model wide or locally restricted way to externalize quantities, so they can be easily adjusted.
-	
-	
 	
 	\begin{comment}
 	\begin{itemize}
@@ -39,7 +37,7 @@
 	The essential building block for each Version Control System (VCS) is an algorithm or tool to detect differences between two or more versions, because just storing each version completely is a waste of storage and bandwidth. Further processing change sets enables the system to automatically merge different development branches and therefore making collaboration more efficient.
 	
 	Nowadays most general-purpose VCS use the \emph{diff} utility, developed as part of UNIX \citep{Chacon2014,OSullivan2009,Collins-Sussman2004}. It is based on the Hunt-McIlroy algorithm, which tries to solve the longest common subsequence problem for two files \citep{Hunt1976}.
-	The result is a report of all differences between two files, "expressed as a minimal list of line changes to bring either file into agreement with the other" \citep{Hunt1976}.
+	The result is a report of all differences between two files, expressed as a minimal list of line changes to bring either file into agreement with the other \citep{Hunt1976}.
 	
 	\begin{comment}
 	\begin{itemize}
@@ -51,12 +49,10 @@
 	
 	\subsection{XML Diff}
 	\label{sec:background:diff:xml-diff}
-	The problem with the default algorithm used by general-purpose VCS (cf. Section \ref{sec:background:diff:unix-diff}) is, however, that it does only distinguish between text based and binary formats. Hence making none or very little assumptions about the underlying document. Therefore it fails to recognize features, specific to the format. These line-base algorithms tend to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \citep{Ronnau2005}
+	The problem with the default algorithm used by general-purpose VCS (cf. Section \ref{sec:background:diff:unix-diff}) is, however, that it does only distinguish between text based and binary formats. Hence making none or very little assumptions about the underlying document. Therefore it fails to recognize features specific to the format. These line-base algorithms tend to be problematic especially for \xml, since line breaks can be neglected, without changing the encoded information. \citep{Ronnau2005}
 	
-	It can be concluded, that the usual diff algorithm is too fine granular, since it also reacts to changes in the encoding. \xml is represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, rather than a line-number \citep{Wang2003,Chawathe1996,Cobena2002}.
+	It can be concluded, that the usually used \emph{UNIX diff} tool is too fine granular, since it also reacts to changes in the encoding. \xml is represented as hierarchical tree structure and thus it is possible to detect changes based on their position in the tree, rather than a line-number \citep{Wang2003,Chawathe1996,Cobena2002}.
 	This can be archived by identifying unchanged subtrees and map them between source and destination version. Going out from those mapped tree, more and more nodes can be matched, under consideration of ancestors, descendants, and labels. Also changed attributes or text-nodes need to be treated differently \citep{Cobena2002}.
-	
-	\todo{add ref to both examples XyDiff + the other one?}
 	
 	\begin{comment}
 	cf. Cobena2002 \citep{Cobena2002} and \citep{Waltemath2013} in section 2.2.1
@@ -75,11 +71,11 @@
 	\subsection{BiVeS}
 	\label{sec:background:diff:bives}
 	\todo{use the terms source and destination document}
-	Continuing on the problem described, in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives addresses this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), and by incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \citep{Scharm2015}.
+	Continuing on the problem described in section \ref{sec:background:diff:xml-diff}, the same issue with \xml documents and normal delta algorithms scales to more specific documents and \xml delta algorithms. In this case we look at \xml encoded biological models, either using \cellml or \sbml. Even though algorithms described in the prior section are treating \xml documents as trees, they still lack deeper understanding of a biological model for instance. \bives addresses this issue by building upon XyDiff (cf. section \ref{sec:background:diff:xml-diff}), and by incorporating additional features specific to system biological models, like ontology links, attribute references, and special parts of the model, which are treated atomically \citep{Scharm2015}.
 	
 	\bives tries to match subtrees of two models, by calculating a hash and a weight for each possible subtree, whereby the weight is always greater than the weight of its children.
-	First, the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second, this initial mapping is propagated upwards in the document's structure, meaning the connection of a node's children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates, the most promising mapping is chosen.
-	Third the initially generated hashes are used to map remaining subtrees. A priority queue maintains the processing order, so the larger subtrees are mapped first.
+	First, the identifying attributes (\xml id attribute and links to bio-ontologies) are used to create a first mapping. Second, this initial mapping is propagated upwards in the document's structure, meaning the connection of a node's children are traversed depth-first and the mapping of these children is suggested for their parents, except if tag-names mismatch. Among the suggested candidates the most promising mapping is chosen.
+	Third, the initially generated hashes are used to map remaining subtrees. A priority queue maintains the processing order, so the larger subtrees are mapped first.
 	As last step the quality of the mapping is improved by examining the network structure top-down. Each unmapped child is compared to unmatched children in the opposite document and new mappings are created with a maximum distance of $0.9$. This ensures, that completely unrelated nodes are not connected.
 	Additionally domain specific mapping rules are in place to apply different strategies for specific characteristics. For instance, certain parts of a model document are treated as atomic units. Whereby different changes in the hierarchical structure are forbidden, which means, that these mappings are unlinked. This is a crucial step, leading to better quality results, when compared to standard \xml delta algorithms.
 	
@@ -87,8 +83,9 @@
 	However these two are called unmapped changes, hence they are identified by the missing link. Opposed to this kind of changes, mapped nodes lead to either an \texttt{update}, \texttt{move}, or no change.
 	A \texttt{move} is specified as a case, in which the node is present in both source and destination, but either the parents are not connected, or the order of their siblings is different. An \texttt{update}, however, happens, when the value of an attribute, the content of a text node or the tag name has been alternated.
 	
-	The resulting \xml delta can be outputted in several formats, including \xml, dot\footnote{\todo{link to graphviz}}, GraphML\footnote{\todo{}}, \json, or as text reports in several markup languages.
-	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi (cf. section \ref{sec:background:onto:comodi}) \citep{Scharm2015}.
+	The resulting \xml delta can be outputted in several formats, including \xml, dot\footnote{\url{http://www.graphviz.org/content/dot-language}}, GraphML\footnote{\url{http://graphml.graphdrawing.org/}}, \json, or as text reports in several markup languages.
+	In this work I, will only focus on the \xml output, since it is easy to process and the latest version of \bives also includes \rdf annotations linking to \comodi.
+	(cf. \citealt{Scharm2015})
 	\todo{include a nice bives figure}
 	
 	\begin{comment}
@@ -129,8 +126,8 @@
 	\subsection{Traditional Version Control Systems}
 	\label{sec:background:manage-versions:traditional-vcs}
 	
-	A Version Control System (VCS), also called Revision Control System, is an automated system to manage multiple versions, or revisions, of information pieces \citep{OSullivan2009}.
-	Further, since larger projects are rarely developed by a single person, nearly all VCSs provide mechanisms for collaboration. Version control supports this inherently social endeavor, consisting of continuous introduction, discussion, evaluation of changes, or even undoing them \citep{Collins-Sussman2004}.
+	A Version Control System (VCS), also called Revision Control System, is an automated system to manage multiple versions, or revisions of information pieces \citep{OSullivan2009}.
+	Further, since larger projects are rarely developed by a single person, nearly all VCSs provide mechanisms for collaboration. Version control supports this inherently social endeavor consisting of: continuous introduction, discussion, evaluation of changes, or even undoing them \citep{Collins-Sussman2004}.
 
 	This said, a VCS is a crucial tool for every major project and therefore also of interest in \sysbio \citep{Waltemath2013,Beard2009,Hucka2003,Li2010,Miller2011}.
 	All VCS, besides using different files with a version tag, automatically track each version of a file along with relevant meta information. These usually contain the date of change, author and a checksum of the version.
