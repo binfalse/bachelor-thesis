@@ -10,14 +10,17 @@ Since the work cannot be reproduced, it is not possible to build upon the findin
 %But why is it of such a tremendous importance to know exactly every step leading to a result? Basically this is the foundation of scientific publications and peer review. Without in-depth knowledge of the methods, the environment and the workflow it is impossible to reproduce the experiment or observation and therefore it is impossible to prove or disprove the correctness of the assumption. 
 %This inability may lead into blind trust in publications, making room for wrong or made-up scientific findings.
 Especially valuable are these reproduction information, when dealing with studies, which may not be easily independently redone, because of resource, time or financial constraints \citep{Peng2011}.
-\todo{Provide the example from the Peng? guy.} \todo{emphasis one of the constraints in the expample -> time}
+%\todo{Provide the example from the Peng? guy.} \todo{emphasis one of the constraints in the expample -> time}
+As \citeauthor{McCullough2008} illustrate with examples of publications in economics, blind trust in the correctness of data analyzes in publications can have a tremendous impact. For instance the \emph{Phillips Curve} \citep{Phillips1958} is an empirical model of the correlation between unemployment and wage inflation. It was widely accepted and used in text books.
+As later revealed the correlation only occurs, if the bins are chosen exactly as \citeauthor{Phillips1958} described. When picked differently, the correlation effect is reversed \citep{McCullough2008}. This example illustrates, what can happen when the process of creating the findings is not revealed. Otherwise it would have been evident, that \citeauthor{Phillips1958} did not stumble across the correlation, but rather specifically looked for data validating his hypothesis. Would data and methods have been sufficiently documented and made available, this false conclusion might have never been published.
 Therefore ways or methods of reproducibility need to be widely addressed. \citeauthor{Mesirov2010} suggests researchers to make use of a Reproducible Research Environment, providing a set of tools "with the ability to automatically track the provenance of data, analyses, and results and to package them" \citep{Mesirov2010}.
 
 \sysbio is an interdisciplinary field that heavily relies on people with different academic backgrounds, it is therefore especially important to ensure the clear reproducibility and exchangebility of data.
 Models are a condensed way to represent knowledge and data and are essential to \sysbio.
 Due to the importance of models in \sysbio, it is imperative that they are reproducible and built using standard formats \citep{Drager2014}.
 It is of great importance to use standard formats because tools used to create the original model may no longer be available or supported \citep{Peng2011}.
-\todo{That is, when a model is encoded in standard formats, the possibility of at least one tool able to decode this format in future is higher.}
+%\todo{That is, when a model is encoded in standard formats, the possibility of at least one tool able to decode this format in future is higher.}
+That is, a standard encoded model is more likely to be readable by different tools in the future.
 Furthermore, standardization and reproducibility are needed in order expand on and share existing findings.
 To this extend the \combine initiative has been founded to "coordinate the development of the various community standards and formats for computational models" \citep{COMBINE}.
 Even though a standard to describe biological networks was successful, it was not sufficient in terms of the goal to ensure reproducibility. Therefore, \citeauthor{Waltemath2011a} developed \sedml \citep{Waltemath2011a} to share simulation experiment setups automating the workflow of creating, sanitizing, converting, condensing, and plotting data.
