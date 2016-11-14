@@ -32,20 +32,23 @@ diff-cli: diff-core core cli
 diff-rest: diff-core core
 	cd masymos-diff-rest && $(MVN) package
 
-neo4j: all 
+neo4j:  
 	# download neo4j 3.0.3 community, if necessary
-	test -e "neo4j-community-3.0.3-unix.tar.gz" || wget "https://neo4j.com/artifact.php?name=neo4j-community-3.0.3-unix.tar.gz" -O "neo4j-community-3.0.3-unix.tar.gz"
+	test -e neo4j-community-3.0.3-unix.tar.gz || wget "https://neo4j.com/artifact.php?name=neo4j-community-3.0.3-unix.tar.gz" -O neo4j-community-3.0.3-unix.tar.gz
 
 	# unpack neo4j and rename target dir
-	tar -xzf "neo4j-community-3.0.3-unix.tar.gz"
-	mv -f "neo4j-community-3.0.3" "neo4j"
+	tar -xzf neo4j-community-3.0.3-unix.tar.gz
+	test -d neo4j || mkdir neo4j
+	mv -f -t neo4j ./neo4j-community-3.0.3/*
+	rm -rf neo4j-community-3.0.3
 
 	# copy libraries and plugins
-	test -d "neo4j/lib/masymos" && rm -rf "neo4j/lib/masymos" || echo ""
-	mkdir "neo4j/lib/masymos"
-	cp -fr "masymos-diff-rest/target/lib/" "neo4j/lib/masymos"
-	cp -f "masymos-diff-rest/target/masymos-diff-ws-0.0.1-SNAPSHOT.jar" "neo4j/plugins"
-	cp -f "masymos-morre/target/masymos-morre-0.9.1.jar" "neo4j/plugins"
+	test -d neo4j/lib/masymos && rm -rf neo4j/lib/masymos || echo ""
+	mkdir neo4j/lib/masymos
+	cp -fr masymos-diff-rest/target/lib/* neo4j/lib/masymos
+	chmod +x neo4j/lib/masymos/*
+	cp -f masymos-diff-rest/target/masymos-diff-ws-0.0.1-SNAPSHOT.jar neo4j/plugins
+	cp -f masymos-morre/target/masymos-morre-0.9.1.jar neo4j/plugins
 
 	# patch the config files
 	$(PATCH) neo4j/conf/neo4j.conf neo4j.conf.patch
