@@ -18,11 +18,11 @@ However, these existing repositories provide a rich set of information about the
 
 \section{Using graph databases to store models}
 \label{sec:backgroung:graph-db}
-\todo{simplify this paragraph}
-\sysbio models often encode simulation networks, which can easily be represented as graphs. These networks tend to be widely inhomogeneous, what proves a representation in a table based relational database to be inefficient and difficult, hence those databases are made to store highly structured information, e.g. numerical data. As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for generating assumptions and basic information mining.
-Further, data often needs to be converted to comply with the database schema, which implies changes, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. \citep{Lysenko2016}
+Models in \sysbio often encode simulation networks, which can easily be represented as graphs. These networks tend to be widely inhomogeneous, what proves a representation in a table based relational database to be inefficient and difficult, hence these databases are made to store highly structured information, e.g. numerical data.
+As a result the operations for combining information from different relations (joins) are expensive. On the other hand queries for traversing through the networks of models are essential for data mining and the generation of new assumptions.
+Further, data often needs to be converted to comply with the database schema, which implies changes, when new features are introduced to a model format. Moreover representing multiple standards results in a redundant schema, which makes it even harder to interlink this data. (cf. \citealt{Lysenko2016})
 
-In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database. \citep{Henkel2015}
+In conclusion relational databases are less efficient in storing standard encoded models together with links to other data sources (e.g. ontologies), because there is no common schema describing the structure. This results in a conflict between representing this linked data and keeping an efficient database \citep{Henkel2015}.
 
 \begin{comment}
 \begin{itemize}
@@ -35,8 +35,8 @@ In conclusion relational databases are less efficient in storing standard encode
 
 \subsection{Graph Databases}
 \label{sec:background:graph-db:neo4j}
-\todo{smooth connection between upper subsection, and this one}
-"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model." \citep{Robinson2013}
+Since traditional relations database are proven to be less suitable to store models, a different concept is required. Due to the network structure of models in \sysbio, the choice of a graph database is naturally.
+"A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, Delete (CRUD) methods that expose a graph data model" \citep{Robinson2013}.
 Most graph databases are implemented as a property graph, meaning they consist out of nodes and relationships connecting exactly two nodes. Both nodes and relations may have additional properties attached to them, in form a of a key-value tuple.
 The main difference to, for instance, a Hypergraph is the strict limitation of nodes connected by a relation. Whereby a Hyperedge is able to link $n+2, n \in \mathbb{N}_0$ nodes \citep[Appendix A]{Robinson2013}.
 Graph database are contradictory concept, when compared with traditional relation databases, but offer great benefits in a variety of use cases. These include all types of querying for structural information, but also environments, which demand a more flexible approach to data modeling. 
@@ -193,5 +193,4 @@ Further, to allow easy upwards traversal, all relations also feature a common re
 	\subitem The Morre module is similiar to the CLI, by providing an way to interact with the core. But instead of providing a user interface, Morre is loaded as neo4j unmanaged extension and exposes a RESTful interface, which can be used to query the Lucene indexes or to push and update models to the database.
 \end{itemize}
 \end{comment}
-\todo{Pictures}
 
