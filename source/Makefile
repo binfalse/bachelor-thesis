@@ -32,14 +32,14 @@ diff-cli: diff-core core cli
 diff-rest: diff-core core
 	cd masymos-diff-rest && $(MVN) package
 
-neo4j:  
+neo4j: diff-rest
 	# download neo4j 3.0.3 community, if necessary
 	test -e neo4j-community-3.0.3-unix.tar.gz || wget "https://neo4j.com/artifact.php?name=neo4j-community-3.0.3-unix.tar.gz" -O neo4j-community-3.0.3-unix.tar.gz
 
 	# unpack neo4j and rename target dir
 	tar -xzf neo4j-community-3.0.3-unix.tar.gz
 	test -d neo4j || mkdir neo4j
-	mv -f -t neo4j ./neo4j-community-3.0.3/*
+	mv -fb -t neo4j ./neo4j-community-3.0.3/*
 	rm -rf neo4j-community-3.0.3
 
 	# copy libraries and plugins
