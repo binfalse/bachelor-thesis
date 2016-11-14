@@ -4,7 +4,6 @@
 \section{Overall system architecture and services}
 \label{sec:concept:sysarchitecture}
 \todo{highlight the differences between optimal (proposed) infrastructure and the implementation}
-\todo{We vs. I}
 
 Based on the accomplishments of current model repositories (\emph{BioModels database} and \emph{PMR2}), I decided to reach further and not only design a concept to simply store multiple versions of a model, but to enrich the version hops with additional information. To be more precise the decision was to store deltas between versions, to allow for more specific search queries or analysis of changes between versions.
 Consequently \masymos was chosen as base system, since it already provides good import methods for both model formats this work focuses on (\sbml and \cellml) and uses \neoj as underlaying database system (cf. Section \ref{sec:background:graph-db:masymos}). The graph-based approach of \neoj allows to store highly interlinked heterogeneous data in a efficient and easily queryable way, making it the perfect tool for storing \sysbio models and deltas of them (cf. Section \ref{sec:background:graph-db:neo4j}).  
