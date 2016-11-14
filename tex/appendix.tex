@@ -20,7 +20,7 @@
 	framerule=0pt,
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
 	%keywordstyle=\color{blue},       % keyword style
-	keywordstyle={},
+	%keywordstyle={},
 	language=Octave,                 % the language of the code
 	otherkeywords={*,...},           % if you want to add more keywords to the set
 	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -31,7 +31,8 @@
 	showstringspaces=false,          % underline spaces within strings only
 	showtabs=false,                  % show tabs within strings adding particular underscores
 	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
-	stringstyle=\color{mymauve},     % string literal style
+	%stringstyle=\color{mymauve},     % string literal style
+	stringstyle=\textit,
 	tabsize=2,	                   % sets default tabsize to 2 spaces
 	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
@@ -130,6 +131,7 @@ All described steps were developed and tested on \texttt{Linux 4.7.0-1-amd64 \#1
 	aboveskip=5pt,
 	basicstyle=\footnotesize\ttfamily,
 	stringstyle={},
+	keywordstyle={},
 }
 
 \begin{enumerate}
@@ -140,6 +142,7 @@ All described steps were developed and tested on \texttt{Linux 4.7.0-1-amd64 \#1
 \begin{lstlisting}
 git clone git@github.com:FreakyBytes/bachelor-thesis.git
 \end{lstlisting}
+		\pagebreak
 		\item Navigate into the newly cloned repository:
 \begin{lstlisting}
 cd bachelor-thesis
@@ -193,8 +196,9 @@ bin/neo4j start
 \begin{lstlisting}
 cd ../../ba-scripts
 \end{lstlisting}
-
-	\item Install all \texttt{Python} dependencies, required for the \texttt{push2masymos} script:
+	
+	\pagebreak
+	\item Install all \texttt{Python} dependencies required for the \texttt{push2masymos} script:
 \begin{lstlisting}
 pip install -r requirements.txt
 \end{lstlisting}
@@ -215,6 +219,6 @@ curl -X POST http://localhost:7474/diff/service/trigger
 watch -n 10 "curl -X GET http://localhost:7474/diff/service/stats 2>/dev/null | python -m json.tool ; curl -X GET http://localhost:7474/diff/service/status 2>/dev/null | python -m json.tool"
 \end{lstlisting}
 
-	\item The \neoj web-interface is now available under:\\ \url{http://localhost:7474/browser/}
+	\item The \neoj web-interface with the populated database is now available under: \url{http://localhost:7474/browser/}
 \end{enumerate}
 

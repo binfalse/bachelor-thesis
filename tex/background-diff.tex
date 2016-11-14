@@ -170,7 +170,7 @@
 	All currently used VCSs rely by default on the \emph{UNIX diff} tool (cf. Section \ref{sec:background:diff:unix-diff}) to identify changes between versions. Since all in this work used data formats for \sysbio models are using \xml to encode them (cf. Section \ref{sec:background:formats}), the commonly used \emph{UNIX diff} is widely unsuitable (cf. Section \ref{sec:background:diff:xml-diff}).
 	But even specialized algorithms for delta generation of \xml files, may fail to perform well (cf. Section \ref{sec:background:diff:xml-diff}). To improve this situation the algorithms need to take domain specific knowledge into account and be specifically fitted to the representation format \citep{Waltemath2013}.
 	If the used algorithm is not fitted to the format, changes in the encoding may be detected and flood the change log. Often these encoding changes do not affect the model and will therefore render the change log useless.
-	But even with sufficient knowledge about the domain and suitable \xml delta algorithms, it may be impossible to determine the importance or the scope or impact of a change. Hence a VCS, tailored for \sysbio, is not only supposed to store different revisions of a model, but also to "reflect the temporal evolution [...] and present model changes to the user" \citep{Waltemath2013} in a clear way, a semantic taxonomy is required, to communicate these changes (cf. to \comodi, Section \ref{sec:background:onto:comodi}).
+	But even with sufficient knowledge about the domain and suitable \xml delta algorithms, it may be impossible to determine the importance or the scope or impact of a change. Hence a VCS, tailored for \sysbio, is not only supposed to store different revisions of a model, but also to reflect the temporal evolution and present model changes to the user  in a clear way \citep{Waltemath2013}. A semantic taxonomy is required, to communicate these changes (cf. to \comodi, Section \ref{sec:background:onto:comodi}).
 	
 	Currently there are 2 major approaches to store version information \citep{Waltemath2013}:
 	The very first approach suggests to store a change log of minor changes in the model itself \citep{Beard2009}.
@@ -192,11 +192,11 @@
 	\end{comment}
 
 \section{Ontologies in Computer Science}
-	The idea of a semantic web was first introduced by Tim Berners-Lee et al. in 2001 \citep{Berners-Lee2001}, he described the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and "understood" by computer algorithms. The aspired goal was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with an 
-	aggregated information or even an decision, ready for approval.
-	Merging mentioned federated data sources is by far not easy. Even though the semantic web introduces a number of standards and formats, it is fairly difficult to link information from different data sources. Because there might be differences in the used schema, the type of data does not entirely overlap, or they describe information on a different level of abstraction \citep{Berners-Lee2001}.
-	To overcome this issue, ontologies were introduced. "In philosophy, an ontology is a theory about the nature of existence, of what types of things exist; ontology as a discipline studies such theories" \citep{Berners-Lee2001}.
-	In contrast computer science and more specifically the semantic web research, has borrowed this term, but uses it to describe a hierarchically structured group of terms or a taxonomy, together with a set of reasoning rules.
+	The idea of a semantic web was first introduced by \citealt{Berners-Lee2001}, they describe the idea of a federated knowledge graph, which can, opposed to the traditional web, be parsed and \emph{understood} by computer algorithms. The aspired goal was to establish a network of agents, which are able to retrieve information from anywhere, analyze them and provide the user with 
+	aggregated information or even decisions, ready for approval.
+	Merging mentioned federated data sources is by far not easy. Even though the semantic web introduces a number of standards and formats it is fairly difficult to link information from different data sources, because there might be differences in the used schema, the type of data does not entirely overlap, or they describe information on a different level of abstraction \citep{Berners-Lee2001}.
+	To overcome this issue ontologies were introduced. "In philosophy, an ontology is a theory about the nature of existence, of what types of things exist; ontology as a discipline studies such theories" \citep{Berners-Lee2001}.
+	In contrast computer science and more specifically the semantic web research has borrowed this term, but uses it to describe a hierarchically structured group of terms or a taxonomy, together with a set of reasoning rules.
 	
 	To communicate and use these taxonomies and rule sets the \owl standard was introduced \citep{Bechhofer2004,Bechhofer2009}. It encodes all terms, their relations, attributes and verbal descriptions, as well as all rules.
 	
@@ -224,13 +224,12 @@
 		\label{fig:background:onto:comodi}
 	\end{figure}
 	
-	Identifying the position and the existence of changes is only the first step in deeper understanding, the evolution of a document or biological model. To truly explain this evolution, the historical development, reason, purpose, and target of a modification are important. 
-	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, that can be used for automatic processing of the data, making them "more accessible, sharable and interoperable" \citep{Scharm2016}.
-	An ontology is well suited tool for building interlinked and structured vocabularies, which useful in semantic annotations and therefore enrich otherwise plain data with meaning.
+	Identifying the position and the existence of changes is only the first step to deeper understanding the evolution of a document or biological model. To truly explain this evolution the historical development, reason, purpose, and target of a modification are important. 
+	However, to formalize these information a standardize vocabulary is required. Preferably in a structure, that can be used for automatic processing of the data, making them more accessible, sharable and interoperable \citep{Scharm2016}.
+	An ontology is well suited tool for building interlinked and structured vocabularies, which are useful in semantic annotations and therefore enrich otherwise plain data with meaning.
 	
 	\comodi was developed to provide exactly this layer of semantic information to differences between two versions of a biological model, allowing to store the essential meaning of a change together with its potential implications.
-	\citeauthor{Scharm2016} are reasoning, how important it is to track these additional information to changes. A modification of parameters or the underlying reaction network may change the outcome, breaking the reproducibility of this model. To prevent this it is important to detect certain changes and 
-	react correspondingly.
+	\citeauthor{Scharm2016} are reasoning how important it is to track these additional information to changes. A modification of parameters or the underlying reaction network may change the outcome, breaking the reproducibility of this model. To prevent this it is important to detect certain changes and react correspondingly.
 	Further, \citeauthor{Scharm2016} argue, that change records may help to predict, if modifications have an impact on the simulation result, which can then be communicated accordingly -- improving the trust of scientist in the reuseability of this model.
 	However, with an increasing size of the change records, the difficulty to perceive the relevance of certain changes increases. Therefore it is important to add more information to these changes, allowing for ranking and filtering them.
 	
@@ -241,7 +240,6 @@
 	On the second layer, \texttt{ModelAnnotation} is meant to express changes on the semantic layer, e.g. annotations. 
 	On the contrary further layers refer to changes affecting the actual model behavior. Beginning with \texttt{ModelDefinition}, which refers to changes in the biological system, for instance the reaction network. Whereby \texttt{ModelSetup} describes modifications in the simulation setup, e.g. initial values and parameters. The last branch, \texttt{ModelBehaviour}, links to the TEDDY ontology \citep{Courtot2011} and therefore makes it possible to captures changes in the dynamics of the system.
 	Additionally to the different branches, \comodi allows to model causality of changes by introducing a \texttt{wasTriggeredBy} relation, which expresses "mutual dependencies". However, \comodi does not provide any terms to describe provenance information, but it can be easily incorporated with ontologies build for this purpose.
-	
 	
 	
 	\begin{comment}
