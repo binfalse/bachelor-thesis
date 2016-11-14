@@ -19,3 +19,6 @@
 [submodule "source/ModelCrawler"]
 	path = source/ModelCrawler
 	url = git@github.com:FreakyBytes/ModelCrawler.git
+[submodule "source/COMODI"]
+	path = source/COMODI
+	url = git@github.com:binfalse/COMODI.git
