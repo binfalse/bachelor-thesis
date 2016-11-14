@@ -114,9 +114,9 @@ For all translations relation directions of the edges do not matter since there 
 \subsection{\masymos}
 \label{sec:background:graph-db:masymos}
 
-This work is mainly based on \masymos, "a graph database for simulation models and associated data" \citep{Henkel2015}, which is implemented using \neoj \citep{Robinson2013}
+This work is mainly based on \masymos, a graph database for simulation models and associated data \citep{Henkel2015}, which is implemented using \neoj \citep{Robinson2013}.
 
-Since \masymos is developed for "storing and retrieving structural information of biological models" \citep{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also "follows fundamental properties of databases, i.e. the ACID principles. \citep{Henkel2015}
+Since \masymos is developed to store and retrieve structural information of biological models \citep{Henkel2015}, it needs to incorporate mentioned graph representations of simulation networks and an efficient way to query those. Therefore \neoj was the ideal choice, as it works as large property graph, but also follows fundamental properties of databases, i.e. the ACID principles \citep{Henkel2015}.
 
 The internal schema used by \masymos, as shown in figure \ref{fig:background:graph-db:masymos}, features a \texttt{DOCUMENT} node as standard entry point. This \texttt{DOCUMENT} node represents the actual \xml document and has only one direct child: The \texttt{MODEL} node, which is the entry point for the actual model and represents the \xml root node.
 
