@@ -16,7 +16,8 @@
 	deletekeywords={...},            % if you want to delete keywords from the given language
 	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
 	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-	frame=no,	                   % adds a frame around the code
+	frame=single,	                   % adds a frame around the code
+	framerule=0pt,
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
 	%keywordstyle=\color{blue},       % keyword style
 	keywordstyle={},
@@ -45,12 +46,14 @@
 \chapter{Simple demo \sbml models}
 \section{Simple demo SBML version1}
 \label{sec:appendix:simple-demo:v1}
-\lstinputlisting[language=XML]{../supplementary/demo-sbml-simple/version1.xml}
+\lstinputlisting[language=XML,title={supplementary/demo-sbml-simple/version1.xml}]{../supplementary/demo-sbml-simple/version1.xml}
+\vfill
 \pagebreak
 
 \section{Simple demo SBML version2}
 \label{sec:appendix:simple-demo:v2}
-\lstinputlisting[language=XML]{../supplementary/demo-sbml-simple/version2.xml}
+\lstinputlisting[language=XML,title={supplementary/demo-sbml-simple/version2.xml}]{../supplementary/demo-sbml-simple/version2.xml}
+\vfill
 \pagebreak
 
 \section[Render of a Delta]{Complete render of the delta graph network}
@@ -73,16 +76,21 @@
 \chapter{Overview of Node- and Relationship types}
 \chaptermark{Node- and Relationship types}
 \label{sec:appendix:meta-map}
-\todo{write introduction thingy, where these numbers are coming from}
+
+\pagebreak
+The statistics in this chapter were generated with the \neoj APOC plugin\footnote{\url{https://github.com/neo4j-contrib/neo4j-apoc-procedures/}}, utilizing the capability to generate a meta graph\footnote{\url{https://neo4j-contrib.github.io/neo4j-apoc-procedures/\#\_meta\_graph}}. The result was then visualized with Gephi\footnote{\url{https://gephi.org/}} (cf. Figure \ref{fig:appendix:meta-graph}).
+
+Before generating the meta graph it was necessary to gather a sufficient amount of data, which was done with the \modelcrawler (cf. Section \ref{sec:impl:modelcrawler}).  from \emph{BioModels Database} and \emph{PMR2} (cf. Section \ref{sec:background:modelrepo}). The outcome is describe in the Results Chapter \ref{sec:results}.
 
 \section{Graphical Overview}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{resources/neo4j-renders/large-test-meta-graph.pdf}
-	\caption{Overview of all used node types and relations between them}
+	\caption[Overview of all used node types and relations between them]{Overview of all used node types and relations between them. A dynamic version can be found in the supplementary materials directory \texttt{supplementary/dynamic-meta-map/}.}
 	\label{fig:appendix:meta-graph}
 \end{figure}
 
+\pagebreak
 \section{List of all used Node types}
 \begin{longtable}{ l r }
 	\hline \bfseries Node Label & \bfseries No. of occurrence \\\hline \endhead
@@ -92,6 +100,7 @@
 	%\hline
 \end{longtable}
 
+\pagebreak
 \section{List of all used Relationship types}
 \begin{longtable}{ l c r }
 	\hline \bfseries Source Node Label & \bfseries Relationship Type & \bfseries Destination Node Label \\\hline \endhead %
