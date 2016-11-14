@@ -4,9 +4,10 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{rgb}{0.97,0.97,0.97}
 
 \lstset{ %
-	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
 	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
 	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                 % sets automatic line breaking
@@ -17,7 +18,8 @@
 	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
 	frame=no,	                   % adds a frame around the code
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-	keywordstyle=\color{blue},       % keyword style
+	%keywordstyle=\color{blue},       % keyword style
+	keywordstyle={},
 	language=Octave,                 % the language of the code
 	otherkeywords={*,...},           % if you want to add more keywords to the set
 	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -60,7 +62,7 @@
 \end{figure}
 
 \chapter{Representation of \comodi in \masymos}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{resources/neo4j-renders/comodi.pdf}
 	\caption[Representation of \comodi in \masymos/\neoj]{Representation of \comodi in \masymos/\neoj. For the exact network refer to the documentation Figure \ref{fig:background:onto:comodi}}
@@ -97,3 +99,113 @@
 	{\texttt{\expScore{\sourceNode}} & \texttt{\expScore{\relLabel}} & \texttt{\expScore{\targetNode}} \\} %
 	%\hline
 \end{longtable}
+
+\chapter{Compiling and Building the Prototype Implementation}
+\chaptermark{Compiling and Building}
+
+\section{Requirements and Dependencies}
+Before attempting to compile and build the source, please make sure that following software packages are installed and working: \texttt{Git}, \texttt{JDK 1.8}, \texttt{Apache Maven 3}, \texttt{build-essentials}, \texttt{wget}, \texttt{curl}, \texttt{Python 3}, and \texttt{pip for Python 3}.
+
+All described steps were developed and tested on \texttt{Linux 4.7.0-1-amd64 \#1 SMP Debian 4.7.8-1 (2016-10-19) x86\_64 GNU/Linux}. Alternative platforms might need adjustments to the build scripts or steps.
+
+\section{Compiling and Building the Database}
+% set some new settings for listings
+\lstset{
+	language=Bash,
+	breaklines=true,
+	breakatwhitespace=true,
+	numbers=none,
+	frame=single,
+	framerule=0pt,
+	belowskip=-24pt,
+	aboveskip=5pt,
+	basicstyle=\footnotesize\ttfamily,
+	stringstyle={},
+}
+
+\begin{enumerate}
+	\item Clone the repository from GitHub. This step can be skipped, if the material from the attached disc is used.
+	\begin{enumerate}
+		\item Open a terminal and navigate to a drive with at least 1GB of free disc space.
+		\item Clone the main repository from GitHub:
+\begin{lstlisting}
+git clone git@github.com:FreakyBytes/bachelor-thesis.git
+\end{lstlisting}
+		\item Navigate into the newly cloned repository:
+\begin{lstlisting}
+cd bachelor-thesis
+\end{lstlisting}
+		\item Clone all git submodules:
+\begin{lstlisting}
+git submodule init
+git submodule update
+\end{lstlisting}
+	\end{enumerate}
+
+	\item Change into the \texttt{source} directory:
+\begin{lstlisting}
+cd source
+\end{lstlisting}
+
+	\item Start the build process:
+\begin{lstlisting}
+make all neo4j
+\end{lstlisting}
+		This command will invoke the build process for each subproject using Maven, also it will download, extract, and configure \neoj with all required dependencies. The resulting distribution can be found in the \texttt{neo4j} folder.
+\end{enumerate}
+
+\section{Populating the Database with Test Data}
+
+\begin{enumerate}
+	\item Open a terminal and navigate into the \texttt{source} directory, if not already done.
+\begin{lstlisting}
+cd source
+\end{lstlisting}
+
+	\item Make sure, that \neoj is not running:
+\begin{lstlisting}
+cd neo4j
+bin/neo4j stop
+cd ..
+\end{lstlisting}
+
+	\item Import the \comodi ontology using the \masymos-CLI:
+\begin{lstlisting}
+java -cp masymos-cli/target/masymos-cli-0.9.1.jar de.unirostock.sems.masymos.main.MainExtractor -dbPath ./neo4j/data/databases/graph.db -type owl -ontology ComodiOntology -directory ./COMODI/ontology/comodi.owl
+\end{lstlisting}
+
+	\item Start \neoj:
+\begin{lstlisting}
+cd neo4j
+bin/neo4j start
+\end{lstlisting}
+
+	\item Change into the \texttt{ba-scripts} directory.
+\begin{lstlisting}
+cd ../../ba-scripts
+\end{lstlisting}
+
+	\item Install all \texttt{Python} dependencies, required for the \texttt{push2masymos} script:
+\begin{lstlisting}
+pip install -r requirements.txt
+\end{lstlisting}
+
+	\item Fill the database with test models, using the \texttt{push2masymos} script:
+\begin{lstlisting}
+python push2masymos.py --log=DEBUG -d test_models.yaml
+\end{lstlisting}
+	After all models are pushed the script will remain running and therefore continue to serve the model files via HTTP. This is important because the files need to be accessible in order to generate the diffs.
+
+	\item Open a new terminal and trigger the diff generation using the \rest endpoint:
+\begin{lstlisting}
+curl -X POST http://localhost:7474/diff/service/trigger
+\end{lstlisting}
+	
+	\item The progress can be observed using the \texttt{/stats} and \texttt{/status} endpoint:
+\begin{lstlisting}
+watch -n 10 "curl -X GET http://localhost:7474/diff/service/stats 2>/dev/null | python -m json.tool ; curl -X GET http://localhost:7474/diff/service/status 2>/dev/null | python -m json.tool"
+\end{lstlisting}
+
+	\item The \neoj web-interface is now available under:\\ \url{http://localhost:7474/browser/}
+\end{enumerate}
+
