@@ -4,6 +4,15 @@ About this repository
 This repository contains all bits and pieces I gather, created or modified in the process of writing my Bachelors thesis.
 This work is supervised by Martin Scharm, Dagmar Waltemath and Prof. Olaf Wolkenhauer 
 
+Structure of this Repository
+============================
+
+  * `tex/` contains all tex files and figures to compile the pdf form of this thesis
+  * `supplementary/`contains additional material, like a meta graph or demo models
+  * `source/` contains a list of git submodules linking to the relevant source code projects, also contains build scripts
+  * `ba-scripts/` contains small helper scripts written in Python, which were created to ease some tasks
+  * `docear/` [Docear](http://www.docear.org) project folder used in the early stage of this thesis. Mainly a large mindmap and literature references
+
 Associated Repositories
 =======================
 
