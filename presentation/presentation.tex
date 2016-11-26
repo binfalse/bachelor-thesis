@@ -1,0 +1,124 @@
+%% 
+%% This is file 'beamer_sample.tex'
+%% 
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\usepackage[english]{babel}  % deutsche Bezeichnungen und Trennung etc
+\usepackage{hyperref}        % interne Hyperlinks
+\usepackage{comment}
+
+%\usepackage[uni,foottitle,headlogo]{./unirostock/beamerthemeRostock}
+\usepackage[uni,foottitle,headframesubtitle]{./unirostock/beamerthemeRostock}
+% erster Parameter: Farbschema
+%        moegliche Werte (nomen est omen): uni, inf, msf, ief, mnf, mef, juf, wsf, auf, thf, phf
+%        Standardwert: uni
+% zweiter Parameter: Fusszeile
+%        moegliche Werte: footuni (Standard) - Fusszeile nach Handbuch des CD
+%                         foottitle          - Autor und Title in der Fusszeile
+%                         footheadings       - lebende Ueberschriften in der Fusszeile
+%                         footuniheadings    - Autor und Uni sowie lebende Ueberschriften in der Fusszeile
+% dritter Parameter: Kopfzeile
+%        moegliche Werte: headlogo (Standard)- Inhalt von \mylogo in der Kopfzeile
+%                         headtitle          - Vortragstitel
+%                         headframetitle     - Folientitel
+%                         headframesubtitle  - Folientitel und -untertitel
+%        bitte nicht mehrere Varianten gleichzeitig angeben :-)
+
+\include{header}
+%
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,auto corner on length=9mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                            {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                        {\pgfqpoint{-\pgfdecorationsegmentaspect\pgfdecoratedinputsegmentremainingdistance}%
+                                        {\pgfmathresult\pgfdecorationsegmentamplitude}
+                        }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+\tikzset{pencila/.style={
+    draw,
+    decorate,
+    decoration={random steps,segment length=3mm,amplitude=0.2mm}
+  }
+}
+\tikzset{pencilb/.style={
+    decorate,
+    decoration={random steps,segment length=2pt,amplitude=0.3pt},
+    to path={ -- ([xshift=rand*1mm, yshift=rand*1mm] \tikztotarget) \tikztonodes}
+  }
+}
+\tikzset{pencilc/.style={
+    decorate,
+    decoration=penciline
+  }
+}
+\tikzset{pencild/.style={
+    draw,
+    decorate,
+    decoration={random steps,segment length=3.5mm,amplitude=0.1mm}
+  }
+}
+\tikzset{trans/.style={->,pencilc,shorten >=1pt,shorten <=1pt,>=stealth,ultra thick,line width=.7mm,line cap=round
+  }
+}
+\tikzset{bivesmapping/.style={-,pencilc,shorten >=3mm,shorten <=3mm,>=stealth,ultra thick,bivesmap,line cap=round
+  }
+}
+\tikzset{annotation/.style={-,pencilc,shorten >=3mm,shorten <=1mm,>=stealth,ultra thick,gray,line cap=round
+  }
+}
+\definecolor{dblue}{cmyk}{1.00, 0.75, 0.00, 0.00}
+
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+\usepackage{hyperxmp}
+\hypersetup{
+	pdfauthor={Martin Peters},
+	pdfauthortitle={Bachelor Student},
+	pdfcreator={},
+	pdflang={en},
+	pdfkeywords={SBML, CellML, BiVeS, MaSyMoS, Neo4j, graph database, database, version, model, Systems Biology},
+	pdftype={Text},
+	pdfcopyright={Copyright (C) 2016, Martin Peters. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. (CC-BY-SA)},
+	pdflicenseurl={http://creativecommons.org/licenses/by-sa/4.0/}
+}
+
+\renewcommand{\ttdefault}{pcr}
+\newcommand{\twobar}{/\kern-0.2em/}
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main} 
+
+
+% beamer options regarding notes
+%\setbeameroption{show only notes}
+%%%%%%%%%%%%%%%%%% Los geht's %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\include{intro}
+\include{content}
+\include{outlook}
+\include{references}
+
+
+%%%%%%%%%%%% Schluss jetzt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
