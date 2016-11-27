@@ -9,8 +9,14 @@
 \documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
 
 \usepackage[english]{babel}  % deutsche Bezeichnungen und Trennung etc
-\usepackage{hyperref}        % interne Hyperlinks
-\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{comment}                      
+\usepackage{xspace}
+\usepackage[square,comma]{natbib}
+% set date format
+\usepackage[style=iso]{datetime2}
+
+\input{../tex/shortcuts.tex}
 
 %\usepackage[uni,foottitle,headlogo]{./unirostock/beamerthemeRostock}
 \usepackage[uni,foottitle,headframesubtitle]{./unirostock/beamerthemeRostock}
@@ -28,7 +34,6 @@
 %                         headframetitle     - Folientitel
 %                         headframesubtitle  - Folientitel und -untertitel
 %        bitte nicht mehrere Varianten gleichzeitig angeben :-)
-
 \include{header}
 %
 \pgfdeclaredecoration{penciline}{initial}{
