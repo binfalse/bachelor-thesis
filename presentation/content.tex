@@ -49,8 +49,10 @@
 	{\Large Why care about Provenance Management?}
 	\\[2.5em]
 	\begin{itemize}
-		\item ...\citep{Mesirov2010}
-		\item Essential part is to keep track of different versions
+		\item A lack of documentation prevents a validation of the hypothesis by 3rd parties \citep{Mesirov2010, Peng2011}
+		\item Missing validation workflow lead to blind trust in research findings
+		\item Propagating false or non-reproducible facts impacts future work
+		%\item Essential part is to keep track of different versions
 	\end{itemize}
 
 \end{frame}
@@ -287,7 +289,7 @@
 \begin{frame}{It's done!}{}
 	\centering
 	\begin{tikzpicture}[>=stealth',trans/.style = {->,densely dashed,lightgray},shift={(0,0)},font=\small\selectfont]
-	\node[anchor=center] (graph) at (center) {
+	\node[anchor=center] (graph) at (0,0) {
 		\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{./figures/all-color-small.png}
 	};
 	\node[anchor=center] (txt) at (graph.center) {
