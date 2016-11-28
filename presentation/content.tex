@@ -244,8 +244,29 @@
 			\item Parse model files, encoded in \sbml or \cellml
 		\end{itemize}
 		\item Inserts deltas into \neoj/\masymos
-		\item Parses \xml/\rdf \comodi annotations and inserts them
+		\item Parses \rdf \comodi annotations and inserts them
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Implementation}{BiVeS delta}
+	\centering
+	\vspace{-2em}
+	\begin{tikzpicture}[>=stealth',trans/.style = {->,densely dashed,lightgray},shift={(0,0)},font=\small\selectfont]
+	\node[anchor=center] (version1) at (-3,0) {
+		\includegraphics[width=0.4\linewidth,height=0.8\textheight,keepaspectratio]{./figures/simple-sbml-version1.pdf}	
+	};
+	\node[anchor=south] at (version1.south) { Version 1 };
+	
+	\node[anchor=center] (version2) at (3,0) {
+		\includegraphics[width=0.4\linewidth,height=0.8\textheight,keepaspectratio]{./figures/simple-sbml-version2.pdf}	
+	};
+	\node[anchor=south] at (version2.south) { Version 2 };
+	
+	\node[anchor=center](diff) at (0,-2) {
+		\includegraphics[width=0.4\linewidth,height=0.8\textheight,keepaspectratio]{./figures/simple-sbml-diff.pdf}
+	};
+	\node[anchor=south] at (diff.south) { Delta between Version 1 and 2 };
+	\end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Implementation}{A Database Dump}
