@@ -38,7 +38,7 @@
 	\begin{itemize}
 		\item \emph{In silico} simulation setups may consist of multiple parts \citep{Waltemath2013}
 		\item Each part evolves individually as time passes
-		\item The original results may not be reproducible or break with the very latest versions
+		\item The original results may not be reproducible or break by always using the latest version
 	\end{itemize}
 \end{frame}
 
@@ -47,7 +47,7 @@
 	\\[2.5em]
 	\begin{itemize}
 		\item Tracing the lineage of data
-		\item What? Who? When? How?
+		\item What? Who? When? Why? How?
 		\item Aims to ensure: \citep{Meyer2015}
 		\begin{itemize}
 			\item Reproducibility
@@ -63,7 +63,7 @@
 	\\[2.5em]
 	\begin{itemize}
 		\item A lack of documentation prevents a validation of the hypothesis by 3rd parties \citep{Mesirov2010, Peng2011}
-		\item Missing validation workflow lead to blind trust in research findings
+		\item Missing validation workflow leads to blind trust in research findings
 		\item Propagating false or non-reproducible facts impacts future work
 		%\item Essential part is to keep track of different versions
 	\end{itemize}
@@ -94,7 +94,7 @@
 \newsection{Concept}
 \begin{frame}{Concept}{}
 	\centering
-	\LARGE A new Concept to Store Models\\ with Multiple Versions
+	\LARGE A novel Concept to Store Models\\ with Multiple Versions
 \end{frame}
 
 \begin{frame}{Concept}{Objectives and Goals}
@@ -104,7 +104,7 @@
 	\begin{itemize}
 		\item Store multiple versions of biological models
 		\item Different versions can be accessed, queried, and compared
-		\item Introduce semantical annotations of changes between model versions
+		\item Introduce semantic annotations of changes between model versions
 	\end{itemize}
 \end{frame}
 
@@ -187,7 +187,7 @@
 	\\[2.5em]
 	\begin{itemize}
 		\item Not storage efficient
-		\item But easily to query
+		\item But easy to query
 		\item Incorporation of semantic annotations with ontology terms
 	\end{itemize}
 \end{frame}
@@ -243,8 +243,8 @@
 			\item Generate diffs of models with \comodi \citep{Scharm2016} annotations
 			\item Parse model files, encoded in \sbml or \cellml
 		\end{itemize}
-		\item Inserts diff and  into \neoj/\masymos
-		\item Parses \xml/\rdf \comodi annotations and inserts it
+		\item Inserts deltas into \neoj/\masymos
+		\item Parses \xml/\rdf \comodi annotations and inserts them
 	\end{itemize}
 \end{frame}
 
