@@ -8,6 +8,7 @@ Structure of this Repository
 ============================
 
   * `tex/` contains all tex files and figures to compile the pdf form of this thesis
+  * `presentation/` contains the tex files and figures for my defense presentation
   * `supplementary/`contains additional material, like a meta graph or demo models
   * `source/` contains a list of git submodules linking to the relevant source code projects, also contains build scripts
   * `ba-scripts/` contains small helper scripts written in Python, which were created to ease some tasks
