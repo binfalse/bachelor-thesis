@@ -14,7 +14,7 @@
 	{\Large Models in \sysbio}
 	\\[2.5em]
 	\begin{itemize}
-		\item Focus on \sbml \citep{Hucka2003} and \cellml \citep{Cuellar2003}
+		\item Focus on \sbml \nocite{Hucka2003} and \cellml \nocite{Cuellar2003}
 		\item Formalized biochemical reaction networks
 		\item Encoded in \xml, opening the world of \xml tools and technologies
 		
@@ -27,7 +27,7 @@
 	\begin{itemize}
 		\item Even released models change quite often \\
 		$\rightarrow $ 4.307 different versions per model on average
-		\item Resolving dependencies without breaking a simulation
+		\item Dependency Management %Resolving dependencies without breaking a simulation
 		\item Provenance Management
 	\end{itemize}
 \end{frame}
@@ -36,7 +36,7 @@
 	{\Large Dependency Management}
 	\\[2.5em]
 	\begin{itemize}
-		\item \emph{In silico} simulation setups may consist of multiple parts \citep{Waltemath2013}
+		\item \emph{In silico} simulation setups may consist of multiple parts \nocite{Waltemath2013}
 		\item Each part evolves individually as time passes
 		\item The original results may not be reproducible or break by always using the latest version
 	\end{itemize}
@@ -48,7 +48,7 @@
 	\begin{itemize}
 		\item Tracing the lineage of data
 		\item What? Who? When? Why? How?
-		\item Aims to ensure: \citep{Meyer2015}
+		\item Aims to ensure: \nocite{Meyer2015}
 		\begin{itemize}
 			\item Reproducibility
 			\item Retraceability
@@ -62,7 +62,7 @@
 	{\Large Why care about Provenance Management?}
 	\\[2.5em]
 	\begin{itemize}
-		\item A lack of documentation prevents a validation of the hypothesis by 3rd parties \citep{Mesirov2010, Peng2011}
+		\item A lack of documentation prevents a validation of the hypothesis by 3rd parties \nocite{Mesirov2010, Peng2011}
 		\item Missing validation workflow leads to blind trust in research findings
 		\item Propagating false or non-reproducible facts impacts future work
 		%\item Essential part is to keep track of different versions
@@ -117,8 +117,8 @@
 	{\Large Concrete Concept Ideas}
 	\\[2.5em]
 	\begin{itemize}
-		\item Use \neoj/\masymos \citep{Henkel2015} as base system
-		\item Integrate storage of deltas between models
+		\item Use \neoj/\masymos by \citeauthor{Henkel2015} as base system
+		\item Integrate storage of differences between models
 		\item Leverage and extend existing support for ontologies and multiple versions
 	\end{itemize}
 \end{frame}
@@ -142,7 +142,7 @@
 \end{frame}
 \end{comment}
 
-\begin{frame}{Concept}{\masymos data structure}
+\begin{frame}{Concept}{\masymos Data Structure}
 	\centering
 	\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{./figures/masymos-small.png}\\
 	{\small Figure taken from \citealt{Henkel2015}}
@@ -238,9 +238,9 @@
 		\item Actual core of the delta/diff implementation\\
 			$\rightarrow$ implemented as separate plugin, depending on \masymos
 		\item Provides prioritized thread pool executor, for parallelization 
-		\item Uses \bives library \citep{Scharm2015} to:
+		\item Uses \bives library by \citeauthor{Scharm2015} to:
 		\begin{itemize}
-			\item Generate diffs of models with \comodi \citep{Scharm2016} annotations
+			\item Generate diffs of models with \comodi \nocite{Scharm2016} annotations
 			\item Parse model files, encoded in \sbml or \cellml
 		\end{itemize}
 		\item Inserts deltas into \neoj/\masymos
@@ -336,7 +336,7 @@
 \begin{frame}{Outcome}{Test Run Visualization}
 	\centering
 	\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{./figures/all-color-small.png}\\
-	{\footnotesize Visualization of all 14 503 model versions and deltas between them}
+	{\footnotesize Visualization model versions and deltas between them}
 \end{frame}
 
 \begin{frame}{Scope of this Work}{What this work is not about}
