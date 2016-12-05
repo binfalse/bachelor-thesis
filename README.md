@@ -3,12 +3,17 @@ About this repository
 
 This repository contains all bits and pieces I gather, created or modified in the process of writing my Bachelors thesis.
 This work is supervised by Martin Scharm, Dagmar Waltemath and Prof. Olaf Wolkenhauer 
+It was graded with an 1.7 for thesis itself and 1.3 for the defense. Compiled PDFs of both are available as releases:
+
+  * [Download thesis](https://github.com/FreakyBytes/bachelor-thesis/releases/download/handing-in-final/ba-main.pdf)
+  * [Download defense presentation](https://github.com/FreakyBytes/bachelor-thesis/releases/download/defense-presentation/presentation.pdf)
 
 Structure of this Repository
 ============================
 
   * `tex/` contains all tex files and figures to compile the pdf form of this thesis
-  * `presentation/` contains the tex files and figures for my defense presentation
+  * `presentation/` contains the tex files and figures for my defense presentation.
+    The LaTeX template was taken from [Martin Scharm](https://github.com/binfalse).
   * `supplementary/`contains additional material, like a meta graph or demo models
   * `source/` contains a list of git submodules linking to the relevant source code projects, also contains build scripts
   * `ba-scripts/` contains small helper scripts written in Python, which were created to ease some tasks
