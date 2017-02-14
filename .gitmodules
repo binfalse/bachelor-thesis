@@ -9,13 +9,13 @@
 	url = git@github.com:FreakyBytes/masymos-diff-cli.git
 [submodule "source/masymos-core"]
 	path = source/masymos-core
-	url = gitolite@sems.uni-rostock.de:masymos-core
+	url = git@github.com:FreakyBytes/masymos-core.git
 [submodule "source/masymos-morre"]
 	path = source/masymos-morre
-	url = gitolite@sems.uni-rostock.de:masymos-morre
+	url = git@github.com:FreakyBytes/masymos-morre.git
 [submodule "source/masymos-cli"]
 	path = source/masymos-cli
-	url = gitolite@sems.uni-rostock.de:masymos-cli
+	url = git@github.com:FreakyBytes/masymos-cli.git
 [submodule "source/ModelCrawler"]
 	path = source/ModelCrawler
 	url = git@github.com:FreakyBytes/ModelCrawler.git
