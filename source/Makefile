@@ -29,7 +29,7 @@ diff-core: core
 diff-cli: diff-core core cli
 	cd masymos-diff-cli && $(MVN) package
 
-diff-rest: diff-core core
+diff-rest: diff-core core morre
 	cd masymos-diff-rest && $(MVN) package
 
 neo4j: diff-rest
