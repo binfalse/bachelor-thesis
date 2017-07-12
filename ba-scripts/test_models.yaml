@@ -1,7 +1,7 @@
 settings:
         http_hostname: 'localhost'
         http_port: 8038
-        http_path: "/test/{name}/{version_id}.xml"
+        http_path: "/srv/ba-mp/{name}/{version_id}.xml"
         masymos_url: "http://localhost:7474/morre/"
 
 models:
@@ -86,4 +86,42 @@ models:
                     path: "../supplementary/BMDB0000000005/2012-12-12/BIOMD0000000005.xml"
                   - version_id: "2013-06-18"
                     path: "../supplementary/BMDB0000000005/2013-06-18/BIOMD0000000005.xml"
+        - file_id: "urn:model:binfalse.de:test:demo-sbml-simple-MS:!:simple-demo-MS"
+          name: "demo-sbml-simple-MS"
+          model_type: "SBML"
+          versions:
+                  - version_id: "v1"
+                    path: "../supplementary/demo-sbml-simple-MS/version1.xml"
+                    meta:
+                            source: "TEST"
+                            versionDate: "08.09.2016-18:01:10"
+                            crawledDate: "08.09.2016-18:01:10"
+                  - version_id: "v2"
+                    path: "../supplementary/demo-sbml-simple-MS/version2.xml"
+                    meta:
+                            source: "TEST"
+                            versionDate: "08.09.2016-18:02:20"
+                            crawledDate: "08.09.2016-18:02:20"
+        - file_id: "urn:model:binfalse.de:test:demo-sbml-IB2013:!:demo-IB2013"
+          name: "demo-sbml-IB2013"
+          model_type: "SBML"
+          versions:
+                  - version_id: "v1"
+                    path: "../supplementary/demo-sbml-IB2013/TestModel_for_IB2013-version-one"
+                    meta:
+                            source: "TEST"
+                            versionDate: "08.09.2016-18:01:10"
+                            crawledDate: "08.09.2016-18:01:10"
+                  - version_id: "v2"
+                    path: "../supplementary/demo-sbml-IB2013/TestModel_for_IB2013-version-one"
+                    meta:
+                            source: "TEST"
+                            versionDate: "08.09.2016-18:02:20"
+                            crawledDate: "08.09.2016-18:02:20"
+                  - version_id: "v3"
+                    path: "../supplementary/demo-sbml-IB2013/TestModel_for_IB2013-version-one"
+                    meta:
+                            source: "TEST"
+                            versionDate: "08.09.2016-18:03:30"
+                            crawledDate: "08.09.2016-18:03:30"
 
